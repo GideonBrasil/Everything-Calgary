@@ -2,7 +2,7 @@
 
 ## Stand up Master
 
-Nooburai
+Gideon
 
 ## Stand up time
 

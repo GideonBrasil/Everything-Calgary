@@ -14,5 +14,4 @@ Calgarians seeking city and community specific information
 
 ## Team members
 
-Danila | Darren | Tim | Nooburai
-
+Danila | Darren | Tim | Gideon
