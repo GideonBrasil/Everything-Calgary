@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack --mode production && node ./bin/www",
+    "start": "webpack --mode production && node ./server/server.js",
     "build": "webpack --mode production"
   },
   "dependencies": {

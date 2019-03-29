@@ -3,7 +3,6 @@ npm-debug.log
 .DS_Store
 dist
 starting_docs
-.babelrc
 .eslintrc
 
 ### PhpStorm ###
