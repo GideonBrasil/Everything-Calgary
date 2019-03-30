@@ -1,7 +1,6 @@
-const React = require("react");
-const ReactDOM = require("react-dom");
+import React from 'react';
 
-class HelloMessage extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <div>
@@ -11,7 +10,6 @@ class HelloMessage extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <HelloMessage name="Darren" />,
-  document.getElementById("react-root")
-);
+
+
+
