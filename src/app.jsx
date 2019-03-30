@@ -1,19 +1,11 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+import Main from './main.jsx'
 
-require("../styles/main.scss");
 
-class HelloMessage extends React.Component {
-  render() {
-    return (
-      <div>
-        Hello {this.props.name}
-      </div>
-    );
-  }
-}
+/*
+This is what is rendered. All builds go into main.jsx and are imported here
+-----------------------------------------------------------------------------
+*/
 
-ReactDOM.render(
-  <HelloMessage name="Darren" />,
-  document.getElementById('root')
-);
+ReactDOM.render( <Main />,  document.getElementById('root'));
