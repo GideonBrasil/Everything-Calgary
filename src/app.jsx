@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
+import NavBar from './NavBar.jsx';
+import Main from './Main.jsx';
+import Footer from './Footer.jsx';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <p>This is our first map</p>
-      </div>
+        <div>
+          <NavBar />
+          <Main />
+          <Footer />
+        </div>
     );
   }
 }
