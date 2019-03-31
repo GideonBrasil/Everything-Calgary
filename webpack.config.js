@@ -1,10 +1,15 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: ["./src/app.jsx"],
+  entry: [
+    'webpack-dev-server/client?http://localhost:3000',
+    './src/index.jsx'
+  ],
   output: {
-    path: path.resolve(__dirname, './public/javascripts'),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/public/javascripts/'
   },
   module: {
     rules: [

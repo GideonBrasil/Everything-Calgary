@@ -1,5 +1,6 @@
 @import 'header';
 @import 'search_bar';
+@import 'map';
 
 .main {
   display: flex;
@@ -9,4 +10,10 @@
   background-size: contain;
   background-image: url("https://cdn.skyrisecities.com/sites/default/files/images/articles/2016/10/23252/23252-80921.jpeg");
   background-repeat: repeat;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }

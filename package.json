@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack --mode production && node ./server/server.js",
-    "build": "webpack --mode production"
+    "start": "node server.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -26,6 +25,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
   }
 }
