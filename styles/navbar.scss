@@ -12,4 +12,8 @@ $color5: #D90429;
   display: flex;
   justify-content: space-between;
   background-color: $color3;
+  #logo {
+    max-height: 35px;
+    border-radius: 7px;
+  }
 }
