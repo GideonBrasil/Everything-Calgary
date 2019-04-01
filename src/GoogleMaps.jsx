@@ -44,7 +44,7 @@ function createMarker(place) {
   });
 }
 
-function GoogleMaps() {
+export default function GoogleMaps() {
   return (
     <div>
       <p>This is my Map</p>
@@ -53,5 +53,3 @@ function GoogleMaps() {
     </div>
   );
 }
-
-export default GoogleMaps;
