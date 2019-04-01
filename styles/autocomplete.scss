@@ -1,0 +1,47 @@
+$color1: #2B2D42;
+$color2: #8D99AE;
+$color3: #EDF2F4;
+$color4: #EF233C;
+$color5: #D90429;
+
+input {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  width: 300px;
+}
+
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
+}
+
+.suggestions {
+  position: absolute;
+  top: 43px;
+  border: 1px solid #999;
+  border-top-width: 0;
+  border-radius: 3px;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: 300px;
+  background: white;
+}
+
+.suggestions li {
+  padding: 0.5rem;
+}
+
+.suggestion-active,
+.suggestions li:hover {
+  background-color: $color4;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}

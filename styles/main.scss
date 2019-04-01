@@ -2,12 +2,11 @@
 // that come after can overwrite it
 @import "~bootstrap/dist/css/bootstrap.css";
 
-@import 'header';
-@import 'search_bar';
 @import 'map';
 @import 'footer';
 @import 'navbar';
 @import 'sidenav';
+@import 'autocomplete';
 @import url('https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet');
 
 $color1: #2B2D42;
