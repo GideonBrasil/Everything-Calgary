@@ -32,32 +32,31 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Bevan', bold;
+  .jumbotron {
+    background: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/calgary-cityscape-01-aged-pixel.jpg') no-repeat center center;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    .btn1 {
+      position: absolute;
+      bottom: 0;
+      background-color: $color2;
+      background-color: $color2;
+      border-color: $color2;
+      outline: none !important;
+      box-shadow: none;
+    }
+    
+    .btn2 {
+      position: absolute;
+      bottom: 50px;
+      background-color: $color4;
+      border-color: $color4;
+      outline: none !important;
+      box-shadow: none;
+    }
+  }
 }
 
-.jumbotron {
-  background: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/calgary-cityscape-01-aged-pixel.jpg') no-repeat center center;
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-}
-
-.btn1 {
-  position: absolute;
-  bottom: 0;
-  background-color: $color2;
-  background-color: $color2;
-  border-color: $color2;
-  outline: none !important;
-  box-shadow: none;
-}
-
-.btn2 {
-  position: absolute;
-  bottom: 50px;
-  background-color: $color4;
-  border-color: $color4;
-  outline: none !important;
-  box-shadow: none;
-}
