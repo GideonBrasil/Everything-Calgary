@@ -9,15 +9,13 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/public/javascripts/'
+    publicPath: '/build/'
   },
   module: {
     rules: [{
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        loader: 'babel-loader',
+        include: path.join(__dirname, 'src')
       },
       {
         test: /\.scss$/,

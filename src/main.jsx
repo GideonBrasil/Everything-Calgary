@@ -14,9 +14,10 @@ class Main extends Component {
     return (
       <div className="jumbotron">
         <h1 className="display-4">Welcome to Calgary!</h1>
-        <p className="lead">This is a simple app to help you keep up with what's going on in our city!</p>
-        <a className="btn btn-primary btn-lg" href="#" role="button">Select Your Neighborhood</a>
-        <a className="btn btn-danger btn-lg" href="#" role="button">Calgary Now</a>
+        {/* <hr></hr> */}
+        {/* <p className="lead">This is a simple app to help you keep up with what's going on in our city!</p> */}
+        <a className="btn btn-primary btn-lg btn1" href="#" role="button">Select Your Neighborhood</a>
+        <a className="btn btn-danger btn-lg btn2" href="#" role="button">Calgary Now</a>
       </div>
     );
   }
