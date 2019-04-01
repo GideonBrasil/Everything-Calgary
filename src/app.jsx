@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar.jsx";
-import Main from "./Main.jsx";
+import Main from "./main.jsx";
 import Footer from "./Footer.jsx";
 import GoogleMaps from "./GoogleMaps.jsx";
 
