@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import NavBar from "./NavBar.jsx";
+import Main from "./Main.jsx";
+import Footer from "./Footer.jsx";
 import GoogleMaps from "./GoogleMaps.jsx";
 
 class App extends Component {
@@ -6,7 +9,9 @@ class App extends Component {
     return (
       <div>
         <GoogleMaps />
-        <p>This is our first map</p>
+        <NavBar />
+        <Main />
+        <Footer />
       </div>
     );
   }
