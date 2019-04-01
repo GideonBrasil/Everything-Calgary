@@ -47,9 +47,6 @@ function createMarker(place) {
 export default function GoogleMaps() {
   return (
     <div>
-      <p>This is my Map</p>
-      <button className="btn btn-dark">Search</button>
-      <div id="map" />
     </div>
   );
 }

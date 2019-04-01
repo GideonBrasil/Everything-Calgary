@@ -2,9 +2,20 @@
 // that come after can overwrite it
 @import "~bootstrap/dist/css/bootstrap.css";
 
-@import 'header';
-@import 'search_bar';
 @import 'map';
+@import 'footer';
+@import 'navbar';
+@import 'sidenav';
+@import 'autocomplete';
+@import url('https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet');
+
+$color1: #2B2D42;
+$color2: #8D99AE;
+$color3: #EDF2F4;
+$color4: #EF233C;
+$color5: #D90429;
+
+
 
 .main {
   display: flex;
@@ -20,4 +31,33 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Bevan', bold;
+  min-height: 100vh;
+  .jumbotron {
+    background: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/calgary-cityscape-01-aged-pixel.jpg') no-repeat center center;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    .btn1 {
+      position: absolute;
+      bottom: 0;
+      background-color: $color2;
+      background-color: $color2;
+      border-color: $color2;
+      outline: none !important;
+      box-shadow: none;
+    }
+    
+    .btn2 {
+      position: absolute;
+      bottom: 50px;
+      background-color: $color4;
+      border-color: $color4;
+      outline: none !important;
+      box-shadow: none;
+    }
+  }
 }
+
