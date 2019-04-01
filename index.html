@@ -9,21 +9,7 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Everything Calgary</title>
 </head>
-<style>
-    /* Always set the map height explicitly to define the size of the div
-        * element that contains the map. */
-    #map {
-        height: 425px;
-    }
 
-    /* Optional: Makes the sample page fill the window. */
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-</style>
 <script>
     var map;
     var service;
@@ -73,11 +59,7 @@
 
 <body>
     <div id="react-root"></div>
-    <script type="text/javascript" src="/public/javascripts/bundle.js"></script>
-    <div class="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
-    </div>
-    <div id="map"></div>
+    <script src="/build/bundle.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpnhQ5C1Q0-K5cg_eduEekUX2KVz4AW7g&libraries=places&callback=initMap"
         async defer></script>

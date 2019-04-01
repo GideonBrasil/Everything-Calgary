@@ -13,7 +13,7 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /\.(js|jsx|html)$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         include: path.join(__dirname, 'src')
       },

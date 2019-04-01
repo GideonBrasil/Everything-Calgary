@@ -1,3 +1,7 @@
+// put bootstrap first so that all of the other imports 
+// that come after can overwrite it
+@import "~bootstrap/dist/css/bootstrap.css";
+
 @import 'header';
 @import 'search_bar';
 @import 'map';
