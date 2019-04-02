@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import NavBar from "./NavBar.jsx";
 import Main from "./Main.jsx";
 import Footer from "./Footer.jsx";
-import GoogleApiWrapper from "./GoogleMaps.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -78,20 +77,15 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <Main click={this.handleClick} jumbotron={this.state.jumbotron} />
-        <GoogleApiWrapper
-          communityCenterLatLong={this.state.communityCenterLatLong}
-          polygonCoords={this.state.polygonCoords}
-        />
         <NavBar
           jumbotron={this.state.jumbotron}
           updateCommunity={this.updateCommunity}
           community={this.state.community}
         />
         <Main
-          jumbotron={this.state.jumbotron}
+          data={this.state}
           updateCommunity={this.updateCommunity}
+          jumbotron={this.state.jumbotron}
         />
         <Footer />
       </div>
