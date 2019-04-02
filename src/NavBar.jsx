@@ -7,13 +7,22 @@ import suggestions from "../helper/communities.js"
 class NavBar extends Component {
 
   render() {
+    const checkCommunity = event => {
+      event.preventDefault();
+      let content = event.target.elements[0].value;
+      if (suggestions.includes(content.toUpperCase())){
+        this.props.updateCommunity(content)
+      } else {
+        alert('Community does not exist!')
+      }
+    }
     if (this.props.jumbotron === false){
       return (
         <nav className="navbar sticky-top navbar-light">
         <a className="navbar-brand"><img id="logo" src="/public/images/logo1.png" alt="logo"></img> Everything Calgary</a>
         <a className="btn btn-danger btn-lg btn2" role="button" onClick={()=>this.props.click()}>Calgary Now!</a>        
-        <form className="form-inline">
-          <Autocomplete className="form-control mr-sm-2" type="search" placeholder="Find your neighborhood" suggestions={suggestions}/>
+        <form className="form-inline" onSubmit={checkCommunity}>
+          <Autocomplete className="form-control mr-sm-2" type="search" suggestions={suggestions} community={this.props.community}/>
           <button className="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
         </form>
       </nav>

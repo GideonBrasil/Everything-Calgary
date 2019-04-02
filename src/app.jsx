@@ -9,9 +9,11 @@ class App extends Component {
     super(props);
     this.state = ({
       jumbotron: true,
+      community: '',
     });
     
     this.handleClick= this.handleClick.bind(this);
+    this.updateCommunity= this.updateCommunity.bind(this);
   }
 
   handleClick() {
@@ -20,12 +22,20 @@ class App extends Component {
       jumbotron: false,
     }));
   }
+  
+  updateCommunity(community){
+    this.setState(state =>({
+      jumbotron: false,
+      community: community,
+    }));
+  }
+  
 
   render() {
     return (
       <div>
-        <NavBar jumbotron={this.state.jumbotron} click={this.handleClick}/>
-        <Main click={this.handleClick} jumbotron={this.state.jumbotron}/>
+        <NavBar jumbotron={this.state.jumbotron} updateCommunity={this.updateCommunity} community={this.state.community}/>
+        <Main jumbotron={this.state.jumbotron} updateCommunity={this.updateCommunity}/>
         <GoogleMaps />
         <Footer />
       </div>
