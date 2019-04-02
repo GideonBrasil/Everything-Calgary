@@ -39,24 +39,20 @@ body {
     height: 100vh;
     background-size: cover;
     display: flex;
-    justify-content: center;
-    .btn1 {
-      position: absolute;
-      bottom: 0;
-      background-color: $color2;
-      background-color: $color2;
-      border-color: $color2;
-      outline: none !important;
-      box-shadow: none;
-    }
-    
-    .btn2 {
-      position: absolute;
-      bottom: 50px;
-      background-color: $color4;
-      border-color: $color4;
-      outline: none !important;
-      box-shadow: none;
+    align-items: center;
+    flex-direction: column;
+    form {
+      position: relative;
+      justify-items: center;
+      ul {
+        position: absolute;
+        top: 43px;
+        width: 300px;
+        background: white;
+      }
+      button {
+        margin-left: 10px;
+      }
     }
   }
 }

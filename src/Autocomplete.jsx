@@ -144,6 +144,7 @@ class Autocomplete extends Component {
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={userInput}
+          placeholder="Find your neighborhood..."
         />
         {suggestionsListComponent}
       </Fragment>

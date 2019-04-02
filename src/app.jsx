@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar jumbotron={this.state.jumbotron} click={this.handleClick}/>
         <Main click={this.handleClick} jumbotron={this.state.jumbotron}/>
         <GoogleMaps />
         <Footer />

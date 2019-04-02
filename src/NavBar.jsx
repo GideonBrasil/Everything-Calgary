@@ -7,16 +7,25 @@ import suggestions from "../helper/communities.js"
 class NavBar extends Component {
 
   render() {
-    return (
-      <nav className="navbar sticky-top navbar-light">
+    if (this.props.jumbotron === false){
+      return (
+        <nav className="navbar sticky-top navbar-light">
         <a className="navbar-brand"><img id="logo" src="/public/images/logo1.png" alt="logo"></img> Everything Calgary</a>
+        <a className="btn btn-danger btn-lg btn2" role="button" onClick={()=>this.props.click()}>Calgary Now!</a>        
         <form className="form-inline">
-          <Autocomplete className="form-control mr-sm-2" type="search" placeholder="Search" suggestions={suggestions}/>
-          {/* <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input> */}
+          <Autocomplete className="form-control mr-sm-2" type="search" placeholder="Find your neighborhood" suggestions={suggestions}/>
           <button className="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
         </form>
       </nav>
-    );
+      )
+    } else {
+      return (
+        <nav className="navbar sticky-top navbar-light">
+          <a className="navbar-brand"><img id="logo" src="/public/images/logo1.png" alt="logo"></img> Everything Calgary</a>
+          <a className="btn btn-danger btn-lg btn2" role="button" onClick={()=>this.props.click()}>Calgary Now!</a>        
+        </nav>
+      );
+    }
   }
 }
 
