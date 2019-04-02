@@ -15,14 +15,14 @@ class Main extends Component {
     if (this.props.jumbotron){
       return (
         <React.Fragment>
-          <Jumbotron click={this.props.click}/>
+          <Jumbotron updateCommunity={this.props.updateCommunity}/>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <SideNav />
-          <Middle />
+          <Middle updateCommunity={this.props.updateCommunity}/>
         </React.Fragment>
       );
     }

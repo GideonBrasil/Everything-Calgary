@@ -11,10 +11,17 @@ $color5: #D90429;
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: $color3;
+  background-color: none;
   #logo {
     max-height: 35px;
     border-radius: 7px;
+  }
+  .btn2 {
+    bottom: 50px;
+    background-color: $color4;
+    border-color: $color4;
+    outline: none !important;
+    box-shadow: none;
   }
   form {
     position: relative;
