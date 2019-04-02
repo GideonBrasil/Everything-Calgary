@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 
 class Sidenav extends Component {
   render() {
+    chooseStatistics(topic){
+
+    }
+
     return (
       <nav id="sidebar">
             <div className="sidebar-header">
@@ -9,15 +13,9 @@ class Sidenav extends Component {
             </div>
 
             <ul className="list-unstyled components">
-                <li className="active">
-                    <a href="#">Crime</a>
-                </li>
-                <li>
-                    <a href="#">Traffic incidents</a>
-                </li>
-                <li>
-                    <a href="#">Something else</a>
-                </li>
+                <li className="active">Crime</li>
+                <li>Garbage Pickup</li>
+                <li>Property Assessment</li>
             </ul>
         </nav>
     );

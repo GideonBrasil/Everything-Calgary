@@ -11,6 +11,7 @@ class App extends Component {
       jumbotron: true,
       communityCenterLatLong: { lat: 51.077573661425, lng: -114.089777105022 },
       community: "",
+      topic: "",
       polygonCoords: [
         { lat: 51.074913395982, lng: -114.088408126106 },
         { lat: 51.073741979768, lng: -114.089935974536 },
@@ -75,11 +76,20 @@ class App extends Component {
     }));
   }
 
+  changeTopic(newTopic){
+    this.setState(state => ({
+      topic: newTopic
+    }))
+  }
+
   render() {
     return (
       <div>
         <NavBar />
-        <Main click={this.handleClick} jumbotron={this.state.jumbotron} />
+        <Main click={this.handleClick} 
+              jumbotron={this.state.jumbotron}
+              topic={this.state.topic} 
+        />
         <GoogleApiWrapper
           communityCenterLatLong={this.state.communityCenterLatLong}
           polygonCoords={this.state.polygonCoords}
@@ -88,10 +98,6 @@ class App extends Component {
           jumbotron={this.state.jumbotron}
           updateCommunity={this.updateCommunity}
           community={this.state.community}
-        />
-        <Main
-          jumbotron={this.state.jumbotron}
-          updateCommunity={this.updateCommunity}
         />
         <Footer />
       </div>
