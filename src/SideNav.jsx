@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 class Sidenav extends Component {
   render() {
@@ -7,17 +7,16 @@ class Sidenav extends Component {
     }
 
     return (
-      <nav id="sidebar">
-            <div className="sidebar-header">
-                <h3>Show on map...</h3>
-            </div>
-
-            <ul className="list-unstyled components">
-                <li className="active">Crime</li>
-                <li>Garbage Pickup</li>
-                <li>Property Assessment</li>
-            </ul>
-        </nav>
+      <nav id="sidebar" className="col">
+        <div className="sidebar-header">
+          <h3>Show on map...</h3>
+        </div>
+        <ul className="list-unstyled components">
+          <li className="active">Crime</li>
+          <li>Garbage pickup</li>
+          <li>Property Assessment</li>
+        </ul>
+      </nav>
     );
   }
 }
