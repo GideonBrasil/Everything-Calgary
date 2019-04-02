@@ -1,68 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
     <title>Everything Calgary</title>
-</head>
+  </head>
 
-<script>
-    var map;
-    var service;
-    var infowindow;
-
-    function initMap() {
-        var calgary = new google.maps.LatLng(51.0486, 114.0708);
-
-        infowindow = new google.maps.InfoWindow();
-
-        map = new google.maps.Map(
-            document.getElementById('map'), {
-                center: calgary,
-                zoom: 15
-            });
-
-        var request = {
-            query: 'Calgary',
-            fields: ['name', 'geometry'],
-        };
-
-        service = new google.maps.places.PlacesService(map);
-
-        service.findPlaceFromQuery(request, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    createMarker(results[i]);
-                }
-
-                map.setCenter(results[0].geometry.location);
-            }
-        });
-    }
-
-    function createMarker(place) {
-        var marker = new google.maps.Marker({
-            map: map,
-            position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindow.setContent(place.name);
-            infowindow.open(map, this);
-        });
-    }
-</script>
-
-<body>
-    <div id="react-root"></div>
+  <body>
+    <div id="root"></div>
     <script src="/build/bundle.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpnhQ5C1Q0-K5cg_eduEekUX2KVz4AW7g&libraries=places&callback=initMap"
-        async defer></script>
-</body>
-
+  </body>
 </html>
