@@ -1,3 +1,9 @@
+$color1: #2B2D42;
+$color2: #8D99AE;
+$color3: #EDF2F4;
+$color4: #EF233C;
+$color5: #D90429;
+
 .sticky-top {
   position: sticky
 }
@@ -5,4 +11,28 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  background-color: none;
+  #logo {
+    max-height: 35px;
+    border-radius: 7px;
+  }
+  .btn2 {
+    bottom: 50px;
+    background-color: $color4;
+    border-color: $color4;
+    outline: none !important;
+    box-shadow: none;
+  }
+  form {
+    position: relative;
+    ul {
+      position: absolute;
+      top: 43px;
+      width: 300px;
+      background: white;
+    }
+    button {
+      margin-left: 10px;
+    }
+  }
 }

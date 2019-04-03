@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "webpack",
     "start": "node server.js"
   },
   "dependencies": {
@@ -10,16 +11,25 @@
     "cookie-parser": "~1.4.3",
     "css-loader": "^2.1.1",
     "debug": "~2.6.9",
+    "dotenv-webpack": "^1.7.0",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
+    "google-maps-react": "^2.0.2",
     "http-errors": "~1.6.2",
+    "jquery": "^3.3.1",
     "morgan": "~1.9.0",
     "node-sass": "^4.11.0",
+    "popper.js": "^1.14.7",
+    "prop-types": "^15.7.2",
+    "react-axios": "^2.0.3",
+    "react-bootstrap": "^1.0.0-beta.6",
+    "request-promise": "^4.2.4",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",

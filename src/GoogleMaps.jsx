@@ -1,55 +1,75 @@
-import React from "react";
+import React, { Component } from "react";
+import {
+  Polygon,
+  Map,
+  GoogleApiWrapper,
+  InfoWindow,
+  Marker
+} from "google-maps-react";
 
-var map;
-var service;
-var infowindow;
+const mapStyles = {
+  width: "100%",
+  height: "100%",
+  marginLeft: "auto",
+  marginRight: "auto"
+};
 
-function initMap() {
-  var calgary = new google.maps.LatLng(51.0486, 114.0708);
-
-  infowindow = new google.maps.InfoWindow();
-
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: calgary,
-    zoom: 15
-  });
-
-  var request = {
-    query: "Calgary",
-    fields: ["name", "geometry"]
+class MapContainer extends Component {
+  state = {
+    showingInfoWindow: true, //Hides or the shows the infoWindow
+    activeMarker: {}, //Shows the active marker upon click
+    selectedPlace: {} //Shows the infoWindow to the selected place upon a marker
   };
 
-  service = new google.maps.places.PlacesService(map);
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
 
-  service.findPlaceFromQuery(request, function(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
-
-      map.setCenter(results[0].geometry.location);
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
     }
-  });
+  };
+
+  render() {
+    // let bounds = new this.props.google.maps.LatLngBounds();
+    // for (var i = 0; i < polygonCoords.length; i++) {
+    //   bounds.extend(polygonCoords[i]);
+    // }
+    // console.log(
+    //   "These are the comminity props: ",
+    //   this.props.communityCenterLatLong
+    // );
+
+    console.log(this.props.communityCenterLatLong);
+
+    return (
+      <Map
+        google={this.props.google}
+        style={mapStyles}
+        zoom={15.2}
+        initialCenter={this.props.communityCenterLatLong}
+        center={this.props.communityCenterLatLong}
+      >
+        <Polygon
+          paths={this.props.polygonCoords}
+          strokeColor="#0000FF"
+          strokeOpacity={0.8}
+          strokeWeight={2}
+          fillColor="#0000FF"
+          fillOpacity={0.35}
+        />
+      </Map>
+    );
+  }
 }
 
-function createMarker(place) {
-  var marker = new google.maps.Marker({
-    map: map,
-    position: place.geometry.location
-  });
-
-  google.maps.event.addListener(marker, "click", function() {
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
-  });
-}
-
-export default function GoogleMaps() {
-  return (
-    <div>
-      <p>This is my Map</p>
-      <button className="btn btn-dark">Search</button>
-      <div id="map" />
-    </div>
-  );
-}
+export default GoogleApiWrapper({
+  apiKey: process.env.YOUR_GOOGLEMAPS_API_KEY
+})(MapContainer);
