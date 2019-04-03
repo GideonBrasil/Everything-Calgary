@@ -80,6 +80,7 @@ class App extends Component {
           updateCommunity={this.updateCommunity}
           jumbotron={this.state.jumbotron}
           topic={this.state.topic}
+          changeTopic={this.changeTopic}
         />
         <Footer />
       </div>
