@@ -81,6 +81,7 @@ class App extends Component {
           jumbotron={this.state.jumbotron}
           topic={this.state.topic}
           polygonCoords={this.state.polygonCoords}
+          changeTopic={this.changeTopic}
         />
         <Footer />
       </div>
