@@ -47,12 +47,15 @@ class MapContainer extends Component {
     //   this.props.communityCenterLatLong
     // );
 
+    console.log(this.props.communityCenterLatLong);
+
     return (
       <Map
         google={this.props.google}
         style={mapStyles}
-        zoom={15.3}
+        zoom={15.2}
         initialCenter={this.props.communityCenterLatLong}
+        center={this.props.communityCenterLatLong}
       >
         <Polygon
           paths={this.props.polygonCoords}
