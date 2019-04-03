@@ -8,6 +8,7 @@ var cors = require("cors");
 var indexRouter = require("./routes/index");
 var communityRouter = require("./routes/communityData");
 var geoCodeRouter = require("./routes/geoCodes");
+var garbageRouter = require("./routes/garbageData.js");
 
 const PORT = 3000;
 
@@ -29,6 +30,7 @@ app.use(cookieParser());
 // app.use("/", indexRouter);
 app.use("/coordinates", communityRouter);
 app.use("/geocoordinates", geoCodeRouter);
+app.use("/garbage", garbageRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
