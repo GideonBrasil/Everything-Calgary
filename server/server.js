@@ -7,6 +7,7 @@ var cors = require("cors");
 
 var indexRouter = require("../routes/index");
 var communityRouter = require("../routes/community");
+var geoCodeRouter = require("../routes/geoCodes");
 
 const PORT = 3000;
 
@@ -26,7 +27,8 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, "public")));
 
 // app.use("/", indexRouter);
-app.use("/:community/coordinates", communityRouter);
+app.use("/coordinates", communityRouter);
+app.use("/geocoordinates", geoCodeRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

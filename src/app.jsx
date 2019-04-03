@@ -23,24 +23,27 @@ class App extends Component {
     }));
   }
 
-  componentDidMount() {
-    console.log("here");
-    fetch(`http://localhost:3000/${"shawnessy"}/coordinates`)
+  updateCommunity(community) {
+    fetch(`http://localhost:3000/coordinates/${community}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        this.setState(state => ({
+          community: community,
+          communityCenterLatLong: data
+        }));
       })
       .catch(err => {
         console.log("fdfhghh", err);
       });
-    console.log("After");
-  }
-
-  updateCommunity(community) {
-    // this.setState(state => ({
-    //   jumbotron: false,
-    //   community: community
-    // }));
+    fetch(`http://localhost:3000/geocoordinates/${community}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState(state => ({
+          polygonCoords: data,
+          jumbotron: false
+        }));
+      })
+      .catch(err => {});
   }
 
   changeTopic(newTopic) {
