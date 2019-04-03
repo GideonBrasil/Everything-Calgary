@@ -5,9 +5,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
 
-var indexRouter = require("../routes/index");
-var communityRouter = require("../routes/community");
-var geoCodeRouter = require("../routes/geoCodes");
+var indexRouter = require("./routes/index");
+var communityRouter = require("./routes/community");
+var geoCodeRouter = require("./routes/geoCodes");
 
 const PORT = 3000;
 
