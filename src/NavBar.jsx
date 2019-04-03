@@ -16,8 +16,8 @@ class NavBar extends Component {
     };
     if (this.props.jumbotron === false) {
       return (
-        <nav className="navbar sticky-top navbar-light">
-          <a className="navbar-brand">
+        <nav className="navbar fixed sticky-top navbar-light">
+          <a onClick={this.props.showJumbotron} className="navbar-brand">
             <img id="logo" src="/public/images/logo1.png" alt="logo" />{" "}
             Everything Calgary
           </a>
@@ -46,7 +46,7 @@ class NavBar extends Component {
       );
     } else {
       return (
-        <nav className="navbar sticky-top navbar-light">
+        <nav className="navbar fixed sticky-top navbar-light">
           <a className="navbar-brand">
             <img id="logo" src="/public/images/logo1.png" alt="logo" />{" "}
             Everything Calgary

@@ -11,6 +11,11 @@ This is the main structure container all sections will be imported here
 
 class Main extends Component {
   render() {
+    
+    const chooseStatistics = e => {
+      this.props.changeTopic(e.target.id)
+    }
+
     if (this.props.jumbotron) {
       return (
         <React.Fragment>
@@ -20,7 +25,7 @@ class Main extends Component {
     } else {
       return (
         <div className="row">
-          <SideNav topic={this.props.topic}/>
+          <SideNav topic={this.props.topic} chooseStatistics={chooseStatistics}/>
           <Middle
             data={this.props.data}
             updateCommunity={this.props.updateCommunity}
