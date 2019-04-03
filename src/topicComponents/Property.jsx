@@ -3,22 +3,28 @@ import React, { Component } from "react";
 class Property extends Component {
   render() {
     const tableData = this.props.propertyData.range.map(data => {
+      let med_value = data.median_assessed_value
+      let accounts = data.number_of_taxable_accounts
       return (
-        <tr>
-          <td>{data.community_name}</td>
-          <td>{data.median_assessed_value}</td>
-          <td>{data.number_of_taxable_accounts}</td>
-        </tr>
+          <tr>
+            <td>{data.community_name}</td>
+            <td>${med_value.toLocaleString('en')}</td>
+            <td>{accounts.toLocaleString('en')} properties</td>
+          </tr>
       )
-
     })
+
+    const highest = this.props.propertyData.highestValue
+    const lowest = this.props.propertyData.lowestValue
+
+
     return (
       <React.Fragment>
         <h1>This is the Property Data</h1>
-        <h3>Your property is ranked ${this.props.propertyData.targetIndex} out of 195 communities.</h3>
-        <h6>The highest median property value in Calgary is ${this.props.propertyData.highestValue}</h6>
-        <h6>The lowest median property value in Calgary is ${this.props.propertyData.lowestValue}</h6>
-        <table>
+        <h3>Your property is ranked {this.props.propertyData.targetIndex} out of 195 communities.</h3>
+        <h6>The highest median property value in Calgary is ${highest.toLocaleString('en')}.</h6>
+        <h6>The lowest median property value in Calgary is ${lowest.toLocaleString('en')}.</h6>
+        <table className="data-table">
             <thead>
               <tr>
                 <th>Community Name</th>
@@ -26,8 +32,9 @@ class Property extends Component {
                 <th>Number of Taxable Accounts</th>
               </tr>
             </thead>
-            {/* <td>{tableData}</td> */}
+            <tbody>{tableData}</tbody>
         </table>
+        <hr></hr>
       </React.Fragment>
     );
   }

@@ -21,27 +21,31 @@ class NavBar extends Component {
             <img id="logo" src="/public/images/logo1.png" alt="logo" />{" "}
             Everything Calgary
           </a>
-          <a
-            className="btn btn-danger btn-lg btn2"
-            role="button"
-            onClick={() => this.props.click()}
-          >
-            Calgary Now!
-          </a>
-          <form className="form-inline" onSubmit={checkCommunity}>
-            <Autocomplete
-              className="form-control mr-sm-2"
-              type="search"
-              suggestions={suggestions}
-              community={this.props.community}
-            />
-            <button
-              className="btn btn-outline-danger my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
+          <section>
+            <div id="calgary-now">
+              <a
+                className="btn btn-danger btn-lg btn2"
+                role="button"
+                onClick={() => this.props.click()}
+              >
+                Calgary Now!
+              </a>
+            </div>
+            <form className="form-inline" onSubmit={checkCommunity}>
+              <Autocomplete
+                className="form-control mr-sm-2"
+                type="search"
+                suggestions={suggestions}
+                community={this.props.community}
+              />
+              <button
+                className="btn btn-outline-danger my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </section>
         </nav>
       );
     } else {

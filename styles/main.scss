@@ -55,5 +55,12 @@ body {
       }
     }
   }
+  .data-table{
+    border: black solid 2px;
+      td, th {
+        border-bottom: black solid 2px; 
+        border-right: black solid 2px;
+      }
+  }
 }
 
