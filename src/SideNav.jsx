@@ -2,10 +2,6 @@ import React, { Component } from "react";
 
 class Sidenav extends Component {
   render() {
-    chooseStatistics(topic){
-
-    }
-
     return (
       <nav id="sidebar" className="col">
         <div className="sidebar-header">
