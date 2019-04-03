@@ -6,7 +6,7 @@ const request = require("request-promise");
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
   let options = {
-    url: `https://data.calgary.ca/resource/surr-xmvs.json?name=${communityName.toUpperCase()}`,
+    url: `https://data.calgary.ca/resource/kxmf-bzkv.json?name=${communityName.toUpperCase()}`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
@@ -14,10 +14,15 @@ router.get("/:community", function(req, res, next) {
   };
   request(options).then(data => {
     data = JSON.parse(data)[0];
-    let geoCodes = data.the_geom.coordinates[0].map(coordinates => {
+    let geoCodes = data.the_geom.coordinates[0][0].map(coordinates => {
       return { lat: coordinates[1], lng: coordinates[0] };
     });
-    res.status(200).json(geoCodes);
+    const dataObj = {
+      communityId: data._feature_id,
+      communtiyCode: data.comm_code,
+      geoCodes: geoCodes
+    }
+    res.status(200).json(dataObj);
   });
 });
 

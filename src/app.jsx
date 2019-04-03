@@ -11,6 +11,8 @@ class App extends Component {
       jumbotron: true,
       communityCenterLatLong: {},
       community: "",
+      communityCode: "",
+      communityId: "",
       polygonCoords: [],
       topic: "",
     };
@@ -31,7 +33,7 @@ class App extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
-          community: community,
+          community: community.toUpperCase(),
           communityCenterLatLong: data
         }));
       })
@@ -42,7 +44,9 @@ class App extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
-          polygonCoords: data,
+          polygonCoords: data.geoCodes,
+          communityCode: data.communityCode,
+          communityId: data.communityId,
           jumbotron: false
         }));
       })
