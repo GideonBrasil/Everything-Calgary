@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar.jsx";
-import Main from "./Main.jsx";
+import Main from "./main.jsx";
 import Footer from "./Footer.jsx";
 // import axios from "axios";
 
@@ -11,10 +11,13 @@ class App extends Component {
       jumbotron: true,
       communityCenterLatLong: {},
       community: "",
-      polygonCoords: []
+      polygonCoords: [],
+      topic: "",
     };
     this.updateCommunity = this.updateCommunity.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.changeTopic = this.changeTopic.bind(this);
+    this.showJumbotron = this.showJumbotron.bind(this);
   }
 
   handleClick() {
@@ -33,7 +36,10 @@ class App extends Component {
         }));
       })
       .catch(err => {
+<<<<<<< HEAD
         console.log(err);
+=======
+>>>>>>> 2b49b73e1f607a1f9e4006ec757b9d7eb46e9da0
       });
     fetch(`http://localhost:3000/geocoordinates/${community}`)
       .then(res => res.json())
@@ -46,6 +52,14 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  showJumbotron(){
+    if (this.state.jumbotron === false){
+      this.setState(state => ({
+        jumbotron: true
+      }))
+    }
   }
 
   changeTopic(newTopic) {
@@ -61,6 +75,8 @@ class App extends Component {
           jumbotron={this.state.jumbotron}
           updateCommunity={this.updateCommunity}
           community={this.state.community}
+          data={this.state}
+          showJumbotron={this.showJumbotron}
         />
         <Main
           data={this.state}
