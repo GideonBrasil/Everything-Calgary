@@ -11,7 +11,7 @@ class Middle extends Component {
     if (this.props.data.topic === "crime"){
       return (
           <div className="col">
-            <Crime />
+            <Crime data={this.props.data}/>
           <div>
             <GoogleApiWrapper
               communityCenterLatLong={this.props.data.communityCenterLatLong}
