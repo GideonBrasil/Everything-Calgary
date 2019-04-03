@@ -9,12 +9,10 @@ class App extends Component {
     super(props);
     this.state = {
       jumbotron: true,
-      communityCenterLatLong: {},
+      communityCenterLatLong: {lng: -114.089777105022, lat: 51.077573661425},
       community: "",
-<<<<<<< HEAD
       topic: "",
-      polygonCoords: [
-        { lat: 51.074913395982, lng: -114.088408126106 },
+      polygonCoords: [{ lat: 51.074913395982, lng: -114.088408126106 },
         { lat: 51.073741979768, lng: -114.089935974536 },
         { lat: 51.073802365782, lng: -114.090990227051 },
         { lat: 51.07450781866, lng: -114.09217734367 },
@@ -51,14 +49,12 @@ class App extends Component {
         { lat: 51.0762235209, lng: -114.087614953076 },
         { lat: 51.076017107305, lng: -114.088190695849 },
         { lat: 51.07523389785, lng: -114.088191904122 },
-        { lat: 51.074913395982, lng: -114.088408126106 }
-      ]
-=======
-      polygonCoords: []
->>>>>>> 207b9430878b102a8e182c3bc5a971aab0b9fc5e
+        { lat: 51.074913395982, lng: -114.088408126106 }]
     };
     this.updateCommunity = this.updateCommunity.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.changeTopic = this.changeTopic.bind(this);
+    this.showJumbotron = this.showJumbotron.bind(this);
   }
 
   handleClick() {
@@ -67,24 +63,32 @@ class App extends Component {
     }));
   }
 
-  componentDidMount() {
-    console.log("here");
-    fetch(`http://localhost:3000/${"shawnessy"}/coordinates`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(err => {
-        console.log("fdfhghh", err);
-      });
-    console.log("After");
-  }
+  // componentDidMount() {
+  //   console.log("here");
+  //   fetch(`http://localhost:3000/${"shawnessy"}/coordinates`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+  //     })
+  //     .catch(err => {
+  //       console.log("fdfhghh", err);
+  //     });
+  //   console.log("After");
+  // }
 
   updateCommunity(community) {
-    // this.setState(state => ({
-    //   jumbotron: false,
-    //   community: community
-    // }));
+    this.setState(state => ({
+      jumbotron: false,
+      community: community
+    }));
+  }
+
+  showJumbotron(){
+    if (this.state.jumbotron === false){
+      this.setState(state => ({
+        jumbotron: true
+      }))
+    }
   }
 
   changeTopic(newTopic){
@@ -100,12 +104,15 @@ class App extends Component {
           jumbotron={this.state.jumbotron}
           updateCommunity={this.updateCommunity}
           community={this.state.community}
+          data={this.state}
+          showJumbotron={this.showJumbotron}
         />
         <Main
           data={this.state}
           updateCommunity={this.updateCommunity}
           jumbotron={this.state.jumbotron}
-          topic={this.state.topic} 
+          topic={this.state.topic}
+          changeTopic={this.changeTopic}
         />
         <Footer />
       </div>

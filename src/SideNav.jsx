@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 
+
 class Sidenav extends Component {
   render() {
-    chooseStatistics(topic){
-
-    }
 
     return (
       <nav id="sidebar" className="col">
@@ -12,9 +10,9 @@ class Sidenav extends Component {
           <h3>Show on map...</h3>
         </div>
         <ul className="list-unstyled components">
-          <li className="active">Crime</li>
-          <li>Garbage pickup</li>
-          <li>Property Assessment</li>
+          <li onClick={this.props.chooseStatistics} className="active"><a id="crime">Crime</a></li>
+          <li onClick={this.props.chooseStatistics} ><a id="garbage">Garbage pickup</a></li>
+          <li onClick={this.props.chooseStatistics} ><a id="property">Property Assessment</a></li>
         </ul>
       </nav>
     );
