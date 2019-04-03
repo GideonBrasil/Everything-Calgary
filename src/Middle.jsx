@@ -23,7 +23,7 @@ class Middle extends Component {
     } else if (this.props.data.topic === "garbage"){
       return (
         <div className="col">
-          <Garbage />
+          <Garbage data={this.props.data}/>
         <div>
           <GoogleApiWrapper
             communityCenterLatLong={this.props.data.communityCenterLatLong}
