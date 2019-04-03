@@ -33,7 +33,7 @@ class App extends Component {
         }));
       })
       .catch(err => {
-        console.log("fdfhghh", err);
+        console.log(err);
       });
     fetch(`http://localhost:3000/geocoordinates/${community}`)
       .then(res => res.json())
@@ -43,7 +43,9 @@ class App extends Component {
           jumbotron: false
         }));
       })
-      .catch(err => {});
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   changeTopic(newTopic) {

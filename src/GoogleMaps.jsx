@@ -47,8 +47,6 @@ class MapContainer extends Component {
     //   this.props.communityCenterLatLong
     // );
 
-    console.log(this.props.communityCenterLatLong);
-
     return (
       <Map
         google={this.props.google}
