@@ -36,10 +36,7 @@ class App extends Component {
         }));
       })
       .catch(err => {
-<<<<<<< HEAD
         console.log(err);
-=======
->>>>>>> 2b49b73e1f607a1f9e4006ec757b9d7eb46e9da0
       });
     fetch(`http://localhost:3000/geocoordinates/${community}`)
       .then(res => res.json())
