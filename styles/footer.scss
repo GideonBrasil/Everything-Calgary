@@ -7,10 +7,12 @@ $color5: #D90429;
 .footer {
   margin: 0;
   padding: 5px;
-  background-color: $color3;
+  background-color: white;
   bottom: 0px;
+  display: flex;
+  justify-content: space-between;
   p {
-    padding: 5px;
+    padding: 10px;
     margin: 0;
   }
 }

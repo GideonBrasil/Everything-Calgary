@@ -12,8 +12,9 @@ $color5: #D90429;
   display: flex;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.9);
+  color: white;
   #logo {
-    max-height: 35px;
+    max-height: 48px;
     border-radius: 7px;
   }
   section {
@@ -22,11 +23,15 @@ $color5: #D90429;
   }
   .btn2 {
     bottom: 50px;
-    background-color: $color4;
-    border-color: $color4;
+    background-color: $color5;
+    border-color: $color5;
     outline: none !important;
     box-shadow: none;
     margin-right: 10px;
+  }
+  .btn2:hover {
+    opacity: 0.7;
+    cursor: pointer;
   }
   form {
     position: relative;
@@ -39,5 +44,9 @@ $color5: #D90429;
     button {
       margin-left: 10px;
     }
+  }
+  #logo:hover {
+    opacity: 0.7;
+    cursor: pointer;
   }
 }
