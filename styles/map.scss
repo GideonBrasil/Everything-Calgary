@@ -1,5 +1,12 @@
+$color1: #2B2D42;
+$color2: #8D99AE;
+$color3: #EDF2F4;
+$color4: #EF233C;
+$color5: #D90429;
+
 #map {
   height: 425px;
+  margin-right: 10px;
 }
 
 /* Optional: Makes the sample page fill the window. */
@@ -10,9 +17,18 @@ body {
 }
 
 .col {
-  height: 100vh;
+  height: 100%;
+}
+
+.mapCol {
+  margin: 0 15px;
+  border: $color2 solid 0.8px;
+  padding: 0;
+  overflow: hidden;
 }
 
 .row {
+  padding: 0;
   margin: 0;
+  height: 100%;
 }
