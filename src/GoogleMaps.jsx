@@ -37,23 +37,16 @@ class MapContainer extends Component {
     }
   };
 
-//Possible way to get zoom
-  // adjustMap = (mapProps, map) => {
-  //   let bounds = new this.props.google.maps.LatLngBounds();
-  //   for (var i = 0; i < this.props.polygonCoords.length; i++) {
-  //     bounds.extend(this.props.polygonCoords[i]);
-  //   }
-  //   map.panToBounds(bounds, 10);
-  // }
-
   render() {
+    var bounds = new this.props.google.maps.LatLngBounds();
+    this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
+
     return (
       <Map
         google={this.props.google}
         style={mapStyles}
         initialCenter={this.props.communityCenterLatLong}
-        center={this.props.communityCenterLatLong}
-        onReady={this.adjustMap}
+        bounds={bounds}
       >
         <Polygon
           paths={this.props.polygonCoords}

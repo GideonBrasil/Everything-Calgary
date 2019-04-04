@@ -14,6 +14,7 @@ router.get("/:community", function(req, res, next) {
   };
   request(options).then(data => {
     data = JSON.parse(data)[0];
+    console.log(data.the_geom);
     let geoCodes = data.the_geom.coordinates[0][0].map(coordinates => {
       return { lat: coordinates[1], lng: coordinates[0] };
     });
@@ -21,7 +22,7 @@ router.get("/:community", function(req, res, next) {
       communityId: data._feature_id,
       communityCode: data.comm_code,
       geoCodes: geoCodes
-    }
+    };
     res.status(200).json(dataObj);
   });
 });
