@@ -22,7 +22,7 @@ class Middle extends Component {
       )
     } else if (this.props.data.topic === "garbage"){
       return (
-        <div className="col">
+        <div style={{position:'relative'}} className="col">
           <Garbage data={this.props.data}/>
         <div>
           <GoogleApiWrapper

@@ -43,7 +43,6 @@ class App extends Component {
     fetch(`http://localhost:3000/geocoordinates/${community}`)
       .then(res => res.json())
       .then(data => {
-        console.log('THIS IS THE APP DATA: ', data)
         this.setState(state => ({
           polygonCoords: data.geoCodes,
           communityCode: data.communityCode,
