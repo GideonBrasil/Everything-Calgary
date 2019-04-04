@@ -1,12 +1,24 @@
 import React, { Component } from "react";
+import { Modal, CardDeck } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 class Property extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      propData: {}
+    };
+  }
 
   componentDidMount() {
     fetch(`http://localhost:3000/propertyAssessment/${this.props.data.communityCode}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        
+        this.setState(state => ({
+          propData: data
+        }));
       })
       .catch(err => {
         console.log(err);
@@ -14,40 +26,45 @@ class Property extends Component {
   }
 
   render() {
-    const tableData = this.props.propertyData.range.map(data => {
-      let med_value = data.median_assessed_value
-      let accounts = data.number_of_taxable_accounts
-      return (
-          <tr>
-            <td>{data.community_name}</td>
-            <td>${med_value.toLocaleString('en')}</td>
-            <td>{accounts.toLocaleString('en')} properties</td>
-          </tr>
-      )
-    })
-
-    const highest = this.props.propertyData.highestValue
-    const lowest = this.props.propertyData.lowestValue
-
-
+    // const propCards = this.state.propData.range.map(pcDeets => {
+    //       name={pcDeets.community_name}
+    //       value={pcDeets.median_assessed_value}
+    //       number={pcDeets.number_of_taxable_accounts}
+    //     });
+    const { propData } = this.state;
+    if (!Object.keys(propData).length) return null;
+    console.log(propData);
     return (
-      <React.Fragment>
-        <h1>This is the Property Data</h1>
-        <h3>Your property is ranked {this.props.propertyData.targetIndex} out of 195 communities.</h3>
-        <h6>The highest median property value in Calgary is ${highest.toLocaleString('en')}.</h6>
-        <h6>The lowest median property value in Calgary is ${lowest.toLocaleString('en')}.</h6>
-        <table className="data-table">
-            <thead>
-              <tr>
-                <th>Community Name</th>
-                <th>Median Assessed Property Value</th>
-                <th>Number of Taxable Accounts</th>
-              </tr>
-            </thead>
-            <tbody>{tableData}</tbody>
-        </table>
-        <hr></hr>
-      </React.Fragment>
+      <Modal 
+        show
+        onHide={() => this.props.changeTopic("")}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        dialogClassName="modal-60w"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Property Data</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <span>
+            <CardDeck>
+            {propData.range.map(pcdeets => <Card style={{ width: '30rem', backgroundColor: this.props.data.communityCode === pcdeets.comm_code && 'tomato' }} key={pcdeets.comm_code}>
+                <Card.Body>
+                  <Card.Title>{pcdeets.community_name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">${pcdeets.median_assessed_value}</Card.Subtitle>
+                  <Card.Text>
+                    {pcdeets.community_name} has {pcdeets.number_of_taxable_accounts} assessed properties.
+                  </Card.Text>
+                </Card.Body>
+              </Card>)}
+            </CardDeck>            
+          </span>
+        </Modal.Body>
+        <Modal.Footer>
+          In Calgary a communities' average (median) assesed property value ranges between ${this.state.propData.highestValue} and ${this.state.propData.lowestValue}.
+        </Modal.Footer>
+      </Modal>
     );
   }
 }

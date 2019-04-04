@@ -15,8 +15,8 @@ const request = require("request-promise");
 
   function createTargetData(lastYear, communityCode) {
     const myComIndex = lastYear.findIndex(obj => obj.comm_code === communityCode);
-    const minIndex = myComIndex - 3 < 0 ? 0 : myComIndex - 3;
-    const maxIndex = myComIndex + 4 > lastYear.length - 1 ? lastYear.length : myComIndex + 4;
+    const minIndex = myComIndex - 2 < 0 ? 0 : myComIndex - 2;
+    const maxIndex = myComIndex + 3 > lastYear.length - 1 ? lastYear.length : myComIndex + 3;
     const targetRange = lastYear.slice(minIndex, maxIndex);
     return {
       range: targetRange,
