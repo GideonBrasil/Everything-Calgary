@@ -16,12 +16,17 @@ $color5: #D90429;
     max-height: 35px;
     border-radius: 7px;
   }
+  section {
+    display: flex;
+    justify-content: space-around;
+  }
   .btn2 {
     bottom: 50px;
     background-color: $color4;
     border-color: $color4;
     outline: none !important;
     box-shadow: none;
+    margin-right: 10px;
   }
   form {
     position: relative;
