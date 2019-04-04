@@ -19,7 +19,7 @@ router.get("/:community", function(req, res, next) {
     });
     const dataObj = {
       communityId: data._feature_id,
-      communtiyCode: data.comm_code,
+      communityCode: data.comm_code,
       geoCodes: geoCodes
     }
     res.status(200).json(dataObj);

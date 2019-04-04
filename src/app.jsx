@@ -47,7 +47,8 @@ class App extends Component {
           polygonCoords: data.geoCodes,
           communityCode: data.communityCode,
           communityId: data.communityId,
-          jumbotron: false
+          jumbotron: false,
+          topic: ""
         }));
       })
       .catch(err => {

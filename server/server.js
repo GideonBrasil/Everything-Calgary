@@ -1,14 +1,16 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var cors = require("cors");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const cors = require("cors");
 
-var indexRouter = require("./routes/index");
-var communityRouter = require("./routes/communityData");
-var geoCodeRouter = require("./routes/geoCodes");
-var garbageRouter = require("./routes/garbageData.js");
+const indexRouter = require("./routes/index");
+const communityRouter = require("./routes/communityAPI");
+const geoCodeRouter = require("./routes/geoCodes");
+const garbageRouter = require("./routes/garbageAPI.js");
+const crimeRouter = require("./routes/crimeAPI.js");
+const propertyAssessmentRouter = require("./routes/propertyAssessmentAPI.js");
 
 const PORT = 3000;
 
@@ -31,6 +33,8 @@ app.use(cookieParser());
 app.use("/coordinates", communityRouter);
 app.use("/geocoordinates", geoCodeRouter);
 app.use("/garbage", garbageRouter);
+app.use("/crime", crimeRouter);
+app.use("/propertyAssessment", propertyAssessmentRouter)
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

@@ -11,7 +11,7 @@ class Middle extends Component {
     if (this.props.data.topic === "crime"){
       return (
           <div className="col">
-            <Crime />
+            <Crime data={this.props.data}/>
           <div>
             <GoogleApiWrapper
               communityCenterLatLong={this.props.data.communityCenterLatLong}
@@ -22,7 +22,7 @@ class Middle extends Component {
       )
     } else if (this.props.data.topic === "garbage"){
       return (
-        <div className="col">
+        <div style={{position:'relative'}} className="col">
           <Garbage data={this.props.data}/>
         <div>
           <GoogleApiWrapper
@@ -35,7 +35,7 @@ class Middle extends Component {
     } else if (this.props.data.topic === "property"){
       return (
         <div className="col">
-          <Property />
+          <Property data={this.props.data}/>
         <div>
           <GoogleApiWrapper
             communityCenterLatLong={this.props.data.communityCenterLatLong}
