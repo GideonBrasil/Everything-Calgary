@@ -12,7 +12,6 @@ $color5: #D90429;
   display: flex;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.9);
-  color: white;
   #logo {
     max-height: 48px;
     border-radius: 7px;
@@ -28,6 +27,7 @@ $color5: #D90429;
     outline: none !important;
     box-shadow: none;
     margin-right: 10px;
+    color:white;
   }
   .btn2:hover {
     opacity: 0.7;

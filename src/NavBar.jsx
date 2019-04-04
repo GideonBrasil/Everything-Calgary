@@ -18,7 +18,7 @@ class NavBar extends Component {
       return (
         <nav className="navbar fixed sticky-top navbar-light">
           <a onClick={this.props.showJumbotron} className="navbar-brand">
-            <img id="logo" src="/public/images/logo1.png" alt="logo" />{" "}
+            <img id="logo" src="./images/logo1.png" alt="logo" />{" "}
           </a>
           <section>
             <div id="calgary-now">
@@ -51,7 +51,7 @@ class NavBar extends Component {
       return (
         <nav className="navbar fixed sticky-top navbar-light">
           <a className="navbar-brand">
-            <img id="logo" src="/public/images/logo1.png" alt="logo" />{" "}
+            <img id="logo" src="./images/logo1.png" alt="logo" />{" "}
           </a>
           <a
             className="btn btn-danger btn-lg btn2"
