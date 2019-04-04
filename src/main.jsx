@@ -28,6 +28,7 @@ class Main extends Component {
           <SideNav topic={this.props.topic} chooseStatistics={chooseStatistics}/>
           <Middle
             data={this.props.data}
+            changeTopic={this.props.changeTopic}
             updateCommunity={this.props.updateCommunity}
           />
         </div>
