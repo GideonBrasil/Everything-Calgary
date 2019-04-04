@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Modal, CardDeck, Card } from "react-bootstrap";
 
 class Garbage extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
