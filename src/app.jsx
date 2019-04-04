@@ -72,7 +72,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="main-div">
         <NavBar
           jumbotron={this.state.jumbotron}
           updateCommunity={this.updateCommunity}
