@@ -50,7 +50,6 @@ class Middle extends Component {
         highestValue: '1640000',
         lowestValue: '42000' }
     }
-    
   }
   
   render() {
@@ -58,7 +57,7 @@ class Middle extends Component {
     if (this.props.data.topic === "crime"){
       return (
           <div className="col mapCol">
-            <Crime data={this.props.data}/>
+            <Crime data={this.props.data} changeTopic={this.props.changeTopic}/>
           <div>
             <GoogleApiWrapper
               communityCenterLatLong={this.props.data.communityCenterLatLong}
