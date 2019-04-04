@@ -69,8 +69,8 @@ class Middle extends Component {
       )
     } else if (this.props.data.topic === "garbage"){
       return (
-        <div style={{position:'relative'}} className="mapCol col">
-          <Garbage data={this.props.data}/>
+        <div style={{position:'relative'}} className="col mapCol">
+          <Garbage data={this.props.data} changeTopic={this.props.changeTopic}/>
         <div>
           <GoogleApiWrapper
             communityCenterLatLong={this.props.data.communityCenterLatLong}

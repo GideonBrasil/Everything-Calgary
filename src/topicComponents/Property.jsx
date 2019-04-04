@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Modal, CardDeck } from "react-bootstrap";
-import { Card } from "react-bootstrap";
+import { Modal, CardDeck, Card} from "react-bootstrap";
 
 class Property extends Component {
 
@@ -42,7 +41,7 @@ class Property extends Component {
         aria-labelledby="contained-modal-title-vcenter"
         centered
         dialogClassName="modal-60w"
-      >
+       >
         <Modal.Header closeButton>
           <Modal.Title>Property Data</Modal.Title>
         </Modal.Header>
