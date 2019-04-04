@@ -22,13 +22,15 @@ class NavBar extends Component {
           </a>
           <section>
             <div id="calgary-now">
-              <a
+              <button
+                style={{ color: 'white'}}
                 className="btn btn-danger btn-lg btn2"
+                id="btn2"
                 role="button"
                 onClick={() => this.props.click()}
               >
                 Calgary Now!
-              </a>
+              </button>
             </div>
             <form className="form-inline" onSubmit={checkCommunity}>
               <Autocomplete
@@ -53,13 +55,14 @@ class NavBar extends Component {
           <a className="navbar-brand">
             <img id="logo" src="./images/logo1.png" alt="logo" />{" "}
           </a>
-          <a
-            className="btn btn-danger btn-lg btn2"
+          <button
+            className="btn btn-danger btn-lg"
+            id="btn2"
             role="button"
             onClick={() => this.props.click()}
           >
             Calgary Now!
-          </a>
+          </button>
         </nav>
       );
     }
