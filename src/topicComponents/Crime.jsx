@@ -5,7 +5,7 @@ class Crime extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      crimeStats: {}
+      crimeStats: null
     };
   }
 
@@ -14,8 +14,8 @@ class Crime extends Component {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        this.state(state => ({
-          crimeStats
+        this.setState(state => ({
+          crimeStats: data
         }))
       })
       .catch(err => {
@@ -24,6 +24,8 @@ class Crime extends Component {
   }
 
   render() {
+    const { crimeStats } = this.state;
+    // if (!Object.keys(crimeStats).length) return null;
     return (
       <Modal
         show
@@ -37,11 +39,12 @@ class Crime extends Component {
         <Modal.Title>Crime Statistics</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {!crimeStats ? <h4>Loading...</h4> : (
         <Card>
           <Card.Header>
             <Nav justify variant="tabs" defaultActiveKey="#first">
               <Nav.Item>
-                <Nav.Link href="#first">Feburay</Nav.Link>
+                <Nav.Link href="#first">February</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="#link">Last 12 Months</Nav.Link>
@@ -50,40 +53,30 @@ class Crime extends Component {
           </Card.Header>
           <Card.Body>
             <Card.Title>For the month of Feb</Card.Title>
-              <Card.Text>
                 <Table striped bordered hover>
                   <thead>
                     <tr>
-                      <th>#</th>
                       <th>Crime Category</th>
-                      <th>Your Community</th>
+                      <th>{this.state.crimeStats.community_name}</th>
                       <th>City Of Calgary</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Assualt (non-domestic)</td>
-                      <td>6</td>
-                      <td>180</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Physical Disorder</td>
-                      <td>6</td>
-                      <td>180</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Residential Break & Enter</td>
-                      <td>6</td>
-                      <td>180</td>
-                    </tr>
+                      {Object.keys(this.state.crimeStats.YYCMonthStats).map(property => (
+                        <React.Fragment key={property.id}>
+                          <tr>
+                            <td>{property}</td>
+                            {/* <td>{crimeStats.commMonthStats[property]}</td> */}
+                            <td>5</td>
+                            <td>{crimeStats.YYCMonthStats[property]}</td>
+                          </tr>
+                        </React.Fragment> 
+                        ))}
                   </tbody>
                 </Table>
-              </Card.Text>
             </Card.Body>
           </Card>
+          )}
         </Modal.Body>
       </Modal>
     );
