@@ -61,7 +61,6 @@ function dataFilter(data, community) {
   console.log(Object.values(YYCMonthStats))
 
   function createByPeriod(YYCStats, commStats) {
-
     return Object.keys(YYCStats).reduce((crimeMonth, cat) => {
       if (Number(cat)) return crimeMonth;
       const newCrimeStat = {
