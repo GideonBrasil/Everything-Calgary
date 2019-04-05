@@ -6,30 +6,68 @@ function sortCrimeData(communityData) {
   crimeObj = {};
   for (let crime of communityData) {
     if (crimeObj[crime.category]) {
-      crimeObj[crime.category] ++;
+      crimeObj[crime.category] += Number(crime.count);
     } else {
-      crimeObj[crime.category] =1;
+      crimeObj[crime.category] = Number(crime.count);
     }
   }
   return crimeObj;
 }
 
+function monthDiff(d1, d2) {
+    let months;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth() + 1;
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
+}
 
 function dataFilter(data, community) {
-  const totalCalgaryCrime = data.length;
-  const communityCrime = data.filter( crimeObj => {
+  const currentDate = new Date();
+  const data12Months = data.filter( crime => {
+    let theDate = new Date(crime.date);
+    let monthdiff = monthDiff(new Date(crime.date), currentDate);
+    return 12 >= monthdiff;
+  });
+
+  let totalCalgaryCrime = 0;
+  data12Months.forEach( crime => {
+    totalCalgaryCrime += Number(crime.count);
+  });
+
+  const communityCrimes = data12Months.filter( crimeObj => {
     return crimeObj.community_name === community.toUpperCase();
   });
-  const crimeCalgaryTypeData = sortCrimeData(data);
-  const crimeCommunityTypeData = sortCrimeData(communityCrime);
-  const totalComCrimes = communityCrime.length;
 
-   return ({'community': community,
-        'calgaryNumCrime': totalCalgaryCrime,
-        'communityNumCrime': totalComCrimes,
-        'communityCrimeData': communityCrime,
-        'communityCrimeStats': crimeCommunityTypeData,
-        'calgaryCrimeStats': crimeCalgaryTypeData,
+  let totalComCrimes = 0;
+  communityCrimes.forEach( crime => {totalComCrimes += Number(crime.count);});
+
+  const communityMonthCrimes = communityCrimes.filter( crime => {
+    return crime.month === 'FEB';
+  });
+
+  const calgaryMonthCrimes = data12Months.filter( crime => {
+    return crime.month === 'FEB';
+  });
+
+  const residentsCount = communityMonthCrimes[0].resident_count;
+
+  const comm12Stats = sortCrimeData(communityCrimes);
+  const YYC12Stats = sortCrimeData(data12Months);
+  const commMonthStats = sortCrimeData(communityMonthCrimes);
+  const YYCMonthStats = sortCrimeData(calgaryMonthCrimes);
+
+
+
+
+   return ({'community_name': community,
+            'totalYYCCrime12': totalCalgaryCrime,
+            'totalCommCrime12': totalComCrimes,
+            'residentsCount': residentsCount,
+            'comm12Stats': comm12Stats,
+            'YYC12Stats': YYC12Stats,
+            'commMonthStats': commMonthStats,
+            'YYCMonthStats': YYCMonthStats,
       });
   }
 
@@ -41,7 +79,7 @@ router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
   let now = new Date()
   let options = {
-    url: `https://data.calgary.ca/resource/kudt-f99k.json?&year=${now.getFullYear()}&$Limit=50000`,
+    url: `https://data.calgary.ca/resource/kudt-f99k.json?&$where=year > '${now.getFullYear()-2}'&$Limit=50000`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
