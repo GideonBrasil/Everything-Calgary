@@ -25,14 +25,8 @@ class Property extends Component {
   }
 
   render() {
-    // const propCards = this.state.propData.range.map(pcDeets => {
-    //       name={pcDeets.community_name}
-    //       value={pcDeets.median_assessed_value}
-    //       number={pcDeets.number_of_taxable_accounts}
-    //     });
     const { propData } = this.state;
     if (!Object.keys(propData).length) return null;
-    console.log(propData);
     return (
       <Modal 
         show

@@ -5,7 +5,7 @@ class Garbage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collectSched: []
+      collectSched: {}
     };
   }
   componentDidMount() {
@@ -25,9 +25,9 @@ class Garbage extends Component {
 
 
   render() {
-    // const { collectionData } = this.state;
-    // if (!Object.keys(propData).length) return null;
-    // console.log(propData);
+    const green = this.state.collectSched['Green']
+    const blue = this.state.collectSched['Blue']
+    const black = this.state.collectSched['Black']
     return (
       <Modal
         show
@@ -41,8 +41,10 @@ class Garbage extends Component {
           <Modal.Title>Waste and Recycling Pickup</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            {/* <div style={{ position:'absolute', backgroundColor: 'white', opacity:'0.6', zIndex:'300' }}> */}
-            <p> {this.state.collectSched} </p>
+
+            <h4><i className="fas fa-trash-alt fa-2x"></i> {black} </h4>
+            <h4><i className="fas fa-recycle fa-2x"></i> {blue} </h4>
+            <h4><i className="fas fa-trash-restore fa-2x"></i> {green} </h4>
       </Modal.Body>
       </Modal>
     );

@@ -20,18 +20,23 @@ function manipulateData(data) {
   let startDate = new Date("17 July 2017");
   let now = new Date();
   let x = weeksBetween(startDate, now) % 2;
+  let dataArr = [];
   switch(frequency_season(now, data)) {
 
     case 'EVEN':
-      return (x===0 ? `${data.commodity} bin pick up: this ${day}` : `${data.commodity} bin pick up: next ${day}`);
+      dataArr[0] = (x===0 ? `${data.commodity} bin pick up: this ${day}` : `${data.commodity} bin pick up: next ${day}`);
+      dataArr[1] = data.commodity;
       break;
-    case 'ODD':
-      return (x===1 ? `${data.commodity} bin pick up: this ${day}` : `${data.commodity} bin pick up: next ${day}`);
+      case 'ODD':
+      dataArr[0] = (x===1 ? `${data.commodity} bin pick up: this ${day}` : `${data.commodity} bin pick up: next ${day}`);
+      dataArr[1] = data.commodity;
       break;
-    default:
-      return( `${data.commodity} bin pick up: this ${day}`);
+      default:
+      dataArr[0] = ( `${data.commodity} bin pick up: this ${day}`);
+      dataArr[1] = data.commodity;
       break;
     }
+    return dataArr;
 }
 
 
@@ -47,11 +52,13 @@ router.get("/:community", function(req, res, next) {
   };
   request(options).then(data => {
     data = JSON.parse(data);
-    console.log(data);
-    const dataArray = data.map( obj => {
-      return manipulateData(obj);
+    const garbageObj = {};
+    data.forEach(bin => {
+      const binData = manipulateData(bin)
+      garbageObj[binData[1]] = binData[0]
     })
-    res.status(200).json(dataArray);
+    console.log(garbageObj);
+    res.status(200).json(garbageObj);
   });
 });
 
