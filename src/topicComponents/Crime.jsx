@@ -5,8 +5,12 @@ class Crime extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      crimeStats: {}
+      crimeStats: null
     };
+  }
+
+  handleTabClick(link) {
+    this.setState({link})
   }
 
   componentDidMount() {
@@ -14,8 +18,8 @@ class Crime extends Component {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        this.state(state => ({
-          crimeStats
+        this.setState(state => ({
+          crimeStats: data
         }))
       })
       .catch(err => {
@@ -24,66 +28,66 @@ class Crime extends Component {
   }
 
   render() {
+    const { crimeStats, link } = this.state;
+    let activeCrimeStats;
+    if (crimeStats) {
+      activeCrimeStats = link == '#lst12Mos' ? crimeStats.yearCrimeStats : crimeStats.monthCrimeStats
+    }
+    // if (!Object.keys(crimeStats).length) return null;
     return (
       <Modal
-        show
-        onHide={() => this.props.changeTopic("")}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        // dialogClassName="modal-60w"
+      show
+      onHide={() => this.props.changeTopic("")}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      dialogClassName="modal-60w"
       >
       <Modal.Header closeButton>
         <Modal.Title>Crime Statistics</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {!crimeStats ? <h4>Loading...</h4> : (
         <Card>
           <Card.Header>
-            <Nav justify variant="tabs" defaultActiveKey="#first">
+            <Nav
+              justify variant="tabs"
+              defaultActiveKey="#lstMos"
+              onSelect={selectedKey => this.handleTabClick(selectedKey)}
+              >
               <Nav.Item>
-                <Nav.Link href="#first">Feburay</Nav.Link>
+                <Nav.Link href="#lstMos">Last Month</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#link">Last 12 Months</Nav.Link>
+                <Nav.Link href="#lst12Mos">Last 12 Months</Nav.Link>
               </Nav.Item>
             </Nav>
           </Card.Header>
           <Card.Body>
             <Card.Title>For the month of Feb</Card.Title>
-              <Card.Text>
                 <Table striped bordered hover>
                   <thead>
                     <tr>
-                      <th>#</th>
                       <th>Crime Category</th>
-                      <th>Your Community</th>
+                      <th>{crimeStats.community_name}</th>
                       <th>City Of Calgary</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Assualt (non-domestic)</td>
-                      <td>6</td>
-                      <td>180</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Physical Disorder</td>
-                      <td>6</td>
-                      <td>180</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Residential Break & Enter</td>
-                      <td>6</td>
-                      <td>180</td>
-                    </tr>
+                      {activeCrimeStats.map(deets => (
+                        <React.Fragment key={deets.category}>
+                          <tr>
+                            <td>{deets.category}</td>
+                            <td>{deets.commNum}</td>
+                            <td>{deets.yycNum}</td>
+                          </tr>
+                        </React.Fragment> 
+                        ))}
                   </tbody>
                 </Table>
-              </Card.Text>
             </Card.Body>
           </Card>
+          )}
         </Modal.Body>
       </Modal>
     );
