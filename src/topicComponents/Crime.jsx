@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, CardDeck, Card } from "react-bootstrap";
+import { Modal, Nav, Table, Card } from "react-bootstrap";
 
 class Crime extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class Crime extends Component {
       <Modal.Body>
         <Card>
           <Card.Header>
-            <Nav variant="tabs" defaultActiveKey="#first">
+            <Nav justify variant="tabs" defaultActiveKey="#first">
               <Nav.Item>
                 <Nav.Link href="#first">Feburay</Nav.Link>
               </Nav.Item>
