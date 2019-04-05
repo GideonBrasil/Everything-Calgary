@@ -57,22 +57,41 @@ function dataFilter(data, community) {
   const commMonthStats = sortCrimeData(communityMonthCrimes);
   const YYCMonthStats = sortCrimeData(calgaryMonthCrimes);
 
+  console.log(Object.keys(YYCMonthStats))
+  console.log(Object.values(YYCMonthStats))
+
+  function createByPeriod(YYCStats, commStats) {
+
+    return Object.keys(YYCStats).reduce((crimeMonth, cat) => {
+      if (Number(cat)) return crimeMonth;
+      const newCrimeStat = {
+        category: cat,
+        commNum: commStats[cat] || 0,
+        yycNum: YYCStats[cat]
+      }
+      crimeMonth.push(newCrimeStat)
+      return crimeMonth
+    }, []);
+  }
+
+  const monthCrimeStats = createByPeriod(YYCMonthStats, commMonthStats);
+  const yearCrimeStats = createByPeriod(YYC12Stats, comm12Stats)
 
 
+  
 
    return ({'community_name': community,
             'totalYYCCrime12': totalCalgaryCrime,
             'totalCommCrime12': totalComCrimes,
             'residentsCount': residentsCount,
-            'comm12Stats': comm12Stats,
-            'YYC12Stats': YYC12Stats,
-            'commMonthStats': commMonthStats,
-            'YYCMonthStats': YYCMonthStats,
+            // 'comm12Stats': comm12Stats,
+            // 'YYC12Stats': YYC12Stats,
+            // 'commMonthStats': commMonthStats,
+            // 'YYCMonthStats': YYCMonthStats,
+            'monthCrimeStats': monthCrimeStats,
+            'yearCrimeStats': yearCrimeStats
       });
   }
-
-
-
 
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {

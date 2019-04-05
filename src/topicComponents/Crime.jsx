@@ -57,18 +57,17 @@ class Crime extends Component {
                   <thead>
                     <tr>
                       <th>Crime Category</th>
-                      <th>{this.state.crimeStats.community_name}</th>
+                      <th>{crimeStats.community_name}</th>
                       <th>City Of Calgary</th>
                     </tr>
                   </thead>
                   <tbody>
-                      {Object.keys(this.state.crimeStats.YYCMonthStats).map(property => (
-                        <React.Fragment key={property.id}>
+                      {this.state.crimeStats.yearCrimeStats.map(deets => (
+                        <React.Fragment key={deets.category}>
                           <tr>
-                            <td>{property}</td>
-                            {/* <td>{crimeStats.commMonthStats[property]}</td> */}
-                            <td>5</td>
-                            <td>{crimeStats.YYCMonthStats[property]}</td>
+                            <td>{deets.category}</td>
+                            <td>{deets.commNum}</td>
+                            <td>{deets.yycNum}</td>
                           </tr>
                         </React.Fragment> 
                         ))}
