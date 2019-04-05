@@ -16,12 +16,12 @@ class NavBar extends Component {
     };
     if (this.props.jumbotron === false) {
       return (
-        <nav className="navbar fixed sticky-top navbar-light">
+        <nav className="navbar fixed navbar-light">
           <a onClick={this.props.showJumbotron} className="navbar-brand">
-            <img id="logo" src="./images/logo1.png" alt="logo" />{" "}
+            <img id="logo" src="https://github.com/GideonBrasil/Everything-Calgary/blob/master/public/images/logo1.png?raw=true" alt="logo" />{" "}
           </a>
           <section>
-            <div id="calgary-now">
+{/*            <div id="calgary-now">
               <button
                 style={{ color: 'white'}}
                 className="btn btn-danger btn-lg btn2"
@@ -31,7 +31,7 @@ class NavBar extends Component {
               >
                 Calgary Now!
               </button>
-            </div>
+            </div>*/}
             <form className="form-inline" onSubmit={checkCommunity}>
               <Autocomplete
                 className="form-control mr-sm-2"
@@ -53,16 +53,16 @@ class NavBar extends Component {
       return (
         <nav className="navbar fixed sticky-top navbar-light">
           <a className="navbar-brand">
-            <img id="logo" src="./images/logo1.png" alt="logo" />{" "}
+            <img id="logo" src="https://github.com/GideonBrasil/Everything-Calgary/blob/master/public/images/logo1.png?raw=true" alt="logo" />{" "}
           </a>
-          <button
+{/*          <button
             className="btn btn-danger btn-lg"
             id="btn2"
             role="button"
             onClick={() => this.props.click()}
           >
             Calgary Now!
-          </button>
+          </button>*/}
         </nav>
       );
     }

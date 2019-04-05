@@ -11,13 +11,13 @@ $color5: #D90429;
 
 /* Optional: Makes the sample page fill the window. */
 body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 .col {
-  height: 100%;
+  height: auto;
 }
 
 .mapCol {

@@ -42,9 +42,9 @@ class Garbage extends Component {
         </Modal.Header>
         <Modal.Body>
 
-            <h4><i className="fas fa-trash-alt fa-2x"></i> {black} </h4>
-            <h4><i className="fas fa-recycle fa-2x"></i> {blue} </h4>
-            <h4><i className="fas fa-trash-restore fa-2x"></i> {green} </h4>
+            <h4><i className="fas fa-trash-alt fa-2x"></i> {black ? `Garbage is ${black[1]} ${black[0]}`: ""} </h4>
+            <h4><i className="fas fa-recycle fa-2x"></i> {blue ? `Recycle is ${blue[1]} ${blue[0]}`: ""} </h4>
+            <h4><i className="fas fa-trash-restore fa-2x"></i> {green ? `Compost is ${green[1]} ${green[0]}`: ""} </h4>
       </Modal.Body>
       </Modal>
     );

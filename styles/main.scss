@@ -1,4 +1,4 @@
-// put bootstrap first so that all of the other imports 
+// put bootstrap first so that all of the other imports
 // that come after can overwrite it
 @import "~bootstrap/dist/css/bootstrap.css";
 
@@ -7,6 +7,7 @@
 @import 'navbar';
 @import 'sidenav';
 @import 'autocomplete';
+@import 'garbageRecycleComp';
 @import url('https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet');
 
 $color1: #2B2D42;
@@ -57,10 +58,10 @@ body {
       position: relative;
       justify-items: center;
       padding-top: 18px;
-      margin-left: 70px;
+      margin-left: 53px;
       ul {
         position: absolute;
-        top: 70px;
+        top: 53px;
         width: 300px;
         background: white;
       }
@@ -76,23 +77,8 @@ body {
   .data-table{
     border: black solid 2px;
       td, th {
-        border-bottom: black solid 2px; 
+        border-bottom: black solid 2px;
         border-right: black solid 2px;
       }
   }
-}
-
-.fa-trash-alt {
-  color: black;
-  size: 2x;
-}
-
-
-.fa-recycle {
-  color: blue;
-  size: 2x;
-}
-
-.fa-trash-restore {
-  color: green;
 }

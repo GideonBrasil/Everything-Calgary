@@ -24,15 +24,15 @@ function manipulateData(data) {
   switch(frequency_season(now, data)) {
 
     case 'EVEN':
-      dataArr[0] = (x===0 ? `${data.commodity} bin pick up: this ${day}` : `${data.commodity} bin pick up: next ${day}`);
+      dataArr[0] = (x===0 ? [day, 'this'] : [day, 'next']);
       dataArr[1] = data.commodity;
       break;
       case 'ODD':
-      dataArr[0] = (x===1 ? `${data.commodity} bin pick up: this ${day}` : `${data.commodity} bin pick up: next ${day}`);
+      dataArr[0] = (x===1 ? [day, 'this'] : [day, 'next']);
       dataArr[1] = data.commodity;
       break;
       default:
-      dataArr[0] = ( `${data.commodity} bin pick up: this ${day}`);
+      dataArr[0] = ([day, 'this']);
       dataArr[1] = data.commodity;
       break;
     }
