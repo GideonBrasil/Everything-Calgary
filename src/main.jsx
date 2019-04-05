@@ -11,7 +11,7 @@ This is the main structure container all sections will be imported here
 
 class Main extends Component {
   render() {
-    
+
     const chooseStatistics = e => {
       this.props.changeTopic(e.target.id)
     }
@@ -25,7 +25,7 @@ class Main extends Component {
     } else {
       return (
         <div className="row">
-          <SideNav topic={this.props.topic} chooseStatistics={chooseStatistics}/>
+          <SideNav topic={this.props.topic} chooseStatistics={chooseStatistics} community={this.props.data.community}/>
           <Middle
             data={this.props.data}
             changeTopic={this.props.changeTopic}

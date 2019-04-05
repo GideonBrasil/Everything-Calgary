@@ -6,8 +6,16 @@ $color5: #D90429;
 
 .wrapper {
   display: flex;
-  width: 100%;
+  width: auto;
   align-items: stretch;
+}
+
+.sidebar-header {
+  border: 1px white solid;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
 }
 
 #sidebar {
@@ -23,7 +31,6 @@ $color5: #D90429;
 }
 
 #sidebar .sidebar-header {
-  padding: 20px;
   background: $color5;
 }
 
@@ -42,11 +49,13 @@ $color5: #D90429;
   font-size: 1.1em;
   display: block;
   color: #fff;
+  text-align: center;
 }
 
 #sidebar ul li a:hover {
   color: $color4;
   background: #fff;
+  cursor: pointer;
 }
 
 #sidebar ul li.active>a,
@@ -94,6 +103,7 @@ a.article,
 a.article:hover {
   background: $color4 !important;
   color: #fff !important;
+  cursor: pointer;
 }
 
 /* ---------------------------------------------------

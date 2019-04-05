@@ -17,7 +17,7 @@ input {
 
 .suggestions {
   position: absolute;
-  top: 43px;
+  top: 35px;
   border: 1px solid #999;
   border-top-width: 0;
   border-radius: 3px;
@@ -28,6 +28,7 @@ input {
   padding-left: 0;
   width: 300px;
   background: white;
+  z-index: 200;
 }
 
 .suggestions li {
