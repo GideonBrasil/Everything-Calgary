@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class Garbage extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +9,6 @@ class Garbage extends Component {
   }
 
   componentDidMount() {
-
     fetch(`http://localhost:3000/garbage/${this.props.data.community}`)
       .then(res => res.json())
       .then(data => {
@@ -24,12 +22,19 @@ class Garbage extends Component {
       });
   }
 
-
   render() {
+    console.log("THIS IS THE GARBAGE DATA", this.state.communityData);
     return (
-      <div style={{ position:'absolute', backgroundColor: 'white', opacity:'0.6', zIndex:'300' }}>
-      <h1>This is the Garbage Data</h1>
-      <p> {this.state.communityData} </p>
+      <div
+        style={{
+          position: "absolute",
+          backgroundColor: "white",
+          opacity: "0.6",
+          zIndex: "300"
+        }}
+      >
+        <h1>This is the Garbage Data</h1>
+        <p> {this.state.communityData} </p>
       </div>
     );
   }
