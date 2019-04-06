@@ -39,20 +39,29 @@ const request = require("request-promise");
 //     return dataArr;
 // }
 
-
-/* GET users listing. */
-router.get("/:calgary", function(req, res, next) {
-  let options = {
-    url: `https://data.calgary.ca/resource/m328-x8wy.json`,
-    headers: {
-      "User-Agent": "request",
-      "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
-    }
-  };
-  request(options).then(data => {
-    data = JSON.parse(data);
-    console.log(data);
-    res.status(200).json(data);
+function filterDates(data){
+  const today = new Date(Date.now());
+  const nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+7);
+  if (new Date(data.next_date) >= today && new Date(data.next_date) <= nextWeek){
+    return data;
+  }
+}
+  
+  
+  /* GET users listing. */
+  router.get("/", function(req, res, next) {
+    let options = {
+      url: `https://data.calgary.ca/resource/rbmk-85cw.json`,
+      headers: {
+        "User-Agent": "request",
+        "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
+      }
+    };
+    request(options).then(data => {
+      eventsData = JSON.parse(data);
+      const futureEvents = eventsData.filter(filterDates);
+      console.log(futureEvents);
+    res.status(200).json(futureEvents);
   });
 });
 

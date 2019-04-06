@@ -9,7 +9,7 @@ class Calgary_Middle extends Component {
   
   render() {
     console.log(this.props.data.topic)
-    if (this.props.data.topic === "crime"){
+    if (this.props.data.topic === "events"){
       return (
           <div className="col mapCol">
             <Events data={this.props.data} changeTopic={this.props.changeTopic}/>
@@ -21,7 +21,7 @@ class Calgary_Middle extends Component {
           </div>
         </div>
       )
-    } else if (this.props.data.topic === "garbage"){
+    } else if (this.props.data.topic === "news"){
       return (
         <div style={{position:'relative'}} className="col mapCol">
           <News data={this.props.data} changeTopic={this.props.changeTopic}/>
@@ -33,7 +33,7 @@ class Calgary_Middle extends Component {
         </div>
         </div>
       )
-    } else if (this.props.data.topic === "property"){
+    } else if (this.props.data.topic === "traffic"){
       return (
         <div className="col mapCol">
           <TrafficIncidents data={this.props.data} changeTopic={this.props.changeTopic} />

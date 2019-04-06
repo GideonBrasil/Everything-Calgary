@@ -32,7 +32,9 @@ class Main extends Component {
     } else {
       return (
         <div className="row">
-          <Calgary_SideNav topic={this.props.topic} chooseStatistics={chooseStatistics} community={this.props.data.community}/>
+          <Calgary_SideNav 
+            topic={this.props.topic} 
+            chooseStatistics={chooseStatistics}/>
           <Calgary_Middle
             data={this.props.data}
             changeTopic={this.props.changeTopic}

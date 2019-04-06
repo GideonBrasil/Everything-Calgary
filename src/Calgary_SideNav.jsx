@@ -11,9 +11,9 @@ class Calgary_Sidenav extends Component {
           <h4>Everything currently... <br/></h4>
         </div>
         <ul className="list-unstyled components">
-          <li><a id="crime">News</a></li>
-          <li><a id="garbage">Traffic Incidents</a></li>
-          <li><a id="property">Events</a></li>
+          <li onClick={this.props.chooseStatistics}><a id="news">News</a></li>
+          <li onClick={this.props.chooseStatistics}><a id="traffic">Traffic Incidents</a></li>
+          <li onClick={this.props.chooseStatistics}><a id="events">Events</a></li>
         </ul>
       </nav>
     );

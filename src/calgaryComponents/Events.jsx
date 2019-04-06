@@ -5,7 +5,7 @@ class Events extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      crimeStats: null
+      events: null
     };
   }
 
@@ -14,12 +14,12 @@ class Events extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/crime/${this.props.data.community}`)
+    fetch(`http://localhost:3000/events`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         this.setState(state => ({
-          crimeStats: data
+          events: data
         }))
       })
       .catch(err => {
@@ -28,69 +28,63 @@ class Events extends Component {
   }
 
   render() {
-    const { crimeStats, link } = this.state;
-    let activeCrimeStats;
-    if (crimeStats) {
-      activeCrimeStats = link == '#lst12Mos' ? crimeStats.yearCrimeStats : crimeStats.monthCrimeStats
-    }
-    // if (!Object.keys(crimeStats).length) return null;
+
     return (
       <Modal
-      show
-      onHide={() => this.props.changeTopic("")}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      dialogClassName="modal-60w"
-      >
-      <Modal.Header closeButton>
-        <Modal.Title>Crime Statistics</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        {!crimeStats ? <h4>Loading...</h4> : (
-        <Card>
-          <Card.Header>
-            <Nav
-              justify variant="tabs"
-              defaultActiveKey="#lstMos"
-              onSelect={selectedKey => this.handleTabClick(selectedKey)}
-              >
-              <Nav.Item>
-                <Nav.Link href="#lstMos">Last Month</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="#lst12Mos">Last 12 Months</Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Card.Header>
-          <Card.Body>
-            <Card.Title>For the month of Feb</Card.Title>
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>Crime Category</th>
-                      <th>{crimeStats.community_name}</th>
-                      <th>City Of Calgary</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      {activeCrimeStats.map(deets => (
-                        <React.Fragment key={deets.category}>
-                          <tr>
-                            <td>{deets.category}</td>
-                            <td>{deets.commNum}</td>
-                            <td>{deets.yycNum}</td>
-                          </tr>
-                        </React.Fragment> 
-                        ))}
-                  </tbody>
-                </Table>
-            </Card.Body>
-          </Card>
-          )}
-        </Modal.Body>
-      </Modal>
-    );
+        show
+        onHide={() => this.props.changeTopic("")}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        dialogClassName="modal-60w"
+        className="events-modal"
+        >
+        <Modal.Header closeButton>
+          <Modal.Title>Calgary Events</Modal.Title>
+        </Modal.Header>
+    <Modal.Body>
+      {!this.state.events ? <h4>Loading...</h4> : (
+      <Card>
+        <Card.Header>
+          <Nav
+            justify variant="tabs"
+            defaultActiveKey="#lstMos"
+            onSelect={selectedKey => this.handleTabClick(selectedKey)}
+            >
+            <Nav.Item>
+              <h4>Upcoming Events</h4>
+            </Nav.Item>
+          </Nav>
+        </Card.Header>
+        <Card.Body className="events-card">
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Address</th>
+                    <th>Event Type</th>
+                    {/* <th>Event Description</th> */}
+                  </tr>
+                </thead>
+                <tbody>
+                    {this.state.events.map(event => (
+                      <React.Fragment key={event.notes}>
+                        <tr>
+                          <td>{event.next_date_times}</td>
+                          <td>{event.address}</td>
+                          <td>{event.event_type ? event.event_type : "Census in person"}</td>
+                          {/* <td>${event.notes}</td> */}
+                        </tr>
+                      </React.Fragment> 
+                      ))}
+                </tbody>
+              </Table>
+          </Card.Body>
+        </Card>
+        )}
+      </Modal.Body>
+    </Modal>
+    )
   }
 }
 
