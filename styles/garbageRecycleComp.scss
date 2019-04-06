@@ -1,14 +1,44 @@
+.darren-garbage {
+  .modal-content {
+    min-width: 500px;
+    .modal-body {
+      display:flex;
+      flex-direction: column;
+      justify-content: space-around;
+      position: static;
+  }
+}
+
+  .card {
+    width: 145px;
+    padding: 12px;
+    i {
+      justify-content: center;
+    }
+  }
+}
+
+
+
 .fa-trash-alt {
   color: black;
   size: 2x;
+  margin: 0 auto;
+  text-align: center;
 }
 
 
 .fa-recycle {
+  margin: 0 auto;
   color: blue;
   size: 2x;
+  text-align: center;
+
 }
 
 .fa-trash-restore {
+  margin: 0 auto;
   color: green;
+  text-align: center;
+
 }

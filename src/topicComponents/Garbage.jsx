@@ -36,15 +36,31 @@ class Garbage extends Component {
         aria-labelledby="contained-modal-title-vcenter"
         centered
         // dialogClassName="modal-60w"
+        className="darren-garbage"
       >
        <Modal.Header closeButton>
           <Modal.Title>Waste and Recycling Pickup</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
-            <h4><i className="fas fa-trash-alt fa-2x"></i> {black ? `Garbage is ${black[1]} ${black[0]}`: ""} </h4>
-            <h4><i className="fas fa-recycle fa-2x"></i> {blue ? `Recycle is ${blue[1]} ${blue[0]}`: ""} </h4>
-            <h4><i className="fas fa-trash-restore fa-2x"></i> {green ? `Compost is ${green[1]} ${green[0]}`: ""} </h4>
+        <span>
+          <CardDeck>
+            <Card.Body className="card">
+              <Card.Title><i className="fas fa-trash-alt fa-2x"></i></Card.Title>
+              <Card.Subtitle>Garbage</Card.Subtitle>
+              <Card.Text>{black ? `${black[1]} ${black[0]}`: ""}</Card.Text>
+            </Card.Body>
+            <Card.Body className="card">
+              <Card.Title><i className="fas fa-recycle fa-2x"></i></Card.Title>
+              <Card.Subtitle>Recycling</Card.Subtitle>
+              <Card.Text>{blue ? `${blue[1]} ${blue[0]}`: ""}</Card.Text>
+            </Card.Body>
+           <Card.Body className="card">
+              <Card.Title><i className="fas fa-trash-restore fa-2x"></i></Card.Title>
+              <Card.Subtitle>Composting</Card.Subtitle>
+              <Card.Text>{green ? `${green[1]} ${green[0]}`: ""}</Card.Text>
+            </Card.Body>
+          </CardDeck>
+          </span>
       </Modal.Body>
       </Modal>
     );
