@@ -55,7 +55,7 @@ class Property extends Component {
           </span>
         </Modal.Body>
         <Modal.Footer>
-          In Calgary a community's average (median) assesed property value ranges between ${this.state.propData.highestValue} and ${this.state.propData.lowestValue}.
+          In Calgary, a community's average (median) assesed property value ranges between ${this.state.propData.highestValue} and ${this.state.propData.lowestValue}.
         </Modal.Footer>
       </Modal>
     );
