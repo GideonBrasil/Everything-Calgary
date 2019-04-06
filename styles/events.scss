@@ -5,3 +5,18 @@
     white-space: normal;
   }
 }
+#news-modal{
+  min-width: 1100px;
+}
+.news-body{
+  min-width: 1100px;
+}
+.news-modal{
+  min-width: 1100px;
+  .news-card{
+    min-width: 1000px;
+    .pubdate {
+      min-width: 55px;
+    }
+  }
+}
