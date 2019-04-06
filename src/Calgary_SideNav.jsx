@@ -8,12 +8,12 @@ class Calgary_Sidenav extends Component {
     return (
       <nav id="sidebar" className="col">
         <div className="sidebar-header">
-          <h4>Everything currently... <br/>{this.props.community}</h4>
+          <h4>Everything currently... <br/></h4>
         </div>
         <ul className="list-unstyled components">
-          <li onClick={this.props.chooseStatistics} ><a id="crime">News</a></li>
-          <li onClick={this.props.chooseStatistics} ><a id="garbage">Traffic Incidents</a></li>
-          <li onClick={this.props.chooseStatistics} ><a id="property">Events</a></li>
+          <li><a id="crime">News</a></li>
+          <li><a id="garbage">Traffic Incidents</a></li>
+          <li><a id="property">Events</a></li>
         </ul>
       </nav>
     );
