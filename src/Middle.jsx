@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+  import React, { Component } from "react";
 require("../styles/main.scss");
 import GoogleApiWrapper from "./GoogleMaps.jsx";
 import Garbage from './topicComponents/Garbage.jsx';
@@ -14,8 +14,8 @@ class Middle extends Component {
   }
 
   render() {
-    console.log(this.props.data.topic)
     let component;
+    let pins;
     if (this.props.data.topic === "crime"){
          component = (<Crime data={this.props.data} changeTopic={this.props.changeTopic}/>);
 
@@ -23,12 +23,13 @@ class Middle extends Component {
         component = (<Garbage data={this.props.data} changeTopic={this.props.changeTopic}/>);
 
     } else if (this.props.data.topic === "property"){
-      component = (<Property data={this.props.data} changeTopic={this.props.changeTopic} />);
+        component = (<Property data={this.props.data} changeTopic={this.props.changeTopic} />);
 
+    } else if (this.props.data.topic === "collisions"){
+        pins = <CollisionPins />
     } else {
         component = null;
     }
-
       return (
         <div className="col mapCol">
             {component}
@@ -36,7 +37,9 @@ class Middle extends Component {
             <GoogleApiWrapper
               communityCenterLatLong={this.props.data.communityCenterLatLong}
               polygonCoords={this.props.data.polygonCoords}
-            />
+              >
+
+            </GoogleApiWrapper>
           </div>
         </div>
       );

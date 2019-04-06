@@ -37,6 +37,15 @@ class MapContainer extends Component {
     }
   };
 
+  renderMarkers(map, maps) {
+    let marker = new maps.Marker({
+      position: {lat: '51.0433951810899', lng: '-114.065661597048'},
+      map,
+      title: 'Hello World!'
+    });
+    return marker;
+  }
+
   render() {
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
@@ -47,6 +56,7 @@ class MapContainer extends Component {
         style={mapStyles}
         initialCenter={this.props.communityCenterLatLong}
         bounds={bounds}
+        onGoogleApiLoaded={({map, maps}) => this.renderMarkers(map, maps)}
       >
         <Polygon
           paths={this.props.polygonCoords}
