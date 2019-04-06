@@ -2,12 +2,12 @@
   .modal-content {
     min-width: 500px;
     .modal-body {
-      display:flex;
+      display: flex;
       flex-direction: column;
       justify-content: space-around;
       position: static;
+    }
   }
-}
 
   .card {
     width: 145px;
@@ -16,9 +16,10 @@
       justify-content: center;
     }
   }
+  .card.card-body {
+    text-align: center;
+  }
 }
-
-
 
 .fa-trash-alt {
   color: black;
@@ -27,18 +28,15 @@
   text-align: center;
 }
 
-
 .fa-recycle {
   margin: 0 auto;
   color: blue;
   size: 2x;
   text-align: center;
-
 }
 
 .fa-trash-restore {
   margin: 0 auto;
   color: green;
   text-align: center;
-
 }
