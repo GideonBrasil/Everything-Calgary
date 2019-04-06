@@ -4,6 +4,7 @@ import GoogleApiWrapper from "./GoogleMaps.jsx";
 import Garbage from './topicComponents/Garbage.jsx';
 import Property from './topicComponents/Property.jsx';
 import Crime from './topicComponents/Crime.jsx';
+import BuildingPermit from './topicComponents/buildingPermits.jsx'
 
 class Middle extends Component {
   constructor(props) {
@@ -25,8 +26,8 @@ class Middle extends Component {
     } else if (this.props.data.topic === "property"){
         component = (<Property data={this.props.data} changeTopic={this.props.changeTopic} />);
 
-    } else if (this.props.data.topic === "collisions"){
-        pins = <CollisionPins />
+    } else if (this.props.data.topic === "building-permit"){
+        pins = <BuildingPermit />;
     } else {
         component = null;
     }

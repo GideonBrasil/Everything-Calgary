@@ -6,6 +6,8 @@ import {
   InfoWindow,
   Marker
 } from "google-maps-react";
+import CollisionPins from "./topicComponents/collisionPins.jsx";
+
 
 const mapStyles = {
   width: "100%",
@@ -21,12 +23,13 @@ class MapContainer extends Component {
     selectedPlace: {} //Shows the infoWindow to the selected place upon a marker
   };
 
-  onMarkerClick = (props, marker, e) =>
+  onMarkerClick = (props, marker, e) => {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
+  }
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
@@ -37,18 +40,34 @@ class MapContainer extends Component {
     }
   };
 
-  renderMarkers(map, maps) {
-    let marker = new maps.Marker({
-      position: {lat: '51.0433951810899', lng: '-114.065661597048'},
-      map,
-      title: 'Hello World!'
-    });
-    return marker;
-  }
-
   render() {
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
+    let image1 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+    let image2 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/car.png';
+
+    let something = [
+        <Marker
+          title = { 'Changing Colors Garage' }
+          position = {{ lat: 51.042945115301, lng: -114.07169547032 }}
+          name = { 'Changing Colors Garage' }
+          animation = {google.maps.Animation.DROP}
+          icon = {image1}
+        />,
+        <Marker
+          title = { 'Changing Colors Garage' }
+          position = {{ lat: 51.040698989336, lng: -114.075206002408 }}
+          name = { 'Changing Colors Garage' }
+          animation = {google.maps.Animation.DROP}
+          icon = {image1}
+        />,
+        <Marker
+          title = { 'Changing Colors' }
+          position = {{ lat: 51.042423905999, lng: -114.069662655696 }}
+          name = { 'Changing Colors' }
+          animation = {google.maps.Animation.DROP}
+          icon = {image1}
+        />]
 
     return (
       <Map
@@ -66,6 +85,8 @@ class MapContainer extends Component {
           fillColor="#0000FF"
           fillOpacity={0.35}
         />
+        {something}
+
       </Map>
     );
   }

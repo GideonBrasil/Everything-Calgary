@@ -14,6 +14,7 @@ class Sidenav extends Component {
           <li onClick={this.props.chooseStatistics} ><a id="crime">Crime</a></li>
           <li onClick={this.props.chooseStatistics} ><a id="garbage">Garbage pickup</a></li>
           <li onClick={this.props.chooseStatistics} ><a id="property">Property Assessment</a></li>
+          <li onClick={this.props.chooseStatistics} ><a id="building-permit">Building Permits</a></li>
         </ul>
       </nav>
     );

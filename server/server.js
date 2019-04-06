@@ -11,6 +11,7 @@ const geoCodeRouter = require("./routes/geoCodes");
 const garbageRouter = require("./routes/garbageAPI.js");
 const crimeRouter = require("./routes/crimeAPI.js");
 const propertyAssessmentRouter = require("./routes/propertyAssessmentAPI.js");
+const buildingPermitRouter = require("./routes/buildingPermits.js");
 
 const PORT = 3000;
 
@@ -34,7 +35,8 @@ app.use("/coordinates", communityRouter);
 app.use("/geocoordinates", geoCodeRouter);
 app.use("/garbage", garbageRouter);
 app.use("/crime", crimeRouter);
-app.use("/propertyAssessment", propertyAssessmentRouter)
+app.use("/propertyAssessment", propertyAssessmentRouter);
+app.use("/buildingPermits", buildingPermitRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
