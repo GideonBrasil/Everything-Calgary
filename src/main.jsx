@@ -17,17 +17,26 @@ class Main extends Component {
       this.props.changeTopic(e.target.id);
     };
 
-    if (this.props.jumbotron) {
+    if (this.props.jumbotron === true) {
       return (
         <React.Fragment>
           <Jumbotron updateCommunity={this.props.updateCommunity} />
         </React.Fragment>
       );
     } else if (this.props.calgary === true) {
-      <React.Fragment>
-        <Calgary_Middle data={this.props.data} />
-        <Calgary_SideNav />
-      </React.Fragment>;
+      return (
+        <div className="row">
+          <Calgary_SideNav
+            topic={this.props.topic}
+            chooseStatistics={chooseStatistics}
+          />
+          <Calgary_Middle
+            data={this.props.data}
+            changeTopic={this.props.changeTopic}
+            updateCommunity={this.props.updateCommunity}
+          />
+        </div>
+      );
     } else {
       return (
         <div className="row">
