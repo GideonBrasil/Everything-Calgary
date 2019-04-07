@@ -74,13 +74,20 @@ class App extends Component {
     }));
   }
 
-  showCalgary(){
-    if (this.state.calgary === false){
-      this.setState(state => ({
-        jumbotron: false,
-        calgary: true
-      }));
-    }
+  showCalgary() {
+    fetch(`http://localhost:3000/city/calgary`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState(state => ({
+          polygonCoords: data,
+          jumbotron: false,
+          calgary: true,
+          topic: ""
+        }));
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {

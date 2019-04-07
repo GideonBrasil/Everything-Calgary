@@ -13,10 +13,9 @@ This is the main structure container all sections will be imported here
 
 class Main extends Component {
   render() {
-
     const chooseStatistics = e => {
-      this.props.changeTopic(e.target.id)
-    }
+      this.props.changeTopic(e.target.id);
+    };
 
     if (this.props.jumbotron) {
       return (
@@ -26,16 +25,17 @@ class Main extends Component {
       );
     } else if (this.props.calgary === true) {
       <React.Fragment>
-        <Calgary_Middle/>
-        <Calgary_SideNav/>
-      </React.Fragment>
+        <Calgary_Middle data={this.props.data} />
+        <Calgary_SideNav />
+      </React.Fragment>;
     } else {
       return (
         <div className="row">
-          <Calgary_SideNav 
-            topic={this.props.topic} 
-            chooseStatistics={chooseStatistics}/>
-          <Calgary_Middle
+          <SideNav
+            topic={this.props.topic}
+            chooseStatistics={chooseStatistics}
+          />
+          <Middle
             data={this.props.data}
             changeTopic={this.props.changeTopic}
             updateCommunity={this.props.updateCommunity}
