@@ -14,24 +14,48 @@ class NavBar extends Component {
         alert("Community does not exist!");
       }
     };
-    if (this.props.jumbotron === false) {
+    if (this.props.jumbotron === false && this.props.calgary === false) {
       return (
         <nav className="navbar fixed navbar-light">
           <a onClick={this.props.showJumbotron} className="navbar-brand">
             <img id="logo" src="https://github.com/GideonBrasil/Everything-Calgary/blob/master/public/images/logo1.png?raw=true" alt="logo" />{" "}
           </a>
           <section>
-{/*            <div id="calgary-now">
+            <div id="calgary-now">
               <button
                 style={{ color: 'white'}}
                 className="btn btn-danger btn-lg btn2"
                 id="btn2"
                 role="button"
-                onClick={() => this.props.click()}
+                onClick={this.props.showCalgary}
               >
                 Calgary Now!
               </button>
-            </div>*/}
+            </div>
+            <form className="form-inline" onSubmit={checkCommunity}>
+              <Autocomplete
+                className="form-control mr-sm-2"
+                type="search"
+                suggestions={suggestions}
+                community={this.props.community}
+              />
+              <button
+                className="btn btn-outline-danger my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </section>
+        </nav>
+      );
+    } else if (this.props.calgary === true){
+      return (
+        <nav className="navbar fixed navbar-light">
+          <a onClick={this.props.showJumbotron} className="navbar-brand">
+            <img id="logo" src="https://github.com/GideonBrasil/Everything-Calgary/blob/master/public/images/logo1.png?raw=true" alt="logo" />{" "}
+          </a>
+          <section>
             <form className="form-inline" onSubmit={checkCommunity}>
               <Autocomplete
                 className="form-control mr-sm-2"
@@ -55,14 +79,14 @@ class NavBar extends Component {
           <a className="navbar-brand">
             <img id="logo" src="https://github.com/GideonBrasil/Everything-Calgary/blob/master/public/images/logo1.png?raw=true" alt="logo" />{" "}
           </a>
-{/*          <button
+            <button
             className="btn btn-danger btn-lg"
             id="btn2"
             role="button"
-            onClick={() => this.props.click()}
+            onClick={this.props.showCalgary}
           >
             Calgary Now!
-          </button>*/}
+          </button>
         </nav>
       );
     }

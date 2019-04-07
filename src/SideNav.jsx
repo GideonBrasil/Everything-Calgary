@@ -8,7 +8,7 @@ class Sidenav extends Component {
     return (
       <nav id="sidebar" className="col">
         <div className="sidebar-header">
-          <h4>Everything... <br/>{this.props.community}</h4>
+          <h4>Everything... <br/>{this.props.data.community}</h4>
         </div>
         <ul className="list-unstyled components">
           <li onClick={this.props.chooseStatistics} ><a id="crime">Crime</a></li>

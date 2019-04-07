@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 require("../styles/main.scss");
 import GoogleApiWrapper from "./GoogleMaps.jsx";
-import Garbage from './topicComponents/Garbage.jsx';
-import Property from './topicComponents/Property.jsx';
-import Crime from './topicComponents/Crime.jsx';
+import Garbage from "./topicComponents/Garbage.jsx";
+import Property from "./topicComponents/Property.jsx";
+import Crime from "./topicComponents/Crime.jsx";
 
 class Middle extends Component {
   constructor(props) {
     super(props);
     this.state = {
       propertyData: {}
+
     };
   }
 

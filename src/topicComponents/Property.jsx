@@ -45,9 +45,9 @@ class Property extends Component {
             {propData.range.map(pcdeets => <Card style={{ width: '850px', backgroundColor: this.props.data.communityCode === pcdeets.comm_code && 'tomato' }} key={pcdeets.comm_code} className="darren-card">
                 <Card.Body>
                   <Card.Title>{pcdeets.community_name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">${pcdeets.median_assessed_value}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">${Number(pcdeets.median_assessed_value).toLocaleString()}</Card.Subtitle>
                   <Card.Text>
-                    {pcdeets.community_name} has {pcdeets.number_of_taxable_accounts} assessed properties.
+                    {pcdeets.community_name} has {Number(pcdeets.number_of_taxable_accounts).toLocaleString()} assessed properties.
                   </Card.Text>
                 </Card.Body>
               </Card>)}
@@ -55,7 +55,7 @@ class Property extends Component {
           </span>
         </Modal.Body>
         <Modal.Footer>
-          In Calgary, a community's average (median) assesed property value ranges between ${this.state.propData.highestValue} and ${this.state.propData.lowestValue}.
+          In Calgary, a community's average (median) assesed property value ranges between ${Number(this.state.propData.lowestValue).toLocaleString()} and ${Number(this.state.propData.highestValue).toLocaleString()}.
         </Modal.Footer>
       </Modal>
     );

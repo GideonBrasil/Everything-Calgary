@@ -50,15 +50,22 @@ function dataFilter(data, community) {
     return crime.month === 'FEB';
   });
 
+  let totalCalgaryCrimeMonth = 0;
+  calgaryMonthCrimes.forEach( crime => {
+    totalCalgaryCrimeMonth += Number(crime.count);
+  });
+
+  let totalComCrimeMonth = 0;
+  communityMonthCrimes.forEach( crime => {
+    totalComCrimeMonth += Number(crime.count);
+  });
+
   const residentsCount = communityMonthCrimes[0].resident_count;
 
   const comm12Stats = sortCrimeData(communityCrimes);
   const YYC12Stats = sortCrimeData(data12Months);
   const commMonthStats = sortCrimeData(communityMonthCrimes);
   const YYCMonthStats = sortCrimeData(calgaryMonthCrimes);
-
-  console.log(Object.keys(YYCMonthStats))
-  console.log(Object.values(YYCMonthStats))
 
   function createByPeriod(YYCStats, commStats) {
     return Object.keys(YYCStats).reduce((crimeMonth, cat) => {
@@ -81,7 +88,9 @@ function dataFilter(data, community) {
 
    return ({'community_name': community,
             'totalYYCCrime12': totalCalgaryCrime,
+            'totalYYCCrimeMonth': totalCalgaryCrimeMonth,
             'totalCommCrime12': totalComCrimes,
+            'totalCommCrimeMonth': totalComCrimeMonth,
             'residentsCount': residentsCount,
             // 'comm12Stats': comm12Stats,
             // 'YYC12Stats': YYC12Stats,
@@ -106,6 +115,7 @@ router.get("/:community", function(req, res, next) {
   request(options).then(data => {
     data = JSON.parse(data);
     dataObj = dataFilter(data, communityName);
+    console.log(dataObj);
     res.status(200).json(dataObj);
   });
 });
