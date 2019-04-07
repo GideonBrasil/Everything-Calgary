@@ -14,6 +14,7 @@ class App extends Component {
       communityCode: "",
       communityId: "",
       polygonCoords: [],
+      pins: [],
       topic: "",
       calgary: false
     };
@@ -22,6 +23,21 @@ class App extends Component {
     this.changeTopic = this.changeTopic.bind(this);
     this.showJumbotron = this.showJumbotron.bind(this);
     this.showCalgary = this.showCalgary.bind(this);
+    this.updatePins = this.updatePins.bind(this);
+  }
+
+  updatePins() {
+    fetch(`http://localhost:3000/constructionPermits/${this.state.community}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log("data in construction_permits:", data);
+        this.setState(state => ({
+          pins: data
+        }));
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   handleClick() {
@@ -69,8 +85,12 @@ class App extends Component {
   }
 
   changeTopic(newTopic) {
+    if (newTopic === "construction permits") {
+      this.updatePins();
+    }
     this.setState(state => ({
-      topic: newTopic
+      topic: newTopic,
+      pins: []
     }));
   }
 
@@ -91,6 +111,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("this is the STATE for TOPIC:", this.state.topic);
     return (
       <div id="main-div">
         <NavBar

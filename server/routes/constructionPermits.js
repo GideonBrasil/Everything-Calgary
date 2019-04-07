@@ -2,13 +2,17 @@ const express = require("express");
 const router = express.Router();
 const request = require("request-promise");
 
+function createCoordObjects(array) {
+  return { lat: array[1], lng: array[0] };
+}
+
 function preparePermitsData(permitsData) {
   let outputData = [];
   permitsData.forEach(permit => {
     outputData.push({
       description: permit.description,
       estprojectcost: permit.estprojectcost,
-      location: permit.location,
+      location: createCoordObjects(permit.location.coordinates),
       type: permit.permittype,
       status: permit.statuscurrent,
       address: permit.originaladdress,

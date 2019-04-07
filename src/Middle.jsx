@@ -10,38 +10,41 @@ class Middle extends Component {
     super(props);
     this.state = {
       propertyData: {}
-
     };
   }
 
   render() {
-    console.log(this.props.data.topic)
+    console.log(this.props.data.topic);
     let component;
-    if (this.props.data.topic === "crime"){
-         component = (<Crime data={this.props.data} changeTopic={this.props.changeTopic}/>);
-
-    } else if (this.props.data.topic === "garbage"){
-        component = (<Garbage data={this.props.data} changeTopic={this.props.changeTopic}/>);
-
-    } else if (this.props.data.topic === "property"){
-      component = (<Property data={this.props.data} changeTopic={this.props.changeTopic} />);
-
-    } else {
-        component = null;
-    }
-
-      return (
-        <div className="col mapCol">
-            {component}
-          <div>
-            <GoogleApiWrapper
-              communityCenterLatLong={this.props.data.communityCenterLatLong}
-              polygonCoords={this.props.data.polygonCoords}
-            />
-          </div>
-        </div>
+    if (this.props.data.topic === "crime") {
+      component = (
+        <Crime data={this.props.data} changeTopic={this.props.changeTopic} />
       );
+    } else if (this.props.data.topic === "garbage") {
+      component = (
+        <Garbage data={this.props.data} changeTopic={this.props.changeTopic} />
+      );
+    } else if (this.props.data.topic === "property") {
+      component = (
+        <Property data={this.props.data} changeTopic={this.props.changeTopic} />
+      );
+    } else {
+      component = null;
     }
+
+    return (
+      <div className="col mapCol">
+        {component}
+        <div>
+          <GoogleApiWrapper
+            communityCenterLatLong={this.props.data.communityCenterLatLong}
+            polygonCoords={this.props.data.polygonCoords}
+            pins={this.props.data.pins}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Middle;

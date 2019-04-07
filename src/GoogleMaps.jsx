@@ -18,25 +18,25 @@ class MapContainer extends Component {
   state = {
     showingInfoWindow: true, //Hides or the shows the infoWindow
     activeMarker: {}, //Shows the active marker upon click
-    selectedPlace: {}, //Shows the infoWindow to the selected place upon a marker
-    markers: [
-      {
-        name: "It's yaaaa Robin",
-        title: "Robin Hood",
-        position: {
-          lat: 51.157707,
-          lng: -114.148879
-        }
-      },
-      {
-        name: "It's yaaaa boi LJ",
-        title: "Little John",
-        position: {
-          lat: 51.156994,
-          lng: -114.151003
-        }
-      }
-    ]
+    selectedPlace: {} //Shows the infoWindow to the selected place upon a marker
+    // markers: [
+    //   {
+    //     name: "It's yaaaa Robin",
+    //     title: "Robin Hood",
+    //     position: {
+    //       lat: 51.157707,
+    //       lng: -114.148879
+    //     }
+    //   },
+    //   {
+    //     name: "It's yaaaa boi LJ",
+    //     title: "Little John",
+    //     position: {
+    //       lat: 51.156994,
+    //       lng: -114.151003
+    //     }
+    //   }
+    // ]
   };
 
   onMarkerClick = (props, marker, e) =>
@@ -59,14 +59,16 @@ class MapContainer extends Component {
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
 
-    let markers = this.state.markers.map(marker => {
+    console.log("ThESE ARE THE MARKER PROPS:", this.props.pins);
+    let markers = this.props.pins.map(marker => {
       return (
         <Marker
-          key={`marker_${marker.name}`}
-          name={marker.name}
-          position={marker.position}
-          title={marker.title}
+          key={parseFloat(marker.location.lng)}
+          name={marker.description}
+          position={marker.location}
+          title={marker.address}
           onClick={this.onMarkerClick}
+          animation={google.maps.Animation.DROP}
         />
       );
     });
