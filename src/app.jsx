@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NavBar from "./NavBar.jsx";
-import Main from "./main.jsx";
-import Footer from "./Footer.jsx";
+import NavBar from "./appComponents/NavBar.jsx";
+import Main from "./appComponents/main.jsx";
+import Footer from "./appComponents/Footer.jsx";
 // import axios from "axios";
 
 class App extends Component {

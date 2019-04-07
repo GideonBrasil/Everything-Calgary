@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Autocomplete from "./Autocomplete.jsx";
-import suggestions from "../helper/communities.js";
+import suggestions from "../../helper/communities.js";
 
 class NavBar extends Component {
   render() {
