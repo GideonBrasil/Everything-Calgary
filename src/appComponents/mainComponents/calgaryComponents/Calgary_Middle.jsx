@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import GoogleApiWrapper from "../GoogleMaps.jsx";
-import Events from "./calgaryComponents/Events.jsx";
-import News from "./calgaryComponents/News.jsx";
-import TrafficIncidents from "./calgaryComponents/TrafficIncidents.jsx";
+import Events from "./topicComponents/Events.jsx";
+import News from "./topicComponents/News.jsx";
+import TrafficIncidents from "./topicComponents/TrafficIncidents.jsx";
 
 class Calgary_Middle extends Component {
   render() {

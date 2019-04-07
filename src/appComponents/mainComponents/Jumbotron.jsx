@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Autocomplete from "../navBarComponents/Autocomplete.jsx";
 import suggestions from "../../../helper/communities.js";
 
-require("../styles/main.scss");
 
 class Jumbotron extends Component {
   render() {
