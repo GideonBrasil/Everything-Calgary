@@ -52,7 +52,7 @@ class Events extends Component {
             onSelect={selectedKey => this.handleTabClick(selectedKey)}
             >
             <Nav.Item>
-              <h4>Upcoming Events</h4>
+              <h4>Upcoming City Events</h4>
             </Nav.Item>
           </Nav>
         </Card.Header>

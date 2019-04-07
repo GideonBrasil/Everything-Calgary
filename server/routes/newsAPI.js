@@ -23,6 +23,9 @@ router.get("/", function(req, res, next) {
   request(options).then(data => {
     let newsData = JSON.parse(data);
     const filteredNews = newsData.filter(filterDates);
+    filteredNews.sort(function(a,b){
+      return new Date(b.pubdate) - new Date(a.pubdate);
+    })
     res.status(200).json(filteredNews);
   });
 });
