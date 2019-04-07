@@ -86,13 +86,8 @@ class MapContainer extends Component {
           fillColor="#0000FF"
           fillOpacity={0.35}
         />
-          <Marker
-            title = { 'Changing Colors Garage' }
-            position = {{ lat: 51.042945115301, lng: -114.07169547032 }}
-            name = { 'Changing Colors Garage' }
-            icon = {image1}>
-          <InfoWindow><p>Hello</p></InfoWindow>
-          </Marker>
+
+
 
       </Map>
     );
