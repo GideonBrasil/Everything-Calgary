@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NavBar from "./NavBar.jsx";
-import Main from "./main.jsx";
-import Footer from "./Footer.jsx";
+import NavBar from "./appComponents/NavBar.jsx";
+import Main from "./appComponents/main.jsx";
+import Footer from "./appComponents/Footer.jsx";
 // import axios from "axios";
 
 class App extends Component {
@@ -105,12 +105,8 @@ class App extends Component {
         <Main
           data={this.state}
           updateCommunity={this.updateCommunity}
-          jumbotron={this.state.jumbotron}
-          topic={this.state.topic}
-          polygonCoords={this.state.polygonCoords}
           changeTopic={this.changeTopic}
           showCalgary={this.showCalgary}
-          calgary={this.state.calgary}
         />
         <Footer />
       </div>

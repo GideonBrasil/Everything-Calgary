@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-require("../styles/main.scss");
-import GoogleApiWrapper from "./GoogleMaps.jsx";
+import GoogleApiWrapper from "../GoogleMaps.jsx";
 import Garbage from "./topicComponents/Garbage.jsx";
 import Property from "./topicComponents/Property.jsx";
 import Crime from "./topicComponents/Crime.jsx";

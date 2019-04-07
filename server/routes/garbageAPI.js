@@ -56,8 +56,7 @@ router.get("/:community", function(req, res, next) {
     data.forEach(bin => {
       const binData = manipulateData(bin)
       garbageObj[binData[1]] = binData[0]
-    })
-    console.log(garbageObj);
+    });
     res.status(200).json(garbageObj);
   });
 });

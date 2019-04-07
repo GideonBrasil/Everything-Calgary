@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-require("../styles/main.scss");
-import SideNav from "./SideNav.jsx";
-import Middle from "./Middle.jsx";
-import Jumbotron from "./Jumbotron.jsx";
-import Calgary_Middle from "./Calgary_Middle.jsx";
-import Calgary_SideNav from "./Calgary_SideNav.jsx";
+import SideNav from "./mainComponents/communityComponents/SideNav.jsx";
+import Middle from "./mainComponents/communityComponents/Middle.jsx";
+import Jumbotron from "./mainComponents/Jumbotron.jsx";
+import Calgary_Middle from "./mainComponents/calgaryComponents/Calgary_Middle.jsx";
+import Calgary_SideNav from "./mainComponents/calgaryComponents/Calgary_SideNav.jsx";
 
 /*
 This is the main structure container all sections will be imported here
@@ -17,19 +16,18 @@ class Main extends Component {
       this.props.changeTopic(e.target.id);
     };
 
-    if (this.props.jumbotron === true) {
+    if (this.props.data.jumbotron === true) {
       return (
         <React.Fragment>
           <Jumbotron updateCommunity={this.props.updateCommunity} />
         </React.Fragment>
       );
-    } else if (this.props.calgary === true) {
+    } else if (this.props.data.calgary === true) {
       return (
         <div className="row">
           <Calgary_SideNav
           data={this.props.data}
-            topic={this.props.topic}
-            chooseStatistics={chooseStatistics}
+          chooseStatistics={chooseStatistics}
           />
           <Calgary_Middle
             data={this.props.data}
@@ -43,7 +41,6 @@ class Main extends Component {
         <div className="row">
           <SideNav
             data={this.props.data}
-            topic={this.props.topic}
             chooseStatistics={chooseStatistics}
           />
           <Middle
