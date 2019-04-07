@@ -81,10 +81,7 @@ function dataFilter(data, community) {
   }
 
   const monthCrimeStats = createByPeriod(YYCMonthStats, commMonthStats);
-  const yearCrimeStats = createByPeriod(YYC12Stats, comm12Stats)
-
-
-  
+  const yearCrimeStats = createByPeriod(YYC12Stats, comm12Stats);
 
    return ({'community_name': community,
             'totalYYCCrime12': totalCalgaryCrime,
