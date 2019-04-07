@@ -7,7 +7,7 @@ class BuildingPermits extends Component {
     fetch(`http://localhost:3000/buildingPermits/${this.props.data.community}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        this.props.addPinstoState(data);
       })
       .catch(err => {
         console.log(err);
@@ -15,7 +15,16 @@ class BuildingPermits extends Component {
   }
 
   render() {
-    return (<p>Hello</p>);
+
+
+    return (
+        <Marker
+          onClick = { this.onMarkerClick }
+          title = { 'Changing Colors Garage' }
+          position = {{ lat: 51.0433951810899, lng: -114.065661597048 }}
+          name = { 'Changing Colors Garage' }
+        />
+      );
   }
 }
 

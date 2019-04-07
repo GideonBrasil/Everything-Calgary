@@ -10,8 +10,16 @@ class Middle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      propertyData: {}
+      propertyData: {},
+      permitPins: []
     };
+    this.addPinstoState = this.addPinstoState.bind(this);
+  }
+
+  addPinstoState (arrayData) {
+    this.setState(state => ({
+          permitPins: arrayData
+        }));
   }
 
   render() {
@@ -27,7 +35,7 @@ class Middle extends Component {
         component = (<Property data={this.props.data} changeTopic={this.props.changeTopic} />);
 
     } else if (this.props.data.topic === "building-permit"){
-        pins = <BuildingPermit />;
+        component = <BuildingPermit data={this.props.data} changeTopic={this.props.changeTopic} addPinstoState={this.addPinstoState}/>;
     } else {
         component = null;
     }

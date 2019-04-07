@@ -18,7 +18,7 @@ const mapStyles = {
 
 class MapContainer extends Component {
   state = {
-    showingInfoWindow: true, //Hides or the shows the infoWindow
+    showingInfoWindow: false, //Hides or the shows the infoWindow
     activeMarker: {}, //Shows the active marker upon click
     selectedPlace: {} //Shows the infoWindow to the selected place upon a marker
   };
@@ -47,13 +47,14 @@ class MapContainer extends Component {
     let image2 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/car.png';
 
     let something = [
-        <Marker
-          title = { 'Changing Colors Garage' }
-          position = {{ lat: 51.042945115301, lng: -114.07169547032 }}
-          name = { 'Changing Colors Garage' }
-          animation = {google.maps.Animation.DROP}
-          icon = {image1}
-        />,
+          <Marker
+            title = { 'Changing Colors Garage' }
+            position = {{ lat: 51.042945115301, lng: -114.07169547032 }}
+            name = { 'Changing Colors Garage' }
+            icon = {image1}>
+          <InfoWindow showingInfoWindow= {true} ><p>Hello</p></InfoWindow>
+          </Marker>
+          ,
         <Marker
           title = { 'Changing Colors Garage' }
           position = {{ lat: 51.040698989336, lng: -114.075206002408 }}
@@ -85,7 +86,13 @@ class MapContainer extends Component {
           fillColor="#0000FF"
           fillOpacity={0.35}
         />
-        {something}
+          <Marker
+            title = { 'Changing Colors Garage' }
+            position = {{ lat: 51.042945115301, lng: -114.07169547032 }}
+            name = { 'Changing Colors Garage' }
+            icon = {image1}>
+          <InfoWindow><p>Hello</p></InfoWindow>
+          </Marker>
 
       </Map>
     );
