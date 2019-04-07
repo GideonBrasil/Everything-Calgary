@@ -88,10 +88,10 @@ class App extends Component {
     if (newTopic === "construction permits") {
       this.updatePins();
     }
-    this.setState(state => ({
-      topic: newTopic,
-      pins: []
-    }));
+    this.setState({
+      pins: [],
+      topic: newTopic
+    });
   }
 
   showCalgary() {
@@ -102,7 +102,8 @@ class App extends Component {
           polygonCoords: data,
           jumbotron: false,
           calgary: true,
-          topic: ""
+          topic: "",
+          pins: []
         }));
       })
       .catch(err => {

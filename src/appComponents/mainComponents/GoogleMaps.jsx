@@ -63,7 +63,7 @@ class MapContainer extends Component {
     let markers = this.props.pins.map(marker => {
       return (
         <Marker
-          key={parseFloat(marker.location.lng)}
+          key={Math.random() * 99}
           name={marker.description}
           position={marker.location}
           title={marker.address}
