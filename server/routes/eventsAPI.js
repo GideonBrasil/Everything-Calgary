@@ -14,21 +14,21 @@ function filterDates(data){
 }
 
   /* GET users listing. */
-  router.get("/", function(req, res, next) {
-    let options = {
-      url: `https://data.calgary.ca/resource/rbmk-85cw.json`,
-      headers: {
-        "User-Agent": "request",
-        "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
-      }
-    };
-    request(options).then(data => {
-      eventsData = JSON.parse(data);
-      const futureEvents = eventsData.filter(filterDates);
-      futureEvents.sort(function(a,b){
-        return new Date(a.next_date) - new Date(b.next_date);
-      });
-    res.status(200).json(futureEvents);
+router.get("/", function(req, res, next) {
+  let options = {
+    url: `https://data.calgary.ca/resource/rbmk-85cw.json`,
+    headers: {
+      "User-Agent": "request",
+      "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
+    }
+  };
+  request(options).then(data => {
+    eventsData = JSON.parse(data);
+    const futureEvents = eventsData.filter(filterDates);
+    futureEvents.sort(function(a,b){
+      return new Date(a.next_date) - new Date(b.next_date);
+    });
+  res.status(200).json(futureEvents);
   });
 });
 
