@@ -14,7 +14,7 @@ class NavBar extends Component {
         alert("Community does not exist!");
       }
     };
-    if (this.props.jumbotron === false) {
+    if (this.props.jumbotron === false && this.props.calgary === false) {
       return (
         <nav className="navbar fixed navbar-light">
           <a onClick={this.props.showJumbotron} className="navbar-brand">
