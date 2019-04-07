@@ -54,10 +54,11 @@ class MapContainer extends Component {
       });
     }
   };
-
   render() {
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
+
+    console.log("THE POLY CORDS: ", this.props.polygonCoords);
 
     let markers = this.state.markers.map(marker => {
       return (
@@ -74,6 +75,7 @@ class MapContainer extends Component {
     return (
       <Map
         google={this.props.google}
+        zoom={this.props.zoom}
         style={mapStyles}
         initialCenter={this.props.communityCenterLatLong}
         bounds={bounds}
