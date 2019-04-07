@@ -102,6 +102,8 @@ class App extends Component {
           topic={this.state.topic}
           polygonCoords={this.state.polygonCoords}
           changeTopic={this.changeTopic}
+          showCalgary={this.showCalgary}
+          calgary={this.state.calgary}
         />
         <Footer />
       </div>

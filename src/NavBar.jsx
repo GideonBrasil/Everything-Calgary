@@ -42,6 +42,7 @@ class NavBar extends Component {
               <button
                 className="btn btn-outline-danger my-2 my-sm-0"
                 type="submit"
+                onClick={this.props.showCalgary}
               >
                 Search
               </button>

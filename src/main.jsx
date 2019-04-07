@@ -18,7 +18,7 @@ class Main extends Component {
       this.props.changeTopic(e.target.id)
     }
 
-    if (this.props.jumbotron) {
+    if (this.props.jumbotron === true) {
       return (
         <React.Fragment>
           <Jumbotron updateCommunity={this.props.updateCommunity} />
@@ -32,10 +32,10 @@ class Main extends Component {
     } else {
       return (
         <div className="row">
-          <Calgary_SideNav 
+          <SideNav 
             topic={this.props.topic} 
             chooseStatistics={chooseStatistics}/>
-          <Calgary_Middle
+          <Middle
             data={this.props.data}
             changeTopic={this.props.changeTopic}
             updateCommunity={this.props.updateCommunity}
