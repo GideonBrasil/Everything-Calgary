@@ -54,6 +54,7 @@ class MapContainer extends Component {
       });
     }
   };
+
   render() {
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
