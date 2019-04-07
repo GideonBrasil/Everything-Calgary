@@ -78,11 +78,16 @@ class Crime extends Component {
                         <React.Fragment key={deets.category}>
                           <tr>
                             <td>{deets.category}</td>
-                            <td>{deets.commNum}</td>
-                            <td>{deets.yycNum}</td>
+                            <td>{Number(deets.commNum).toLocaleString()}</td>
+                            <td>{Number(deets.yycNum).toLocaleString()}</td>
                           </tr>
                         </React.Fragment> 
                         ))}
+                          <tr>
+                            <td><strong>TOTAL</strong></td>
+                            <td><strong>{activeCrimeStats = link == '#lst12Mos' ? Number(crimeStats.totalCommCrime12).toLocaleString() : Number(crimeStats.totalCommCrimeMonth).toLocaleString()}</strong></td>
+                            <td><strong>{activeCrimeStats = link == '#lst12Mos' ? Number(crimeStats.totalYYCCrime12).toLocaleString() : Number(crimeStats.totalYYCCrimeMonth).toLocaleString()}</strong></td>
+                          </tr>
                   </tbody>
                 </Table>
             </Card.Body>
