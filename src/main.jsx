@@ -27,6 +27,7 @@ class Main extends Component {
       return (
         <div className="row">
           <Calgary_SideNav
+          data={this.props.data}
             topic={this.props.topic}
             chooseStatistics={chooseStatistics}
           />
@@ -41,6 +42,7 @@ class Main extends Component {
       return (
         <div className="row">
           <SideNav
+            data={this.props.data}
             topic={this.props.topic}
             chooseStatistics={chooseStatistics}
           />
