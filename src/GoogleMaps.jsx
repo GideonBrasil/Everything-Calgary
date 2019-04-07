@@ -16,29 +16,17 @@ const mapStyles = {
   marginRight: "auto"
 };
 
+
+function randomPinKey () {
+  return Math.random()*102039333;
+}
+
 class MapContainer extends Component {
   state = {
     showingInfoWindow: false, //Hides or the shows the infoWindow
     activeMarker: {}, //Shows the active marker upon click
     selectedPlace: {}, //Shows the infoWindow to the selected place upon a marker
-    markers: [
-      {
-        name: "It's yaaaa Robin",
-        title: "Robin Hood",
-        position: {
-          lat: 51.157707,
-          lng: -114.148879
-        }
-      },
-      {
-        name: "It's yaaaa boi LJ",
-        title: "Little John",
-        position: {
-          lat: 51.156994,
-          lng: -114.151003
-        }
-      }
-    ]
+    permitPins: []
   };
 
   onMarkerClick = (props, marker, e) => {
@@ -57,46 +45,46 @@ class MapContainer extends Component {
       });
     }
   };
+
+  addPinstoState (arrayData) {
+    this.setState(state => ({
+          permitPins: arrayData
+        }));
+  }
+  getBuildingPermits () {
+    fetch(`http://localhost:3000/buildingPermits/${this.props.data.community}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.addPinstoState(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+
+  componentDidMount() {
+    if (this.props.permitPins) {
+      console.log('hello');
+      getBuildingPermits();
+    }
+  }
+
   render() {
+    console.log(this.state.permitPins);
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
-    let image1 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-    let image2 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/car.png';
 
-    let something = [
-          <Marker
-            title = { 'Changing Colors Garage' }
-            position = {{ lat: 51.042945115301, lng: -114.07169547032 }}
-            name = { 'Changing Colors Garage' }
-            icon = {image1}>
-          <InfoWindow showingInfoWindow= {true} ><p>Hello</p></InfoWindow>
-          </Marker>
-          ,
-        <Marker
-          title = { 'Changing Colors Garage' }
-          position = {{ lat: 51.040698989336, lng: -114.075206002408 }}
-          name = { 'Changing Colors Garage' }
-          animation = {google.maps.Animation.DROP}
-          icon = {image1}
-        />,
-        <Marker
-          title = { 'Changing Colors' }
-          position = {{ lat: 51.042423905999, lng: -114.069662655696 }}
-          name = { 'Changing Colors' }
-          animation = {google.maps.Animation.DROP}
-          icon = {image1}
-        />]
-
-    console.log("THE POLY CORDS: ", this.props.polygonCoords);
-
-    let markers = this.state.markers.map(marker => {
+    let markers = this.state.permitPins.map(pin => {
       return (
         <Marker
-          key={`marker_${marker.name}`}
-          name={marker.name}
-          position={marker.position}
-          title={marker.title}
+          key={randomPinKey()}
+          name={pin.description}
+          position={{lat: pin.location.coordinates[1], lng: pin.location.coordinates[0]}}
+          title={pin.address}
           onClick={this.onMarkerClick}
+
         />
       );
     });
@@ -118,6 +106,7 @@ class MapContainer extends Component {
           <div>
             <h2>{this.state.selectedPlace.name}</h2>
           </div>
+
         </InfoWindow>
         <Polygon
           paths={this.props.polygonCoords}

@@ -13,19 +13,6 @@ class BuildingPermits extends Component {
         console.log(err);
       });
   }
-
-  render() {
-
-
-    return (
-        <Marker
-          onClick = { this.onMarkerClick }
-          title = { 'Changing Colors Garage' }
-          position = {{ lat: 51.0433951810899, lng: -114.065661597048 }}
-          name = { 'Changing Colors Garage' }
-        />
-      );
-  }
 }
 
 

@@ -13,20 +13,14 @@ class Middle extends Component {
     super(props);
     this.state = {
       propertyData: {},
-      permitPins: []
+      permitPins: false
     };
-    this.addPinstoState = this.addPinstoState.bind(this);
   }
 
-  addPinstoState (arrayData) {
-    this.setState(state => ({
-          permitPins: arrayData
-        }));
-  }
 
   render() {
+    console.log("This is the state of the permit pins: ",this.state.permitPins);
     let component;
-    let pins;
     if (this.props.data.topic === "crime"){
          component = (<Crime data={this.props.data} changeTopic={this.props.changeTopic}/>);
 
@@ -36,54 +30,8 @@ class Middle extends Component {
     } else if (this.props.data.topic === "property"){
         component = (<Property data={this.props.data} changeTopic={this.props.changeTopic} />);
 
-    } else if (this.props.data.topic === "building-permit"){
-        component = <BuildingPermit data={this.props.data} changeTopic={this.props.changeTopic} addPinstoState={this.addPinstoState}/>;
-      }
-
-  render() {
-    console.log(this.props.data.topic);
-    if (this.props.data.topic === "crime") {
-      return (
-        <div className="col mapCol">
-          <Crime data={this.props.data} changeTopic={this.props.changeTopic} />
-          <div>
-            <GoogleApiWrapper
-              communityCenterLatLong={this.props.data.communityCenterLatLong}
-              polygonCoords={this.props.data.polygonCoords}
-            />
-          </div>
-        </div>
-      );
-    } else if (this.props.data.topic === "garbage") {
-      return (
-        <div style={{ position: "relative" }} className="col mapCol">
-          <Garbage
-            data={this.props.data}
-            changeTopic={this.props.changeTopic}
-          />
-          <div>
-            <GoogleApiWrapper
-              communityCenterLatLong={this.props.data.communityCenterLatLong}
-              polygonCoords={this.props.data.polygonCoords}
-            />
-          </div>
-        </div>
-      );
-    } else if (this.props.data.topic === "property") {
-      return (
-        <div className="col mapCol">
-          <Property
-            data={this.props.data}
-            changeTopic={this.props.changeTopic}
-          />
-          <div>
-            <GoogleApiWrapper
-              communityCenterLatLong={this.props.data.communityCenterLatLong}
-              polygonCoords={this.props.data.polygonCoords}
-            />
-          </div>
-        </div>
-      );
+    } else if (this.props.data.topic === "building-permit" && !this.state.permitPins){
+        this.setState( {permitPins:true});
     } else {
         component = null;
     }
@@ -94,6 +42,8 @@ class Middle extends Component {
             <GoogleApiWrapper
               communityCenterLatLong={this.props.data.communityCenterLatLong}
               polygonCoords={this.props.data.polygonCoords}
+              permitPins={this.state.permitPins}
+              data={this.props.data}
               >
 
             </GoogleApiWrapper>
