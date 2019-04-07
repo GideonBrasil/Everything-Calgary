@@ -14,12 +14,14 @@ class App extends Component {
       communityCode: "",
       communityId: "",
       polygonCoords: [],
-      topic: ""
+      topic: "",
+      calgary: false
     };
     this.updateCommunity = this.updateCommunity.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.changeTopic = this.changeTopic.bind(this);
     this.showJumbotron = this.showJumbotron.bind(this);
+    this.showCalgary = this.showCalgary.bind(this);
   }
 
   handleClick() {
@@ -48,6 +50,7 @@ class App extends Component {
           polygonCoords: data.geoCodes,
           communityCode: data.communityCode,
           jumbotron: false,
+          calgary: false,
           topic: ""
         }));
       })
@@ -59,7 +62,8 @@ class App extends Component {
   showJumbotron() {
     if (this.state.jumbotron === false) {
       this.setState(state => ({
-        jumbotron: true
+        jumbotron: true,
+        calgary: false
       }));
     }
   }
@@ -68,6 +72,15 @@ class App extends Component {
     this.setState(state => ({
       topic: newTopic
     }));
+  }
+
+  showCalgary(){
+    if (this.state.calgary === false){
+      this.setState(state => ({
+        jumbotron: false,
+        calgary: true
+      }));
+    }
   }
 
   render() {
@@ -79,6 +92,8 @@ class App extends Component {
           community={this.state.community}
           data={this.state}
           showJumbotron={this.showJumbotron}
+          showCalgary={this.showCalgary}
+          calgary={this.state.calgary}
         />
         <Main
           data={this.state}
