@@ -59,8 +59,6 @@ class MapContainer extends Component {
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
 
-    console.log("THE POLY CORDS: ", this.props.polygonCoords);
-
     let markers = this.state.markers.map(marker => {
       return (
         <Marker
