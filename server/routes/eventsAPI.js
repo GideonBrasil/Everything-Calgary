@@ -8,6 +8,7 @@ function filterDates(data){
   if (new Date(data.next_date) >= today && new Date(data.next_date) <= nextWeek){
     data.date = data.next_date_times.substring(0, 13);
     data.time = data.next_date_times.substring(13);
+
     return data;
   }
 }
@@ -24,6 +25,9 @@ function filterDates(data){
     request(options).then(data => {
       eventsData = JSON.parse(data);
       const futureEvents = eventsData.filter(filterDates);
+      futureEvents.sort(function(a,b){
+        return new Date(a.next_date) - new Date(b.next_date);
+      });
     res.status(200).json(futureEvents);
   });
 });
