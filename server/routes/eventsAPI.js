@@ -6,11 +6,12 @@ function filterDates(data){
   const today = new Date(Date.now());
   const nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+7);
   if (new Date(data.next_date) >= today && new Date(data.next_date) <= nextWeek){
+    data.date = data.next_date_times.substring(0, 13);
+    data.time = data.next_date_times.substring(13);
     return data;
   }
 }
-  
-  
+
   /* GET users listing. */
   router.get("/", function(req, res, next) {
     let options = {

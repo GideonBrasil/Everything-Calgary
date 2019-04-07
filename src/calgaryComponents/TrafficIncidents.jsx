@@ -1,21 +1,20 @@
 import React, { Component } from "react";
-import { Modal, CardDeck, Card } from "react-bootstrap";
+import { Modal, Nav, Table, Card } from "react-bootstrap";
 
 class TrafficIncidents extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collectSched: {}
+      traffic: null
     };
   }
   componentDidMount() {
 
-    fetch(`http://localhost:3000/garbage/${this.props.data.community}`)
+    fetch(`http://localhost:3000/traffic`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState(state => ({
-          collectSched: data
+          traffic: data
         }));
       })
       .catch(err => {
@@ -25,44 +24,67 @@ class TrafficIncidents extends Component {
 
 
   render() {
-    const green = this.state.collectSched['Green']
-    const blue = this.state.collectSched['Blue']
-    const black = this.state.collectSched['Black']
     return (
-      <Modal
-        show
-        onHide={() => this.props.changeTopic("")}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        // dialogClassName="modal-60w"
-        className="darren-garbage"
+      <Modal id="traffic-modal"
+      show
+      onHide={() => this.props.changeTopic("")}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      dialogClassName="modal-60w"
       >
-       <Modal.Header closeButton>
-          <Modal.Title>Waste and Recycling Pickup</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <span>
-          <CardDeck>
-            <Card.Body className="card">
-              <Card.Title><i className="fas fa-trash-alt fa-2x"></i></Card.Title>
-              <Card.Subtitle>Garbage</Card.Subtitle>
-              <Card.Text>{black ? `${black[1]} ${black[0]}`: ""}</Card.Text>
-            </Card.Body>
-            <Card.Body className="card">
-              <Card.Title><i className="fas fa-recycle fa-2x"></i></Card.Title>
-              <Card.Subtitle>Recycling</Card.Subtitle>
-              <Card.Text>{blue ? `${blue[1]} ${blue[0]}`: ""}</Card.Text>
-            </Card.Body>
-           <Card.Body className="card">
-              <Card.Title><i className="fas fa-trash-restore fa-2x"></i></Card.Title>
-              <Card.Subtitle>Composting</Card.Subtitle>
-              <Card.Text>{green ? `${green[1]} ${green[0]}`: ""}</Card.Text>
-            </Card.Body>
-          </CardDeck>
-          </span>
-      </Modal.Body>
-      </Modal>
+      <Modal.Header closeButton>
+        <Modal.Title>Current Traffic Incidents</Modal.Title>
+      </Modal.Header>
+  <Modal.Body className="traffic-body">
+    {!this.state.traffic ? <h4>Loading...</h4> : (
+    <Card>
+      {this.state.traffic.length === 1 ? 
+        <React.Fragment>
+          <Card.Header>
+            <Nav>
+              <Nav.Item>
+                <h4>No current incidents, the roads are clear!</h4>
+              </Nav.Item>
+            </Nav>
+          </Card.Header>
+        </React.Fragment> : (
+          <React.Fragment>
+            <Card.Header>
+              <Nav>
+                <Nav.Item>
+                  <h4>Right now on the road...</h4>
+                </Nav.Item>
+              </Nav>
+            </Card.Header>
+            <Card.Body className="traffic-card">
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr>
+                        <th>Start Time</th>
+                        <th>Info</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {this.state.traffic.map(incident => (
+                        <React.Fragment key={incident.start_dt}>
+                          <tr>
+                            <td className="date">{incident.start_dt}</td>
+                            <td>{incident.incident_info}</td>
+                            <td>{incident.description}}</td>
+                          </tr>
+                        </React.Fragment> 
+                      ))};
+                    </tbody>
+                  </Table>
+              </Card.Body>
+          </React.Fragment>
+        )}
+      </Card>
+    )}
+    </Modal.Body>
+  </Modal>
     );
   }
 }

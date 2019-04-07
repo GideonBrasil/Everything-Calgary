@@ -7,7 +7,6 @@ function filterDates(data){
   const lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate()-7);
   if (new Date(data.pubdate) >= lastWeek){
     data.pubdate = data.pubdate.substring(0, 10);
-    console.log(data.date);
     return data;
   }
 }
@@ -24,7 +23,6 @@ router.get("/", function(req, res, next) {
   request(options).then(data => {
     let newsData = JSON.parse(data);
     const filteredNews = newsData.filter(filterDates);
-    console.log(filteredNews);
     res.status(200).json(filteredNews);
   });
 });

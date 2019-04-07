@@ -37,7 +37,7 @@ class Events extends Component {
         aria-labelledby="contained-modal-title-vcenter"
         centered
         dialogClassName="modal-60w"
-        className="events-modal"
+        id="events-modal"
         >
         <Modal.Header closeButton>
           <Modal.Title>Calgary Events</Modal.Title>
@@ -61,6 +61,7 @@ class Events extends Component {
                 <thead>
                   <tr>
                     <th>Date</th>
+                    <th>Time</th>
                     <th>Address</th>
                     <th>Event Type</th>
                     {/* <th>Event Description</th> */}
@@ -70,7 +71,8 @@ class Events extends Component {
                     {this.state.events.map(event => (
                       <React.Fragment key={event.notes}>
                         <tr>
-                          <td>{event.next_date_times}</td>
+                          <td>{event.date}</td>
+                          <td>{event.time}</td>
                           <td>{event.address}</td>
                           <td>{event.event_type ? event.event_type : "Census in person"}</td>
                           {/* <td>${event.notes}</td> */}

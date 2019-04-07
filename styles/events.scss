@@ -1,9 +1,13 @@
-.events-modal{
-  min-width: 1000px;
+#events-modal{
+  min-width: 1300px;
   .events-card{
     min-width: 980px;
     white-space: normal;
   }
+  .date{
+    min-width:55px;
+  }
+
 }
 #news-modal{
   min-width: 1100px;

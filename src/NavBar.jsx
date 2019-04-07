@@ -49,6 +49,30 @@ class NavBar extends Component {
           </section>
         </nav>
       );
+    } else if (this.props.calgary === true){
+      return (
+        <nav className="navbar fixed navbar-light">
+          <a onClick={this.props.showJumbotron} className="navbar-brand">
+            <img id="logo" src="https://github.com/GideonBrasil/Everything-Calgary/blob/master/public/images/logo1.png?raw=true" alt="logo" />{" "}
+          </a>
+          <section>
+            <form className="form-inline" onSubmit={checkCommunity}>
+              <Autocomplete
+                className="form-control mr-sm-2"
+                type="search"
+                suggestions={suggestions}
+                community={this.props.community}
+              />
+              <button
+                className="btn btn-outline-danger my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </section>
+        </nav>
+      );
     } else {
       return (
         <nav className="navbar fixed sticky-top navbar-light">

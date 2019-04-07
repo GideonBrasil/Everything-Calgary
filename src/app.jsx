@@ -93,6 +93,7 @@ class App extends Component {
           data={this.state}
           showJumbotron={this.showJumbotron}
           showCalgary={this.showCalgary}
+          calgary={this.state.calgary}
         />
         <Main
           data={this.state}
