@@ -12,6 +12,11 @@ const garbageRouter = require("./routes/garbageAPI.js");
 const crimeRouter = require("./routes/crimeAPI.js");
 const propertyAssessmentRouter = require("./routes/propertyAssessmentAPI.js");
 const buildingPermitRouter = require("./routes/buildingPermits.js");
+const eventsRouter = require("./routes/eventsAPI.js");
+const newsRouter = require("./routes/newsAPI.js");
+const trafficRouter = require("./routes/trafficAPI.js");
+const cityRouter = require("./routes/cityLimitsAPI");
+
 
 const PORT = 3000;
 
@@ -37,6 +42,10 @@ app.use("/garbage", garbageRouter);
 app.use("/crime", crimeRouter);
 app.use("/propertyAssessment", propertyAssessmentRouter);
 app.use("/buildingPermits", buildingPermitRouter);
+app.use("/events", eventsRouter);
+app.use("/news", newsRouter);
+app.use("/traffic", trafficRouter);
+app.use("/city", cityRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

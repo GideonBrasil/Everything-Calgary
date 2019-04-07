@@ -1,10 +1,12 @@
   import React, { Component } from "react";
 require("../styles/main.scss");
 import GoogleApiWrapper from "./GoogleMaps.jsx";
+
 import Garbage from './topicComponents/Garbage.jsx';
 import Property from './topicComponents/Property.jsx';
 import Crime from './topicComponents/Crime.jsx';
 import BuildingPermit from './topicComponents/buildingPermits.jsx'
+
 
 class Middle extends Component {
   constructor(props) {
@@ -36,6 +38,52 @@ class Middle extends Component {
 
     } else if (this.props.data.topic === "building-permit"){
         component = <BuildingPermit data={this.props.data} changeTopic={this.props.changeTopic} addPinstoState={this.addPinstoState}/>;
+      }
+
+  render() {
+    console.log(this.props.data.topic);
+    if (this.props.data.topic === "crime") {
+      return (
+        <div className="col mapCol">
+          <Crime data={this.props.data} changeTopic={this.props.changeTopic} />
+          <div>
+            <GoogleApiWrapper
+              communityCenterLatLong={this.props.data.communityCenterLatLong}
+              polygonCoords={this.props.data.polygonCoords}
+            />
+          </div>
+        </div>
+      );
+    } else if (this.props.data.topic === "garbage") {
+      return (
+        <div style={{ position: "relative" }} className="col mapCol">
+          <Garbage
+            data={this.props.data}
+            changeTopic={this.props.changeTopic}
+          />
+          <div>
+            <GoogleApiWrapper
+              communityCenterLatLong={this.props.data.communityCenterLatLong}
+              polygonCoords={this.props.data.polygonCoords}
+            />
+          </div>
+        </div>
+      );
+    } else if (this.props.data.topic === "property") {
+      return (
+        <div className="col mapCol">
+          <Property
+            data={this.props.data}
+            changeTopic={this.props.changeTopic}
+          />
+          <div>
+            <GoogleApiWrapper
+              communityCenterLatLong={this.props.data.communityCenterLatLong}
+              polygonCoords={this.props.data.polygonCoords}
+            />
+          </div>
+        </div>
+      );
     } else {
         component = null;
     }
