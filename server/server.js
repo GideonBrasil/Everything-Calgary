@@ -10,12 +10,13 @@ const cors = require("cors");
 const indexRouter = require("./routes/index");
 const communityRouter = require("./routes/communityAPI");
 const geoCodeRouter = require("./routes/geoCodes");
-const garbageRouter = require("./routes/garbageAPI.js");
-const crimeRouter = require("./routes/crimeAPI.js");
-const propertyAssessmentRouter = require("./routes/propertyAssessmentAPI.js");
-const eventsRouter = require("./routes/eventsAPI.js");
-const newsRouter = require("./routes/newsAPI.js");
-const trafficRouter = require("./routes/trafficAPI.js");
+const garbageRouter = require("./routes/garbageAPI");
+const crimeRouter = require("./routes/crimeAPI");
+const permitsRouter = require("./routes/constructionPermits");
+const propertyAssessmentRouter = require("./routes/propertyAssessmentAPI");
+const eventsRouter = require("./routes/eventsAPI");
+const newsRouter = require("./routes/newsAPI");
+const trafficRouter = require("./routes/trafficAPI");
 const cityRouter = require("./routes/cityLimitsAPI");
 
 const PORT = 3000;
@@ -38,6 +39,7 @@ app.use("/events", eventsRouter);
 app.use("/news", newsRouter);
 app.use("/traffic", trafficRouter);
 app.use("/city", cityRouter);
+app.use("/constructionPermits", permitsRouter);
 
 app.listen(PORT, "0.0.0.0", "localhost", () =>
   console.log(`Listening on ${PORT}`)
