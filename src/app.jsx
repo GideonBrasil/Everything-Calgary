@@ -105,12 +105,8 @@ class App extends Component {
         <Main
           data={this.state}
           updateCommunity={this.updateCommunity}
-          jumbotron={this.state.jumbotron}
-          topic={this.state.topic}
-          polygonCoords={this.state.polygonCoords}
           changeTopic={this.changeTopic}
           showCalgary={this.showCalgary}
-          calgary={this.state.calgary}
         />
         <Footer />
       </div>

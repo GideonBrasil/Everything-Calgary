@@ -27,8 +27,7 @@ class Main extends Component {
         <div className="row">
           <Calgary_SideNav
           data={this.props.data}
-            topic={this.props.topic}
-            chooseStatistics={chooseStatistics}
+          chooseStatistics={chooseStatistics}
           />
           <Calgary_Middle
             data={this.props.data}
@@ -42,7 +41,6 @@ class Main extends Component {
         <div className="row">
           <SideNav
             data={this.props.data}
-            topic={this.props.topic}
             chooseStatistics={chooseStatistics}
           />
           <Middle
