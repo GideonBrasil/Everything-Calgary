@@ -16,13 +16,13 @@ class Main extends Component {
       this.props.changeTopic(e.target.id);
     };
 
-    if (this.props.jumbotron === true) {
+    if (this.props.data.jumbotron === true) {
       return (
         <React.Fragment>
           <Jumbotron updateCommunity={this.props.updateCommunity} />
         </React.Fragment>
       );
-    } else if (this.props.calgary === true) {
+    } else if (this.props.data.calgary === true) {
       return (
         <div className="row">
           <Calgary_SideNav
