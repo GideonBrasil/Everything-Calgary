@@ -9,11 +9,9 @@ class News extends Component {
     };
   }
   componentDidMount() {
-
     fetch(`http://localhost:3000/news`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState(state => ({
           news: data
         }));
@@ -23,56 +21,60 @@ class News extends Component {
       });
   }
 
-
   render() {
     return (
-      <Modal id="news-modal"
-      show
-      onHide={() => this.props.changeTopic("")}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      dialogClassName="modal-60w"
+      <Modal
+        id="news-modal"
+        show
+        onHide={() => this.props.changeTopic("")}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        dialogClassName="modal-60w"
       >
-      <Modal.Header closeButton>
-        <Modal.Title>Calgary News</Modal.Title>
-      </Modal.Header>
-  <Modal.Body className="news-body">
-    {!this.state.news ? <h4>Loading...</h4> : (
-    <Card>
-      <Card.Header>
-        <Nav>
-          <Nav.Item>
-            <h4>From the last 7 days...</h4>
-          </Nav.Item>
-        </Nav>
-      </Card.Header>
-      <Card.Body className="news-card">
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Title</th>
-                  <th>More info</th>
-                </tr>
-              </thead>
-              <tbody>
-                  {this.state.news.map(news => (
-                    <React.Fragment key={news.link}>
-                      <tr>
-                        <td className="pubdate">{news.pubdate}</td>
-                        <td>{news.title}</td>
-                        <td><a href={news.link}>More info</a></td>
-                      </tr>
-                    </React.Fragment> 
+        <Modal.Header closeButton>
+          <Modal.Title>Calgary News</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="news-body">
+          {!this.state.news ? (
+            <h4>Loading...</h4>
+          ) : (
+            <Card>
+              <Card.Header>
+                <Nav>
+                  <Nav.Item>
+                    <h4>From the last 7 days...</h4>
+                  </Nav.Item>
+                </Nav>
+              </Card.Header>
+              <Card.Body className="news-card">
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Title</th>
+                      <th>More info</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.news.map(news => (
+                      <React.Fragment key={news.link}>
+                        <tr>
+                          <td className="pubdate">{news.pubdate}</td>
+                          <td>{news.title}</td>
+                          <td>
+                            <a href={news.link}>More info</a>
+                          </td>
+                        </tr>
+                      </React.Fragment>
                     ))}
-              </tbody>
-            </Table>
-        </Card.Body>
-      </Card>
-      )}
-    </Modal.Body>
-  </Modal>
+                  </tbody>
+                </Table>
+              </Card.Body>
+            </Card>
+          )}
+        </Modal.Body>
+      </Modal>
     );
   }
 }

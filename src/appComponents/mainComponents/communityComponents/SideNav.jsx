@@ -7,7 +7,7 @@ class Sidenav extends Component {
         <div className="sidebar-header">
           <h4>
             Everything... <br />
-            {this.props.data.community}
+            {this.props.data.community.replace("/", "/\n")}
           </h4>
         </div>
         <ul className="list-unstyled components">

@@ -42,7 +42,6 @@ class MapContainer extends Component {
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
 
     let markers = this.props.pins.map(marker => {
-      console.log("marker:", marker);
       return (
         <Marker
           key={marker.key}

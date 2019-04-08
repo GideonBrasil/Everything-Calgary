@@ -14,10 +14,10 @@ class Crime extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/crime/${this.props.data.community}`)
+    const removeSlash = this.props.data.community.replace("/", "-");
+    fetch(`http://localhost:3000/crime/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState(state => ({
           crimeStats: data
         }));
