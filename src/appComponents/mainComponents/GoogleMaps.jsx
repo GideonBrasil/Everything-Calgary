@@ -19,24 +19,6 @@ class MapContainer extends Component {
     showingInfoWindow: true, //Hides or the shows the infoWindow
     activeMarker: {}, //Shows the active marker upon click
     selectedPlace: {} //Shows the infoWindow to the selected place upon a marker
-    // markers: [
-    //   {
-    //     name: "It's yaaaa Robin",
-    //     title: "Robin Hood",
-    //     position: {
-    //       lat: 51.157707,
-    //       lng: -114.148879
-    //     }
-    //   },
-    //   {
-    //     name: "It's yaaaa boi LJ",
-    //     title: "Little John",
-    //     position: {
-    //       lat: 51.156994,
-    //       lng: -114.151003
-    //     }
-    //   }
-    // ]
   };
 
   onMarkerClick = (props, marker, e) =>
@@ -59,16 +41,17 @@ class MapContainer extends Component {
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
 
-    console.log("ThESE ARE THE MARKER PROPS:", this.props.pins);
+    console.log("This is the MARKER INFO: :", this.state.selectedPlace);
     let markers = this.props.pins.map(marker => {
       return (
         <Marker
-          key={Math.random() * 99}
-          name={marker.description}
+          key={marker.key}
+          name={marker}
           position={marker.location}
           title={marker.address}
           onClick={this.onMarkerClick}
           animation={google.maps.Animation.DROP}
+          icon={"../../../public/images/home.png"}
         />
       );
     });
@@ -86,8 +69,9 @@ class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          <div>
-            <h2>{this.state.selectedPlace.name}</h2>
+          <div id="info-div">
+            {/* <h3> Permit Address:{this.state.slecetedPlace.name}</h3>
+            <p id="info-description">{this.state.selectedPlace.title}</p> */}
           </div>
         </InfoWindow>
         <Polygon

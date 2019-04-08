@@ -112,7 +112,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("this is the STATE for TOPIC:", this.state.topic);
     return (
       <div id="main-div">
         <NavBar
