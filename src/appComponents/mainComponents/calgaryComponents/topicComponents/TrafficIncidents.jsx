@@ -39,7 +39,7 @@ class TrafficIncidents extends Component {
   <Modal.Body className="traffic-body">
     {!this.state.traffic ? <h4>Loading...</h4> : (
     <Card>
-      {this.state.traffic.length === 1 ? 
+      {this.state.traffic.description === 'No current incident' ? 
         <React.Fragment>
           <Card.Header>
             <Nav>
@@ -61,6 +61,7 @@ class TrafficIncidents extends Component {
                   <Table striped bordered hover>
                     <thead>
                       <tr>
+                        <th>Date</th>
                         <th>Start Time</th>
                         <th>Info</th>
                         <th>Description</th>
@@ -70,12 +71,13 @@ class TrafficIncidents extends Component {
                       {this.state.traffic.map(incident => (
                         <React.Fragment key={incident.start_dt}>
                           <tr>
-                            <td className="date">{incident.start_dt}</td>
+                            <td className="date">{incident.start_dt.substring(0, 10)}</td>
+                            <td className="date">{incident.start_dt.substring(11, 19)}</td>
                             <td>{incident.incident_info}</td>
-                            <td>{incident.description}}</td>
+                            <td>{incident.description}</td>
                           </tr>
                         </React.Fragment> 
-                      ))};
+                      ))}
                     </tbody>
                   </Table>
               </Card.Body>
