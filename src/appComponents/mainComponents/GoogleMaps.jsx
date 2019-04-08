@@ -43,6 +43,7 @@ class MapContainer extends Component {
 
     console.log("This is the MARKER INFO: :", this.state.selectedPlace);
     let markers = this.props.pins.map(marker => {
+      console.log("marker:", marker);
       return (
         <Marker
           key={marker.key}
@@ -55,6 +56,10 @@ class MapContainer extends Component {
         />
       );
     });
+
+    // const estPermitCost = Number(
+    //   this.state.selectedPlace.name.estprojectcost
+    // ).toLocaleString();
 
     return (
       <Map
@@ -69,10 +74,74 @@ class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          <div id="info-div">
-            {/* <h3> Permit Address:{this.state.slecetedPlace.name}</h3>
-            <p id="info-description">{this.state.selectedPlace.title}</p> */}
-          </div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Permit description:</th>
+                <th scope="col">
+                  {this.state.selectedPlace.name
+                    ? this.state.selectedPlace.name.description
+                      ? this.state.selectedPlace.name.description
+                      : "Unknown"
+                    : ""}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Project type:</th>
+                <td>
+                  {this.state.selectedPlace.name
+                    ? this.state.selectedPlace.name.type
+                    : ""}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Estimated project cost:</th>
+                <td>
+                  {this.state.selectedPlace.name
+                    ? "$" +
+                        Number(
+                          this.state.selectedPlace.name.estprojectcost
+                        ).toLocaleString() ===
+                      "$NaN"
+                      ? "Project not estimated"
+                      : "$" +
+                        Number(
+                          this.state.selectedPlace.name.estprojectcost
+                        ).toLocaleString()
+                    : ""}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Project started:</th>
+                <td>
+                  {this.state.selectedPlace.name
+                    ? this.state.selectedPlace.name.permiteDuration
+                      ? this.state.selectedPlace.name.permiteDuration +
+                        " days ago"
+                      : "Construction project hasn't started"
+                    : ""}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Permit status:</th>
+                <td>
+                  {this.state.selectedPlace.name
+                    ? this.state.selectedPlace.name.status
+                    : ""}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Address:</th>
+                <td>
+                  {this.state.selectedPlace.name
+                    ? this.state.selectedPlace.name.address
+                    : ""}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </InfoWindow>
         <Polygon
           paths={this.props.polygonCoords}
