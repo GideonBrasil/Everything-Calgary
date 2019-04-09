@@ -7,7 +7,7 @@ function createCoordObjects(array) {
 }
 
 function generateKey() {
-  return Math.random() * 23;
+  return Math.random() * 29;
 }
 
 function permitDuration(issuedDate) {
