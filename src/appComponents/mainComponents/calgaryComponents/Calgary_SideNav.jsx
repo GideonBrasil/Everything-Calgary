@@ -14,6 +14,8 @@ class Calgary_Sidenav extends Component {
           <li onClick={this.props.chooseStatistics}><a id="news">News</a></li>
           <li onClick={this.props.chooseStatistics}><a id="traffic">Traffic Incidents</a></li>
           <li onClick={this.props.chooseStatistics}><a id="events">Events</a></li>
+          <li onClick={this.props.chooseStatistics}><a id="salary">Civil Service Compensation</a></li>
+          <li onClick={this.props.chooseStatistics}><a id="careers">Careers</a></li>
         </ul>
       </nav>
     );

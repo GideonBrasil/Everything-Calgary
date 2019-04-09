@@ -18,6 +18,8 @@ const eventsRouter = require("./routes/eventsAPI");
 const newsRouter = require("./routes/newsAPI");
 const trafficRouter = require("./routes/trafficAPI");
 const cityRouter = require("./routes/cityLimitsAPI");
+const careersRouter = require("./routes/careersAPI");
+const salaryRouter = require("./routes/salaryAPI");
 const trafficIncidentsRouter = require("./routes/trafficIncidentAPI")
 
 const PORT = 3000;
@@ -40,6 +42,8 @@ app.use("/events", eventsRouter);
 app.use("/news", newsRouter);
 app.use("/traffic", trafficRouter);
 app.use("/city", cityRouter);
+app.use("/careers", careersRouter);
+app.use("/salary", salaryRouter);
 app.use("/constructionPermits", permitsRouter);
 app.use("/trafficIncidents", trafficIncidentsRouter);
 
