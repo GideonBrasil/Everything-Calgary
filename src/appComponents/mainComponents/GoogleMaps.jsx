@@ -54,6 +54,22 @@ class MapContainer extends Component {
         />
       );
     });
+    console.log(this.props.trafficPins)
+    let trafficMarkers = this.props.trafficPins.map(tmarker => {
+      return (
+        <Marker
+          key={tmarker.key}
+          name={tmarker}
+          position={tmarker.location}
+          title={tmarker.description}
+          // information={tmarker.information}
+          onClick={this.onMarkerClick}
+          animation={google.maps.Animation.DROP}
+          // icon={""}
+        />
+      );
+    });
+    console.log(trafficMarkers)
 
     const infoData =
       this.props.topic === "construction permits" ? (
@@ -125,9 +141,10 @@ class MapContainer extends Component {
             </tr>
           </tbody>
         </table>
-      ) : (
-        "traffic feature is comming"
+      ) :  ( <p> {this.state.selectedPlace.name ?
+        this.state.selectedPlace.name.description : "" }</p>
       );
+      
 
     return (
       <Map
@@ -138,12 +155,13 @@ class MapContainer extends Component {
         bounds={bounds}
       >
         {markers}
+        { trafficMarkers }
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
           <div>{infoData}</div>
-        </InfoWindow>
+        </InfoWindow>  
         <Polygon
           paths={this.props.polygonCoords}
           strokeColor="#0000FF"

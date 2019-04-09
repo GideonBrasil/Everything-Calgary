@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      trafficPins: [],
       jumbotron: true,
       communityCenterLatLong: {},
       community: "",
@@ -23,6 +24,7 @@ class App extends Component {
     this.showJumbotron = this.showJumbotron.bind(this);
     this.showCalgary = this.showCalgary.bind(this);
     this.updatePins = this.updatePins.bind(this);
+    this.updateTrafficPins = this.updateTrafficPins.bind(this);
   }
 
   updatePins() {
@@ -43,16 +45,16 @@ class App extends Component {
     fetch(`http://localhost:3000/trafficIncidents/${this.state.community}`)
       .then(res => res.json())
       .then(data => {
-        console.log("data in traffic_incidents:", data);
-        // this.setState(state => ({
-        //   pins: data
-        // })
-      // });
+        // console.log("data in traffic_incidents:", data);
+        this.setState(state => ({
+          trafficPins: data
+        }))
       })
       .catch(err => {
         console.log(err);
       });
     }
+  
   
 
   handleClick() {

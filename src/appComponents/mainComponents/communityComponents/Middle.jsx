@@ -38,6 +38,7 @@ class Middle extends Component {
             communityCenterLatLong={this.props.data.communityCenterLatLong}
             polygonCoords={this.props.data.polygonCoords}
             pins={this.props.data.pins}
+            trafficPins={this.props.data.trafficPins}
             topic={this.props.data.topic}
           />
         </div>

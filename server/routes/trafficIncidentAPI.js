@@ -55,7 +55,7 @@ router.get("/:community", function(req, res, next) {
   request(options).then(data => {
     data = JSON.parse(data)[0];
     let commFeatureCode = data._feature_id
-    console.log(commFeatureCode)
+
     let options2 = {
       url: `https://data.calgary.ca/resource/m328-x8wy.json?:@computed_region_kxmf_bzkv=${commFeatureCode}`,
       headers: {
@@ -65,16 +65,11 @@ router.get("/:community", function(req, res, next) {
     };
     request(options2).then(data => {
       data = JSON.parse(data);
-      console.log(data)
-      console.log(data.length)
       const dataObj = filterByPeriod(data)
       const newDataObj = createTargetData(dataObj)
       res.status(200).json(newDataObj);
     });
-
   });
-
-
   });
 
  
