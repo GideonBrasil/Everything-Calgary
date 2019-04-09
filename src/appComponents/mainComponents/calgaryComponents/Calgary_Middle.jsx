@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import GoogleApiWrapper from "../GoogleMaps.jsx";
 import Events from "./topicComponents/Events.jsx";
 import News from "./topicComponents/News.jsx";
+import Salary from "./topicComponents/Salary.jsx";
+import Careers from "./topicComponents/Careers.jsx";
 import TrafficIncidents from "./topicComponents/TrafficIncidents.jsx";
 
 class Calgary_Middle extends Component {
@@ -18,6 +20,20 @@ class Calgary_Middle extends Component {
     } else if (this.props.data.topic === "traffic") {
       component = (
         <TrafficIncidents
+          data={this.props.data}
+          changeTopic={this.props.changeTopic}
+        />
+      );
+    } else if (this.props.data.topic === "careers") {
+      component = (
+        <Careers
+          data={this.props.data}
+          changeTopic={this.props.changeTopic}
+        />
+      );
+    } else if (this.props.data.topic === "salary") {
+      component = (
+        <Salary
           data={this.props.data}
           changeTopic={this.props.changeTopic}
         />
