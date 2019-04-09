@@ -84,7 +84,6 @@ class Events extends Component {
                               ? event.event_type
                               : "Census in person"}
                           </td>
-                          {/* <td>${event.notes}</td> */}
                         </tr>
                       </React.Fragment>
                     ))}
