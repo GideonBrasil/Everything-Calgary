@@ -39,6 +39,22 @@ class App extends Component {
       });
   }
 
+  updateTrafficPins() {
+    fetch(`http://localhost:3000/trafficIncidents/${this.state.community}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log("data in traffic_incidents:", data);
+        // this.setState(state => ({
+        //   pins: data
+        // })
+      // });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+  
+
   handleClick() {
     this.setState(state => ({
       jumbotron: false
@@ -87,6 +103,9 @@ class App extends Component {
   changeTopic(newTopic) {
     if (newTopic === "construction permits") {
       this.updatePins();
+    }
+    if (newTopic === "traffic incidents") {
+      this.updateTrafficPins();
     }
     this.setState({
       pins: [],
