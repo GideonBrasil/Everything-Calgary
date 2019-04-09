@@ -22,7 +22,6 @@ class TrafficIncidents extends Component {
   }
 
   render() {
-    console.log(this.state.traffic);
     return (
       <Modal
         id="traffic-modal"

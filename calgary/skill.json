@@ -1,0 +1,51 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "ask-custom-calgary-alexa-default",
+          "sourceDir": "lambda/us-east-1_ask-custom-calgary-alexa-default"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "http://dabblelab.com/privacy",
+          "termsOfUseUrl": "http://dabblelab.com/terms"
+        }
+      },
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "calgary",
+          "smallIconUri": "https://s3.amazonaws.com/cdn.dabblelab.com/img/skill-template-default-sm.png",
+          "largeIconUri": "https://s3.amazonaws.com/cdn.dabblelab.com/img/skill-template-default-lg.png",
+          "summary": "Gives the next day of garbage pickup for your community.",
+          "description": "When is your next garbage pickup? Alexa knows! Ask her!",
+          "examplePhrases": [
+            "Alexa, ask calgary the next garbage pickup",
+            "Alexa, ask when is the next garbage pickup from calgary",
+            "Alexa, ask calgary when garbage day is"
+          ],
+          "keywords": [
+            "garbage",
+            "pickup"
+          ]
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "No special instructions.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": []
+    }
+  }
+}

@@ -15,7 +15,8 @@ class App extends Component {
       polygonCoords: [],
       pins: [],
       topic: "",
-      calgary: false
+      calgary: false,
+      signalPins: []
     };
     this.updateCommunity = this.updateCommunity.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -24,6 +25,7 @@ class App extends Component {
     this.showCalgary = this.showCalgary.bind(this);
     this.updatePins = this.updatePins.bind(this);
     this.updateTrafficPins = this.updateTrafficPins.bind(this);
+    this.updateSignalPins = this.updateSignalPins.bind(this);
   }
 
   updatePins() {
@@ -41,10 +43,10 @@ class App extends Component {
   }
 
   updateTrafficPins() {
-    fetch(`http://localhost:3000/trafficIncidents/${this.state.community}`)
+    const removeSlash = this.state.community.replace("/", "-");
+    fetch(`http://localhost:3000/trafficIncidents/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
-        // console.log("data in traffic_incidents:", data);
         this.setState(state => ({
           pins: data
         }));
@@ -67,6 +69,21 @@ class App extends Component {
         .catch(err => {
           console.log(err);
         });
+    }
+
+
+  updateSignalPins() {
+    const removeSlash = this.state.community.replace("/", "-");
+    fetch(`http://localhost:3000/trafficSignals/${removeSlash}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState(state => ({
+          signalPins: data
+        }))
+      })
+      .catch(err => {
+        console.log(err);
+      });
     }
 
   handleClick() {
@@ -121,6 +138,9 @@ class App extends Component {
         break;
       case "traffic incidents":
         this.updateTrafficPins();
+        break;
+      case "trafiic signals":
+        this.updateSignalPins();
         break;
       case "schools":
         this.updateSchoolPins();

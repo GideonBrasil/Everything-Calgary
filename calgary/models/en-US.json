@@ -1,0 +1,1642 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "calgary",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "GetRemoteDataIntent",
+          "slots": [
+            {
+              "name": "community",
+              "type": "community"
+            }
+          ],
+          "samples": [
+            "garbage {community}",
+            "{community} garbage",
+            "{community} garbage pickup",
+            "{community} garbage collection"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "Traffic",
+          "slots": [],
+          "samples": [
+            "traffic incidents",
+            "calgary traffic",
+            "traffic"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": " HASKAYNE"
+              }
+            },
+            {
+              "name": {
+                "value": " ROYAL OAK"
+              }
+            },
+            {
+              "name": {
+                "value": " 01C"
+              }
+            },
+            {
+              "name": {
+                "value": " ROYAL VISTA"
+              }
+            },
+            {
+              "name": {
+                "value": " 01K"
+              }
+            },
+            {
+              "name": {
+                "value": " 01B"
+              }
+            },
+            {
+              "name": {
+                "value": " 01H"
+              }
+            },
+            {
+              "name": {
+                "value": " SCENIC ACRES"
+              }
+            },
+            {
+              "name": {
+                "value": " SILVER SPRINGS"
+              }
+            },
+            {
+              "name": {
+                "value": " BOWNESS"
+              }
+            },
+            {
+              "name": {
+                "value": " 01F"
+              }
+            },
+            {
+              "name": {
+                "value": " TUSCANY"
+              }
+            },
+            {
+              "name": {
+                "value": " CRESTMONT"
+              }
+            },
+            {
+              "name": {
+                "value": " VALLEY RIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " VARSITY"
+              }
+            },
+            {
+              "name": {
+                "value": " 01I"
+              }
+            },
+            {
+              "name": {
+                "value": " GREENWOOD/GREENBRIAR"
+              }
+            },
+            {
+              "name": {
+                "value": " ROCKY RIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " EVANSTON"
+              }
+            },
+            {
+              "name": {
+                "value": " 02F"
+              }
+            },
+            {
+              "name": {
+                "value": " 02C"
+              }
+            },
+            {
+              "name": {
+                "value": " ARBOUR LAKE"
+              }
+            },
+            {
+              "name": {
+                "value": " RANCHLANDS"
+              }
+            },
+            {
+              "name": {
+                "value": " NOLAN HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " HAMPTONS"
+              }
+            },
+            {
+              "name": {
+                "value": " 02B"
+              }
+            },
+            {
+              "name": {
+                "value": " 02E"
+              }
+            },
+            {
+              "name": {
+                "value": " SAGE HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " SHERWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " CITADEL"
+              }
+            },
+            {
+              "name": {
+                "value": " HAWKWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " 02L"
+              }
+            },
+            {
+              "name": {
+                "value": " 02K"
+              }
+            },
+            {
+              "name": {
+                "value": " KINCORA"
+              }
+            },
+            {
+              "name": {
+                "value": " HIDDEN VALLEY"
+              }
+            },
+            {
+              "name": {
+                "value": " COUNTRY HILLS"
+              }
+            },
+            {
+              "name": {
+                "value": " HARVEST HILLS"
+              }
+            },
+            {
+              "name": {
+                "value": " 03D"
+              }
+            },
+            {
+              "name": {
+                "value": " LIVINGSTON"
+              }
+            },
+            {
+              "name": {
+                "value": " AURORA BUSINESS PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " PANORAMA HILLS"
+              }
+            },
+            {
+              "name": {
+                "value": " COUNTRY HILLS VILLAGE"
+              }
+            },
+            {
+              "name": {
+                "value": " 03W"
+              }
+            },
+            {
+              "name": {
+                "value": " KEYSTONE HILLS"
+              }
+            },
+            {
+              "name": {
+                "value": " COVENTRY HILLS"
+              }
+            },
+            {
+              "name": {
+                "value": " STONEY 1"
+              }
+            },
+            {
+              "name": {
+                "value": " CARRINGTON"
+              }
+            },
+            {
+              "name": {
+                "value": " DALHOUSIE"
+              }
+            },
+            {
+              "name": {
+                "value": " CAMBRIAN HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " HIGHWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " CHARLESWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " ROSEMONT"
+              }
+            },
+            {
+              "name": {
+                "value": " QUEENS PARK VILLAGE"
+              }
+            },
+            {
+              "name": {
+                "value": " BRENTWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " COLLINGWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " BEDDINGTON HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " SANDSTONE VALLEY"
+              }
+            },
+            {
+              "name": {
+                "value": " SKYLINE WEST"
+              }
+            },
+            {
+              "name": {
+                "value": " NORTH HAVEN UPPER"
+              }
+            },
+            {
+              "name": {
+                "value": " HIGHLAND PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " MACEWAN GLEN"
+              }
+            },
+            {
+              "name": {
+                "value": " EDGEMONT"
+              }
+            },
+            {
+              "name": {
+                "value": " NOSE HILL PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " THORNCLIFFE"
+              }
+            },
+            {
+              "name": {
+                "value": " NORTH HAVEN"
+              }
+            },
+            {
+              "name": {
+                "value": " GREENVIEW INDUSTRIAL PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " HUNTINGTON HILLS"
+              }
+            },
+            {
+              "name": {
+                "value": " GREENVIEW"
+              }
+            },
+            {
+              "name": {
+                "value": " HOMESTEAD"
+              }
+            },
+            {
+              "name": {
+                "value": " CORNERSTONE"
+              }
+            },
+            {
+              "name": {
+                "value": " STONEY 4"
+              }
+            },
+            {
+              "name": {
+                "value": " 05E"
+              }
+            },
+            {
+              "name": {
+                "value": " STONEY 3"
+              }
+            },
+            {
+              "name": {
+                "value": " 05D"
+              }
+            },
+            {
+              "name": {
+                "value": " CITYSCAPE"
+              }
+            },
+            {
+              "name": {
+                "value": " 05G"
+              }
+            },
+            {
+              "name": {
+                "value": " DEERFOOT BUSINESS CENTRE"
+              }
+            },
+            {
+              "name": {
+                "value": " PEGASUS"
+              }
+            },
+            {
+              "name": {
+                "value": " SADDLE RIDGE INDUSTRIAL"
+              }
+            },
+            {
+              "name": {
+                "value": " TARADALE"
+              }
+            },
+            {
+              "name": {
+                "value": " SKYLINE EAST"
+              }
+            },
+            {
+              "name": {
+                "value": " CALGARY INTERNATIONAL AIRPORT"
+              }
+            },
+            {
+              "name": {
+                "value": " STONEY 2"
+              }
+            },
+            {
+              "name": {
+                "value": " REDSTONE"
+              }
+            },
+            {
+              "name": {
+                "value": " 05F"
+              }
+            },
+            {
+              "name": {
+                "value": " SKYVIEW RANCH"
+              }
+            },
+            {
+              "name": {
+                "value": " STONEGATE LANDING"
+              }
+            },
+            {
+              "name": {
+                "value": " SADDLE RIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " MARTINDALE"
+              }
+            },
+            {
+              "name": {
+                "value": " WESTWINDS"
+              }
+            },
+            {
+              "name": {
+                "value": " FALCONRIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " CASTLERIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " WESTGATE"
+              }
+            },
+            {
+              "name": {
+                "value": " 06C"
+              }
+            },
+            {
+              "name": {
+                "value": " CANADA OLYMPIC PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " 06B"
+              }
+            },
+            {
+              "name": {
+                "value": " WEST SPRINGS"
+              }
+            },
+            {
+              "name": {
+                "value": " SPRINGBANK HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " COACH HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " MEDICINE HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " PATTERSON"
+              }
+            },
+            {
+              "name": {
+                "value": " GLENDALE"
+              }
+            },
+            {
+              "name": {
+                "value": " DISCOVERY RIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " GLAMORGAN"
+              }
+            },
+            {
+              "name": {
+                "value": " CHRISTIE PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " ASPEN WOODS"
+              }
+            },
+            {
+              "name": {
+                "value": " COUGAR RIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " SIGNAL HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " 06A"
+              }
+            },
+            {
+              "name": {
+                "value": " GLENBROOK"
+              }
+            },
+            {
+              "name": {
+                "value": " STRATHCONA PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " MONTGOMERY"
+              }
+            },
+            {
+              "name": {
+                "value": " UNIVERSITY OF CALGARY"
+              }
+            },
+            {
+              "name": {
+                "value": " TUXEDO PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " UNIVERSITY DISTRICT"
+              }
+            },
+            {
+              "name": {
+                "value": " WINSTON HEIGHTS/MOUNTVIEW"
+              }
+            },
+            {
+              "name": {
+                "value": " UNIVERSITY HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " DOWNTOWN COMMERCIAL CORE"
+              }
+            },
+            {
+              "name": {
+                "value": " BANFF TRAIL"
+              }
+            },
+            {
+              "name": {
+                "value": " WEST HILLHURST"
+              }
+            },
+            {
+              "name": {
+                "value": " CHINATOWN"
+              }
+            },
+            {
+              "name": {
+                "value": " HOUNSFIELD HEIGHTS/BRIAR HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " CAPITOL HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " POINT MCKAY"
+              }
+            },
+            {
+              "name": {
+                "value": " HILLHURST"
+              }
+            },
+            {
+              "name": {
+                "value": " ROSEDALE"
+              }
+            },
+            {
+              "name": {
+                "value": " SUNNYSIDE"
+              }
+            },
+            {
+              "name": {
+                "value": " EAU CLAIRE"
+              }
+            },
+            {
+              "name": {
+                "value": " CRESCENT HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " ST. ANDREWS HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " MOUNT PLEASANT"
+              }
+            },
+            {
+              "name": {
+                "value": " DOWNTOWN EAST VILLAGE"
+              }
+            },
+            {
+              "name": {
+                "value": " PARKDALE"
+              }
+            },
+            {
+              "name": {
+                "value": " RUTLAND PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " GARRISON GREEN"
+              }
+            },
+            {
+              "name": {
+                "value": " GARRISON WOODS"
+              }
+            },
+            {
+              "name": {
+                "value": " LINCOLN PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " ALTADORE"
+              }
+            },
+            {
+              "name": {
+                "value": " CURRIE BARRACKS"
+              }
+            },
+            {
+              "name": {
+                "value": " SOUTH CALGARY"
+              }
+            },
+            {
+              "name": {
+                "value": " LOWER MOUNT ROYAL"
+              }
+            },
+            {
+              "name": {
+                "value": " CLIFF BUNGALOW"
+              }
+            },
+            {
+              "name": {
+                "value": " SCARBORO/ SUNALTA WEST"
+              }
+            },
+            {
+              "name": {
+                "value": " SUNALTA"
+              }
+            },
+            {
+              "name": {
+                "value": " RICHMOND"
+              }
+            },
+            {
+              "name": {
+                "value": " BANKVIEW"
+              }
+            },
+            {
+              "name": {
+                "value": " UPPER MOUNT ROYAL"
+              }
+            },
+            {
+              "name": {
+                "value": " DOWNTOWN WEST END"
+              }
+            },
+            {
+              "name": {
+                "value": " SCARBORO"
+              }
+            },
+            {
+              "name": {
+                "value": " ROSSCARROCK"
+              }
+            },
+            {
+              "name": {
+                "value": " SPRUCE CLIFF"
+              }
+            },
+            {
+              "name": {
+                "value": " KILLARNEY/GLENGARRY"
+              }
+            },
+            {
+              "name": {
+                "value": " SHAGANAPPI"
+              }
+            },
+            {
+              "name": {
+                "value": " WILDWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " BELVEDERE"
+              }
+            },
+            {
+              "name": {
+                "value": " SOUTHVIEW"
+              }
+            },
+            {
+              "name": {
+                "value": " APPLEWOOD PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " ERIN WOODS"
+              }
+            },
+            {
+              "name": {
+                "value": " FOREST HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " PENBROOKE MEADOWS"
+              }
+            },
+            {
+              "name": {
+                "value": " 09Q"
+              }
+            },
+            {
+              "name": {
+                "value": " 09P"
+              }
+            },
+            {
+              "name": {
+                "value": " RED CARPET"
+              }
+            },
+            {
+              "name": {
+                "value": " ALBERT PARK/RADISSON HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " EASTFIELD"
+              }
+            },
+            {
+              "name": {
+                "value": " FOREST LAWN INDUSTRIAL"
+              }
+            },
+            {
+              "name": {
+                "value": " 09O"
+              }
+            },
+            {
+              "name": {
+                "value": " FOREST LAWN"
+              }
+            },
+            {
+              "name": {
+                "value": " ALYTH/BONNYBROOK"
+              }
+            },
+            {
+              "name": {
+                "value": " STARFIELD"
+              }
+            },
+            {
+              "name": {
+                "value": " VALLEYFIELD"
+              }
+            },
+            {
+              "name": {
+                "value": " OGDEN"
+              }
+            },
+            {
+              "name": {
+                "value": " MANCHESTER"
+              }
+            },
+            {
+              "name": {
+                "value": " INGLEWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " 09K"
+              }
+            },
+            {
+              "name": {
+                "value": " GREAT PLAINS"
+              }
+            },
+            {
+              "name": {
+                "value": " MANCHESTER INDUSTRIAL"
+              }
+            },
+            {
+              "name": {
+                "value": " 09D"
+              }
+            },
+            {
+              "name": {
+                "value": " FAIRVIEW INDUSTRIAL"
+              }
+            },
+            {
+              "name": {
+                "value": " FOOTHILLS"
+              }
+            },
+            {
+              "name": {
+                "value": " GLENDEER BUSINESS PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " OGDEN SHOPS"
+              }
+            },
+            {
+              "name": {
+                "value": " RAMSAY"
+              }
+            },
+            {
+              "name": {
+                "value": " DOVER"
+              }
+            },
+            {
+              "name": {
+                "value": " GOLDEN TRIANGLE"
+              }
+            },
+            {
+              "name": {
+                "value": " BRIDGELAND/RIVERSIDE"
+              }
+            },
+            {
+              "name": {
+                "value": " BURNS INDUSTRIAL"
+              }
+            },
+            {
+              "name": {
+                "value": " RENFREW"
+              }
+            },
+            {
+              "name": {
+                "value": " HIGHFIELD"
+              }
+            },
+            {
+              "name": {
+                "value": " FAIRVIEW"
+              }
+            },
+            {
+              "name": {
+                "value": " 09H"
+              }
+            },
+            {
+              "name": {
+                "value": " SOUTH AIRWAYS"
+              }
+            },
+            {
+              "name": {
+                "value": " NORTH AIRWAYS"
+              }
+            },
+            {
+              "name": {
+                "value": " HORIZON"
+              }
+            },
+            {
+              "name": {
+                "value": " 10D"
+              }
+            },
+            {
+              "name": {
+                "value": " WHITEHORN"
+              }
+            },
+            {
+              "name": {
+                "value": " SUNRIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " MONTEREY PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " TEMPLE"
+              }
+            },
+            {
+              "name": {
+                "value": " MCCALL"
+              }
+            },
+            {
+              "name": {
+                "value": " PINERIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " CORAL SPRINGS"
+              }
+            },
+            {
+              "name": {
+                "value": " 10E"
+              }
+            },
+            {
+              "name": {
+                "value": " RUNDLE"
+              }
+            },
+            {
+              "name": {
+                "value": " VISTA HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " FRANKLIN"
+              }
+            },
+            {
+              "name": {
+                "value": " MAYLAND HEIGHTS"
+              }
+            },
+            {
+              "name": {
+                "value": " MARLBOROUGH PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " MERIDIAN"
+              }
+            },
+            {
+              "name": {
+                "value": " ABBEYDALE"
+              }
+            },
+            {
+              "name": {
+                "value": " MARLBOROUGH"
+              }
+            },
+            {
+              "name": {
+                "value": " MAYLAND"
+              }
+            },
+            {
+              "name": {
+                "value": " MISSION"
+              }
+            },
+            {
+              "name": {
+                "value": " ERLTON"
+              }
+            },
+            {
+              "name": {
+                "value": " EAST FAIRVIEW INDUSTRIAL"
+              }
+            },
+            {
+              "name": {
+                "value": " RIDEAU PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " WILLOW PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " ROXBORO"
+              }
+            },
+            {
+              "name": {
+                "value": " ACADIA"
+              }
+            },
+            {
+              "name": {
+                "value": " MAPLE RIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " PARKHILL"
+              }
+            },
+            {
+              "name": {
+                "value": " BELTLINE"
+              }
+            },
+            {
+              "name": {
+                "value": " GLENMORE PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " MAYFAIR"
+              }
+            },
+            {
+              "name": {
+                "value": " LAKEVIEW"
+              }
+            },
+            {
+              "name": {
+                "value": " OAKRIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " CHINOOK PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " EAGLE RIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " BAYVIEW"
+              }
+            },
+            {
+              "name": {
+                "value": " BEL-AIRE"
+              }
+            },
+            {
+              "name": {
+                "value": " PUMP HILL"
+              }
+            },
+            {
+              "name": {
+                "value": " HAYSBORO"
+              }
+            },
+            {
+              "name": {
+                "value": " WINDSOR PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " MEADOWLARK PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " KINGSLAND"
+              }
+            },
+            {
+              "name": {
+                "value": " BRAESIDE"
+              }
+            },
+            {
+              "name": {
+                "value": " KELVIN GROVE"
+              }
+            },
+            {
+              "name": {
+                "value": " ELBOW PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " PALLISER"
+              }
+            },
+            {
+              "name": {
+                "value": " SOUTHWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " BRITANNIA"
+              }
+            },
+            {
+              "name": {
+                "value": " CEDARBRAE"
+              }
+            },
+            {
+              "name": {
+                "value": " ELBOYA"
+              }
+            },
+            {
+              "name": {
+                "value": " NORTH GLENMORE PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " 12L"
+              }
+            },
+            {
+              "name": {
+                "value": " RANGEVIEW"
+              }
+            },
+            {
+              "name": {
+                "value": " 12C"
+              }
+            },
+            {
+              "name": {
+                "value": " HOTCHKISS"
+              }
+            },
+            {
+              "name": {
+                "value": " SECTION 23"
+              }
+            },
+            {
+              "name": {
+                "value": " RIVERBEND"
+              }
+            },
+            {
+              "name": {
+                "value": " SOUTH FOOTHILLS"
+              }
+            },
+            {
+              "name": {
+                "value": " 12K"
+              }
+            },
+            {
+              "name": {
+                "value": " MCKENZIE TOWNE"
+              }
+            },
+            {
+              "name": {
+                "value": " EAST SHEPARD INDUSTRIAL"
+              }
+            },
+            {
+              "name": {
+                "value": " CRANSTON"
+              }
+            },
+            {
+              "name": {
+                "value": " NEW BRIGHTON"
+              }
+            },
+            {
+              "name": {
+                "value": " 12J"
+              }
+            },
+            {
+              "name": {
+                "value": " 12I"
+              }
+            },
+            {
+              "name": {
+                "value": " MAHOGANY"
+              }
+            },
+            {
+              "name": {
+                "value": " AUBURN BAY"
+              }
+            },
+            {
+              "name": {
+                "value": " SETON"
+              }
+            },
+            {
+              "name": {
+                "value": " 12A"
+              }
+            },
+            {
+              "name": {
+                "value": " SHEPARD INDUSTRIAL"
+              }
+            },
+            {
+              "name": {
+                "value": " 12B"
+              }
+            },
+            {
+              "name": {
+                "value": " COPPERFIELD"
+              }
+            },
+            {
+              "name": {
+                "value": " 13M"
+              }
+            },
+            {
+              "name": {
+                "value": " 13L"
+              }
+            },
+            {
+              "name": {
+                "value": " YORKVILLE"
+              }
+            },
+            {
+              "name": {
+                "value": " BELMONT"
+              }
+            },
+            {
+              "name": {
+                "value": " SILVERADO"
+              }
+            },
+            {
+              "name": {
+                "value": " PINE CREEK"
+              }
+            },
+            {
+              "name": {
+                "value": " 13J"
+              }
+            },
+            {
+              "name": {
+                "value": " 13C"
+              }
+            },
+            {
+              "name": {
+                "value": " EVERGREEN"
+              }
+            },
+            {
+              "name": {
+                "value": " SHAWNESSY"
+              }
+            },
+            {
+              "name": {
+                "value": " 13A"
+              }
+            },
+            {
+              "name": {
+                "value": " 13I"
+              }
+            },
+            {
+              "name": {
+                "value": " 13G"
+              }
+            },
+            {
+              "name": {
+                "value": " 13E"
+              }
+            },
+            {
+              "name": {
+                "value": " MILLRISE"
+              }
+            },
+            {
+              "name": {
+                "value": " WOODLANDS"
+              }
+            },
+            {
+              "name": {
+                "value": " SOMERSET"
+              }
+            },
+            {
+              "name": {
+                "value": " 13H"
+              }
+            },
+            {
+              "name": {
+                "value": " BRIDLEWOOD"
+              }
+            },
+            {
+              "name": {
+                "value": " 13B"
+              }
+            },
+            {
+              "name": {
+                "value": " 13D"
+              }
+            },
+            {
+              "name": {
+                "value": " WOODBINE"
+              }
+            },
+            {
+              "name": {
+                "value": " CANYON MEADOWS"
+              }
+            },
+            {
+              "name": {
+                "value": " 13F"
+              }
+            },
+            {
+              "name": {
+                "value": " SHAWNEE SLOPES"
+              }
+            },
+            {
+              "name": {
+                "value": " MCKENZIE LAKE"
+              }
+            },
+            {
+              "name": {
+                "value": " DOUGLASDALE/GLEN"
+              }
+            },
+            {
+              "name": {
+                "value": " WOLF WILLOW"
+              }
+            },
+            {
+              "name": {
+                "value": " BONAVISTA DOWNS"
+              }
+            },
+            {
+              "name": {
+                "value": " CHAPARRAL"
+              }
+            },
+            {
+              "name": {
+                "value": " QUEENSLAND"
+              }
+            },
+            {
+              "name": {
+                "value": " WALDEN"
+              }
+            },
+            {
+              "name": {
+                "value": " LEGACY"
+              }
+            },
+            {
+              "name": {
+                "value": " DEER RIDGE"
+              }
+            },
+            {
+              "name": {
+                "value": " SUNDANCE"
+              }
+            },
+            {
+              "name": {
+                "value": " LAKE BONAVISTA"
+              }
+            },
+            {
+              "name": {
+                "value": " DIAMOND COVE"
+              }
+            },
+            {
+              "name": {
+                "value": " DEER RUN"
+              }
+            },
+            {
+              "name": {
+                "value": " MIDNAPORE"
+              }
+            },
+            {
+              "name": {
+                "value": " FISH CREEK PARK"
+              }
+            },
+            {
+              "name": {
+                "value": " PARKLAND"
+              }
+            }
+          ],
+          "name": "community"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetRemoteDataIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "community",
+              "type": "community",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.699081174744.1128526778238"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Traffic",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": []
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.699081174744.1128526778238",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is your community?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1289194754649.1139181539087",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "traffic incidents"
+          },
+          {
+            "type": "PlainText",
+            "value": "calgary traffic"
+          },
+          {
+            "type": "PlainText",
+            "value": "traffic"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "33"
+}

@@ -16,7 +16,6 @@ router.get("/", function(req, res, next) {
   };
   request(options).then(data => {
     data = JSON.parse(data);
-    console.log(data);
     res.status(200).json(data);
   });
 });

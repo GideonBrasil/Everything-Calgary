@@ -3,6 +3,7 @@ import GoogleApiWrapper from "../GoogleMaps.jsx";
 import Garbage from "./topicComponents/Garbage.jsx";
 import Property from "./topicComponents/Property.jsx";
 import Crime from "./topicComponents/Crime.jsx";
+import Population from "./topicComponents/Population.jsx";
 
 class Middle extends Component {
   constructor(props) {
@@ -26,6 +27,13 @@ class Middle extends Component {
       component = (
         <Property data={this.props.data} changeTopic={this.props.changeTopic} />
       );
+    } else if (this.props.data.topic === "population") {
+      component = (
+        <Population
+          data={this.props.data}
+          changeTopic={this.props.changeTopic}
+        />
+      );
     } else {
       component = null;
     }
@@ -38,6 +46,7 @@ class Middle extends Component {
             communityCenterLatLong={this.props.data.communityCenterLatLong}
             polygonCoords={this.props.data.polygonCoords}
             pins={this.props.data.pins}
+            signalPins={this.props.data.signalPins}
             topic={this.props.data.topic}
           />
         </div>
