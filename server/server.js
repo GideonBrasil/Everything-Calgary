@@ -22,6 +22,7 @@ const careersRouter = require("./routes/careersAPI");
 const salaryRouter = require("./routes/salaryAPI");
 const populationRouter = require("./routes/populationAPI");
 const trafficIncidentsRouter = require("./routes/trafficIncidentAPI");
+const trafficSignalRouter = require("./routes/trafficSignals");
 
 const PORT = 3000;
 
@@ -48,6 +49,7 @@ app.use("/salary", salaryRouter);
 app.use("/constructionPermits", permitsRouter);
 app.use("/trafficIncidents", trafficIncidentsRouter);
 app.use("/population", populationRouter);
+app.use("/trafficSignals", trafficSignalRouter);
 
 app.listen(PORT, "0.0.0.0", "localhost", () =>
   console.log(`Listening on ${PORT}`)

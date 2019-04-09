@@ -24,19 +24,19 @@ function filterByPeriod(data) {
   return data12Months
 }
 
-
 /* GET traffic incidents listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
+  const addSlash = communityName.replace("-", "/");
   let options = {
-    url: `https://data.calgary.ca/resource/kxmf-bzkv.json?name=${communityName.toUpperCase()}`,
+    url: `https://data.calgary.ca/resource/kxmf-bzkv.json?name=${addSlash.toUpperCase()}`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
     }
   };
 
-  function  createTargetData(data) {
+  function  createIncidentData(data) {
     let outputData = [];
     data.forEach(incident => {
     // const timeOf = new Date(incident.start_dt)
@@ -47,11 +47,10 @@ router.get("/:community", function(req, res, next) {
       information: incident.incident_info,
       timeOf: incident.start_dt,
       timeClear: incident.modified_dt
+      });
     });
-  });
-  return outputData;
+    return outputData;
   }
-    
   
   request(options).then(data => {
     data = JSON.parse(data)[0];
@@ -67,11 +66,10 @@ router.get("/:community", function(req, res, next) {
     request(options2).then(data => {
       data = JSON.parse(data);
       const dataObj = filterByPeriod(data)
-      const newDataObj = createTargetData(dataObj)
+      const newDataObj = createIncidentData(dataObj)
       res.status(200).json(newDataObj);
+      });
     });
   });
-  });
-
  
 module.exports = router;
