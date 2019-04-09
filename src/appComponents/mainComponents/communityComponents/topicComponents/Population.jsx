@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Events extends Component {
+class Population extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,3 +12,5 @@ class Events extends Component {
     return Math.random() * 9;
   }
 }
+
+export default Population;
