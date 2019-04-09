@@ -22,6 +22,7 @@ class TrafficIncidents extends Component {
   }
 
   render() {
+    console.log(this.state.traffic);
     return (
       <Modal
         id="traffic-modal"
@@ -40,7 +41,8 @@ class TrafficIncidents extends Component {
             <h4>Loading...</h4>
           ) : (
             <Card>
-              {this.state.traffic.description === "No current incident" ? (
+              {this.state.traffic[0].incident_info ===
+              "NO TRAFFIC INCIDENTS" ? (
                 <React.Fragment>
                   <Card.Header>
                     <Nav>

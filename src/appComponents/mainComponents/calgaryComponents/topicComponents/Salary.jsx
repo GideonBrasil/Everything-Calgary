@@ -1,19 +1,28 @@
 import React, { Component } from "react";
 import { Modal, Nav, Table, Card } from "react-bootstrap";
 
-class News extends Component {
+class Salary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      news: null
+      salary: null
     };
   }
+
+  eventsKeyGenerator() {
+    return Math.random() * 9;
+  }
+
+  handleTabClick(link) {
+    this.setState({ link });
+  }
+
   componentDidMount() {
-    fetch(`http://localhost:3000/news`)
+    fetch(`http://localhost:3000/salary`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
-          news: data
+          salary: data
         }));
       })
       .catch(err => {
@@ -24,47 +33,50 @@ class News extends Component {
   render() {
     return (
       <Modal
-        id="news-modal"
         show
         onHide={() => this.props.changeTopic("")}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
         dialogClassName="modal-60w"
+        id="salary-modal"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Calgary News</Modal.Title>
+          <Modal.Title>Calgary Civil Services Compensation</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="news-body">
-          {!this.state.news ? (
+        <Modal.Body>
+          {!this.state.salary ? (
             <h4>Loading...</h4>
           ) : (
             <Card>
               <Card.Header>
-                <Nav>
+                <Nav
+                  justify
+                  variant="tabs"
+                  defaultActiveKey="#lstMos"
+                  onSelect={selectedKey => this.handleTabClick(selectedKey)}
+                >
                   <Nav.Item>
-                    <h4>From the last 7 days...</h4>
+                    <h4>Salary data from 2018</h4>
                   </Nav.Item>
                 </Nav>
               </Card.Header>
-              <Card.Body className="news-card">
+              <Card.Body className="salary-card">
                 <Table striped bordered hover>
                   <thead>
                     <tr>
-                      <th>Date</th>
-                      <th>Title</th>
-                      <th>More info</th>
+                      <th>Position Title</th>
+                      <th>Minimum salary</th>
+                      <th>Maximum salary</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {this.state.news.map(news => (
-                      <React.Fragment key={news.link}>
+                    {this.state.salary.map(title => (
+                      <React.Fragment key={this.eventsKeyGenerator()}>
                         <tr>
-                          <td className="pubdate">{news.pubdate}</td>
-                          <td>{news.title}</td>
-                          <td>
-                            <a href={news.link} target="_blank">More info</a>
-                          </td>
+                          <td>{title.position_title}</td>
+                          <td>${Number(title.minimum_annual_base_rate).toLocaleString()}</td>
+                          <td>${Number(title.maximum_annual_base_rate).toLocaleString()}</td>
                         </tr>
                       </React.Fragment>
                     ))}
@@ -79,4 +91,4 @@ class News extends Component {
   }
 }
 
-export default News;
+export default Salary;
