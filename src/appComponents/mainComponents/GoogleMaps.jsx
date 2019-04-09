@@ -29,11 +29,17 @@ class MapContainer extends Component {
     });
 
   selectIcon = () => {
-    if (this.props.topic === 'construction permits') {
-      return "../../../public/images/home.png"
-    } else {
-      return "../../../public/images/accident.png"
+    switch(this.props.topic) {
+      case "construction permits":
+        return "../../../public/images/home.png";
+      case "traffic incidents":
+        return "../../../public/images/accident.png";
+      case "school":
+        return "";
+      default:
+        return "";
     }
+
   }
   onClose = props => {
     if (this.state.showingInfoWindow) {
@@ -165,7 +171,7 @@ class MapContainer extends Component {
             }
           }
           console.log(infoData())
-      
+
 
     return (
       <Map
@@ -182,7 +188,7 @@ class MapContainer extends Component {
           visible={this.state.showingInfoWindow}
         >
           <div>{infoData()}</div>
-        </InfoWindow>  
+        </InfoWindow>
         <Polygon
           paths={this.props.polygonCoords}
           strokeColor="#0000FF"

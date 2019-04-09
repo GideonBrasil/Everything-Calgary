@@ -47,14 +47,27 @@ class App extends Component {
         // console.log("data in traffic_incidents:", data);
         this.setState(state => ({
           pins: data
-        }))
+        }));
       })
       .catch(err => {
         console.log(err);
       });
     }
-  
-  
+
+    updateSchoolPins() {
+      const removeSlash = this.state.community.replace("/", "-");
+      fetch(`http://localhost:3000/schools/${removeSlash}`)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          this.setState(state => ({
+            pins: data
+          }));
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
 
   handleClick() {
     this.setState(state => ({
@@ -102,16 +115,23 @@ class App extends Component {
   }
 
   changeTopic(newTopic) {
-    if (newTopic === "construction permits") {
-      this.updatePins();
+    switch (newTopic) {
+      case "comstruction permits":
+        this.updatePins();
+        break;
+      case "traffic incidents":
+        this.updateTrafficPins();
+        break;
+      case "schools":
+        this.updateSchoolPins();
+        break;
+      default:
+          this.setState({
+            pins: [],
+            topic: newTopic
+          });
+          break;
     }
-    if (newTopic === "traffic incidents") {
-      this.updateTrafficPins();
-    }
-    this.setState({
-      pins: [],
-      topic: newTopic
-    });
   }
 
   showCalgary() {

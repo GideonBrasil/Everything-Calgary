@@ -6,11 +6,27 @@ function createCoordObjects(array) {
   return { lat: array[1], lng: array[0] };
 }
 
+function filterData(data) {
+  const output = data.map( school => {
+    return {
+      name: school.name,
+      location: createCoordObjects(school.location.coordinates),
+      type: school.type,
+      address: school.address,
+      board: school.board,
+      grades: school.grades,
+      postsecond: school.postsecond
+      };
+    });
+  return output;
+}
+
 /* GET traffic incidents listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
+  const addSlash = communityName.replace("-", "/");
   let options = {
-    url: `https://data.calgary.ca/resource/kxmf-bzkv.json?name=${communityName.toUpperCase()}`,
+    url: `https://data.calgary.ca/resource/kxmf-bzkv.json?name=${addSlash.toUpperCase()}`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
@@ -30,8 +46,8 @@ router.get("/:community", function(req, res, next) {
     };
     request(options2).then(data => {
       data = JSON.parse(data);
-      console.log(data);
-      res.status(200).json(data);
+      const dataObj = filterData(data);
+      res.status(200).json(dataObj);
     });
   });
   });
