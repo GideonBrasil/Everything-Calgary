@@ -26,6 +26,9 @@ class Sidenav extends Component {
           <li onClick={this.props.chooseStatistics}>
             <a id="traffic incidents">Traffic Incidents</a>
           </li>
+          <li onClick={this.props.chooseStatistics}>
+            <a id="traffic signals">Traffic Signals</a>
+          </li>
         </ul>
       </nav>
     );
