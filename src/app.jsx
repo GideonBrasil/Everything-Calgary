@@ -120,10 +120,11 @@ class App extends Component {
       this.updatePins();
     }
     if (newTopic === "traffic incidents") {
-      this.updateTrafficPins();
-    }
+      this.updateTrafficPins(); {
+      }
     if (newTopic === 'traffic signals') {
       this.updateSignalPins();
+      }
     }
     this.setState({
       pins: [],
