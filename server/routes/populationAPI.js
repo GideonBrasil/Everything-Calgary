@@ -3,9 +3,12 @@ const router = express.Router();
 const request = require("request-promise");
 
 /* GET users listing. */
-router.get("/", function(req, res, next) {
+router.get("/:community", function(req, res, next) {
+  const communityName = req.params.community;
+  const addSlash = communityName.replace("-", "/");
+
   let options = {
-    url: `https://data.calgary.ca/resource/eme4-y5m7.json`,
+    url: `https://data.calgary.ca/resource/eme4-y5m7.json?name=${addSlash.toUpperCase()}`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"

@@ -27,11 +27,13 @@ class Middle extends Component {
       component = (
         <Property data={this.props.data} changeTopic={this.props.changeTopic} />
       );
-    } else if (this.props.data.topic === "opulation") {
-      <Population
-        data={this.props.data}
-        changeTopic={this.props.changeTopic}
-      />;
+    } else if (this.props.data.topic === "population") {
+      component = (
+        <Population
+          data={this.props.data}
+          changeTopic={this.props.changeTopic}
+        />
+      );
     } else {
       component = null;
     }
