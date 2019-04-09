@@ -22,7 +22,6 @@ function preparePopulationData(populationData) {
 
 function generateArrayPopulation(halfPreparedData) {
   const arrayData = { years: [], population: [] };
-  console.log(halfPreparedData);
   halfPreparedData.forEach(singleYear => {
     arrayData.years.push(singleYear.years);
     arrayData.population.push(singleYear.populaton);
@@ -46,7 +45,6 @@ router.get("/:community", function(req, res, next) {
     data = JSON.parse(data);
     const dataObj = preparePopulationData(data);
     const arrayData = generateArrayPopulation(dataObj);
-    console.log("dataObj:", arrayData);
     res.status(200).json(arrayData);
   });
 });
