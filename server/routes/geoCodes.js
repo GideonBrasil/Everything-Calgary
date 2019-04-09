@@ -5,8 +5,9 @@ const request = require("request-promise");
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
+  const addSlash = communityName.replace("-", "/");
   let options = {
-    url: `https://data.calgary.ca/resource/surr-xmvs.json?name=${communityName.toUpperCase()}`,
+    url: `https://data.calgary.ca/resource/surr-xmvs.json?name=${addSlash.toUpperCase()}`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"

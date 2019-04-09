@@ -13,7 +13,6 @@ class Middle extends Component {
   }
 
   render() {
-    console.log(this.props.data.topic);
     let component;
     if (this.props.data.topic === "crime") {
       component = (

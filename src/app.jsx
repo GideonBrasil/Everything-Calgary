@@ -26,10 +26,10 @@ class App extends Component {
   }
 
   updatePins() {
-    fetch(`http://localhost:3000/constructionPermits/${this.state.community}`)
+    const removeSlash = this.state.community.replace("/", "-");
+    fetch(`http://localhost:3000/constructionPermits/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
-        console.log("data in construction_permits:", data);
         this.setState(state => ({
           pins: data
         }));
@@ -62,7 +62,8 @@ class App extends Component {
   }
 
   updateCommunity(community) {
-    fetch(`http://localhost:3000/coordinates/${community}`)
+    const removeSlash = community.replace("/", "-");
+    fetch(`http://localhost:3000/coordinates/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
@@ -74,10 +75,9 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
-    fetch(`http://localhost:3000/geocoordinates/${community}`)
+    fetch(`http://localhost:3000/geocoordinates/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState(state => ({
           polygonCoords: data.geoCodes,
           communityCode: data.communityCode,

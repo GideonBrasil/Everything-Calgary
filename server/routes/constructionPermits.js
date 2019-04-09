@@ -7,7 +7,7 @@ function createCoordObjects(array) {
 }
 
 function generateKey() {
-  return Math.random() * 33;
+  return Math.random() * 29;
 }
 
 function permitDuration(issuedDate) {
@@ -39,8 +39,9 @@ function preparePermitsData(permitsData) {
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
+  const addSlash = communityName.replace("-", "/");
   let options = {
-    url: `https://data.calgary.ca/resource/yjnz-kedd.json?communityname=${communityName.toUpperCase()}&$where=statuscurrent%20not%20in(%27Completed%27,%27Cancelled%27,%27Refused%27,%27File%20Closed%27,%20%27Expired%27)`,
+    url: `https://data.calgary.ca/resource/yjnz-kedd.json?communityname=${addSlash.toUpperCase()}&$where=statuscurrent%20not%20in(%27Completed%27,%27Cancelled%27,%27Refused%27,%27File%20Closed%27,%20%27Expired%27)`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
@@ -48,9 +49,7 @@ router.get("/:community", function(req, res, next) {
   };
   request(options).then(data => {
     permitsData = JSON.parse(data);
-    // console.log("data:", data);
     const dataObj = preparePermitsData(permitsData);
-    // console.log(dataObj);
     res.status(200).json(dataObj);
   });
 });

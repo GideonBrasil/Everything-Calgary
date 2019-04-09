@@ -15,48 +15,50 @@ function sortCrimeData(communityData) {
 }
 
 function monthDiff(d1, d2) {
-    let months;
-    months = (d2.getFullYear() - d1.getFullYear()) * 12;
-    months -= d1.getMonth() + 1;
-    months += d2.getMonth();
-    return months <= 0 ? 0 : months;
+  let months;
+  months = (d2.getFullYear() - d1.getFullYear()) * 12;
+  months -= d1.getMonth() + 1;
+  months += d2.getMonth();
+  return months <= 0 ? 0 : months;
 }
 
 function dataFilter(data, community) {
   const currentDate = new Date();
-  const data12Months = data.filter( crime => {
+  const data12Months = data.filter(crime => {
     let theDate = new Date(crime.date);
     let monthdiff = monthDiff(new Date(crime.date), currentDate);
     return 12 >= monthdiff;
   });
 
   let totalCalgaryCrime = 0;
-  data12Months.forEach( crime => {
+  data12Months.forEach(crime => {
     totalCalgaryCrime += Number(crime.count);
   });
 
-  const communityCrimes = data12Months.filter( crimeObj => {
+  const communityCrimes = data12Months.filter(crimeObj => {
     return crimeObj.community_name === community.toUpperCase();
   });
 
   let totalComCrimes = 0;
-  communityCrimes.forEach( crime => {totalComCrimes += Number(crime.count);});
-
-  const communityMonthCrimes = communityCrimes.filter( crime => {
-    return crime.month === 'FEB';
+  communityCrimes.forEach(crime => {
+    totalComCrimes += Number(crime.count);
   });
 
-  const calgaryMonthCrimes = data12Months.filter( crime => {
-    return crime.month === 'FEB';
+  const communityMonthCrimes = communityCrimes.filter(crime => {
+    return crime.month === "FEB";
+  });
+
+  const calgaryMonthCrimes = data12Months.filter(crime => {
+    return crime.month === "FEB";
   });
 
   let totalCalgaryCrimeMonth = 0;
-  calgaryMonthCrimes.forEach( crime => {
+  calgaryMonthCrimes.forEach(crime => {
     totalCalgaryCrimeMonth += Number(crime.count);
   });
 
   let totalComCrimeMonth = 0;
-  communityMonthCrimes.forEach( crime => {
+  communityMonthCrimes.forEach(crime => {
     totalComCrimeMonth += Number(crime.count);
   });
 
@@ -74,36 +76,39 @@ function dataFilter(data, community) {
         category: cat,
         commNum: commStats[cat] || 0,
         yycNum: YYCStats[cat]
-      }
-      crimeMonth.push(newCrimeStat)
-      return crimeMonth
+      };
+      crimeMonth.push(newCrimeStat);
+      return crimeMonth;
     }, []);
   }
 
   const monthCrimeStats = createByPeriod(YYCMonthStats, commMonthStats);
   const yearCrimeStats = createByPeriod(YYC12Stats, comm12Stats);
 
-   return ({'community_name': community,
-            'totalYYCCrime12': totalCalgaryCrime,
-            'totalYYCCrimeMonth': totalCalgaryCrimeMonth,
-            'totalCommCrime12': totalComCrimes,
-            'totalCommCrimeMonth': totalComCrimeMonth,
-            'residentsCount': residentsCount,
-            // 'comm12Stats': comm12Stats,
-            // 'YYC12Stats': YYC12Stats,
-            // 'commMonthStats': commMonthStats,
-            // 'YYCMonthStats': YYCMonthStats,
-            'monthCrimeStats': monthCrimeStats,
-            'yearCrimeStats': yearCrimeStats
-      });
-  }
+  return {
+    community_name: community,
+    totalYYCCrime12: totalCalgaryCrime,
+    totalYYCCrimeMonth: totalCalgaryCrimeMonth,
+    totalCommCrime12: totalComCrimes,
+    totalCommCrimeMonth: totalComCrimeMonth,
+    residentsCount: residentsCount,
+    // 'comm12Stats': comm12Stats,
+    // 'YYC12Stats': YYC12Stats,
+    // 'commMonthStats': commMonthStats,
+    // 'YYCMonthStats': YYCMonthStats,
+    monthCrimeStats: monthCrimeStats,
+    yearCrimeStats: yearCrimeStats
+  };
+}
 
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  let now = new Date()
+  const addSlash = communityName.replace("-", "/");
+  let now = new Date();
   let options = {
-    url: `https://data.calgary.ca/resource/kudt-f99k.json?&$where=year > '${now.getFullYear()-2}'&$Limit=50000`,
+    url: `https://data.calgary.ca/resource/kudt-f99k.json?&$where=year > '${now.getFullYear() -
+      2}'&$Limit=50000`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
@@ -111,7 +116,7 @@ router.get("/:community", function(req, res, next) {
   };
   request(options).then(data => {
     data = JSON.parse(data);
-    dataObj = dataFilter(data, communityName);
+    dataObj = dataFilter(data, addSlash);
     res.status(200).json(dataObj);
   });
 });
