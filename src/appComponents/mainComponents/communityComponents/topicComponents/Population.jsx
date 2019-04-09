@@ -1,11 +1,39 @@
 import React, { Component } from "react";
-import { Modal, Nav, Table, Card } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { Line } from "react-chartjs-3";
+
+// const data = {
+//   labels: this.props.data,
+//   datasets: [
+//     {
+//       label: "My First dataset",
+//       fill: false,
+//       lineTension: 0.1,
+//       backgroundColor: "rgba(75,192,192,0.4)",
+//       borderColor: "rgba(75,192,192,1)",
+//       borderCapStyle: "butt",
+//       borderDash: [],
+//       borderDashOffset: 0.0,
+//       borderJoinStyle: "miter",
+//       pointBorderColor: "rgba(75,192,192,1)",
+//       pointBackgroundColor: "#fff",
+//       pointBorderWidth: 1,
+//       pointHoverRadius: 5,
+//       pointHoverBackgroundColor: "rgba(75,192,192,1)",
+//       pointHoverBorderColor: "rgba(220,220,220,1)",
+//       pointHoverBorderWidth: 2,
+//       pointRadius: 1,
+//       pointHitRadius: 10,
+//       data: [65, 59, 80, 81, 56, 55, 40]
+//     }
+//   ]
+// };
 
 class Population extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      population: null
+      chartData: {}
     };
   }
 
@@ -18,8 +46,34 @@ class Population extends Component {
     fetch(`http://localhost:3000/population/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         this.setState(state => ({
-          population: data
+          chartData: {
+            labels: data.years,
+            datasets: [
+              {
+                label: "Population growth",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: "butt",
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: "miter",
+                pointBorderColor: "rgba(75,192,192,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: data.population
+              }
+            ]
+          }
         }));
       })
       .catch(err => {
@@ -28,7 +82,8 @@ class Population extends Component {
   }
 
   render() {
-    console.log(this.state.Population);
+    console.log(this.state.chartData);
+
     return (
       <Modal
         id="population-modal"
@@ -40,7 +95,36 @@ class Population extends Component {
         dialogClassName="modal-60w"
       >
         <Modal.Header closeButton>
-          <Modal.Title>No population states yet</Modal.Title>
+          <Modal.Body>
+            <Line
+              data={this.state.chartData}
+              width={100}
+              height={50}
+              options={{
+                title: {
+                  display: true,
+                  text: `Historical population chart for ${
+                    this.props.data.community
+                  }`,
+                  fontSize: 25,
+                  position: "top"
+                },
+                legend: {
+                  display: true,
+                  position: "bottom"
+                },
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }
+                  ]
+                }
+              }}
+            />
+          </Modal.Body>
         </Modal.Header>
       </Modal>
     );
