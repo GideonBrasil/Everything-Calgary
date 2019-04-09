@@ -45,7 +45,8 @@ router.get("/:community", function(req, res, next) {
       location: createCoordObjects(incident.location.coordinates),
       address: incident.description,
       information: incident.incident_info,
-      timeOf: incident.start_dt
+      timeOf: incident.start_dt,
+      timeClear: incident.modified_dt
     });
   });
   return outputData;
