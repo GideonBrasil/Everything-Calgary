@@ -9,6 +9,10 @@ class Events extends Component {
     };
   }
 
+  eventsKeyGenerator() {
+    return Math.random() * 9;
+  }
+
   handleTabClick(link) {
     this.setState({ link });
   }
@@ -70,7 +74,7 @@ class Events extends Component {
                   </thead>
                   <tbody>
                     {this.state.events.map(event => (
-                      <React.Fragment key={event.notes}>
+                      <React.Fragment key={this.eventsKeyGenerator()}>
                         <tr>
                           <td>{event.date}</td>
                           <td>{event.time}</td>
