@@ -48,6 +48,7 @@ class Calgary_Middle extends Component {
             polygonCoords={this.props.data.polygonCoords}
             zoom={10.8}
             pins={this.props.data.pins}
+            signalPins={this.props.data.signalPins}
           />
         </div>
       </div>
