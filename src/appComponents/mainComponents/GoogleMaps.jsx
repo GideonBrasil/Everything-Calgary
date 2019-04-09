@@ -62,9 +62,10 @@ class MapContainer extends Component {
         />
       );
     });
-
-    const infoData =
-      this.props.topic === "construction permits" ? (
+    console.log(this.props.topic)
+    const infoData = () => {
+      if (this.props.topic === "construction permits") {
+        return (
         <table className="table table-striped">
           <thead>
             <tr>
@@ -133,9 +134,37 @@ class MapContainer extends Component {
             </tr>
           </tbody>
         </table>
-      ) :  ( <p> {this.state.selectedPlace.name ?
-        this.state.selectedPlace.name.address : "" }</p>
-      );
+          )} else if (this.props.topic === 'traffic incidents' && this.state.selectedPlace.name) {
+          return (
+            <table className="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Traffic Incident:</th>
+                      <th scope="col"> { this.state.selectedPlace.name.address }</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Time Reported:</th>
+                      <td>
+                        { this.state.selectedPlace.name.timeOf }
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Description:</th>
+                      <td>{ this.state.selectedPlace.name.information }</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Time Cleared:</th>
+                      <td>{ this.state.selectedPlace.name.timeClear }</td>
+                    </tr>
+                  </tbody>
+                </table>
+            )} else {
+              return ""
+            }
+          }
+          console.log(infoData())
       
 
     return (
@@ -152,7 +181,7 @@ class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          <div>{infoData}</div>
+          <div>{infoData()}</div>
         </InfoWindow>  
         <Polygon
           paths={this.props.polygonCoords}
