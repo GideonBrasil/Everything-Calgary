@@ -7,7 +7,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trafficPins: [],
       jumbotron: true,
       communityCenterLatLong: {},
       community: "",
@@ -47,7 +46,7 @@ class App extends Component {
       .then(data => {
         // console.log("data in traffic_incidents:", data);
         this.setState(state => ({
-          trafficPins: data
+          pins: data
         }))
       })
       .catch(err => {

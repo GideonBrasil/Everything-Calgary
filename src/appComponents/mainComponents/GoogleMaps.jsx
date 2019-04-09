@@ -28,6 +28,13 @@ class MapContainer extends Component {
       showingInfoWindow: true
     });
 
+  selectIcon = () => {
+    if (this.props.topic === 'construction permits') {
+      return "../../../public/images/home.png"
+    } else {
+      return "../../../public/images/accident.png"
+    }
+  }
   onClose = props => {
     if (this.state.showingInfoWindow) {
       this.setState({
@@ -40,6 +47,7 @@ class MapContainer extends Component {
   render() {
     var bounds = new this.props.google.maps.LatLngBounds();
     this.props.polygonCoords.reverse().map(polygon => bounds.extend(polygon));
+    const icon = this.selectIcon()
 
     let markers = this.props.pins.map(marker => {
       return (
@@ -50,26 +58,10 @@ class MapContainer extends Component {
           title={marker.address}
           onClick={this.onMarkerClick}
           animation={google.maps.Animation.DROP}
-          icon={"../../../public/images/home.png"}
+          icon={ icon }
         />
       );
     });
-    console.log(this.props.trafficPins)
-    let trafficMarkers = this.props.trafficPins.map(tmarker => {
-      return (
-        <Marker
-          key={tmarker.key}
-          name={tmarker}
-          position={tmarker.location}
-          title={tmarker.description}
-          // information={tmarker.information}
-          onClick={this.onMarkerClick}
-          animation={google.maps.Animation.DROP}
-          // icon={""}
-        />
-      );
-    });
-    console.log(trafficMarkers)
 
     const infoData =
       this.props.topic === "construction permits" ? (
@@ -142,7 +134,7 @@ class MapContainer extends Component {
           </tbody>
         </table>
       ) :  ( <p> {this.state.selectedPlace.name ?
-        this.state.selectedPlace.name.description : "" }</p>
+        this.state.selectedPlace.name.address : "" }</p>
       );
       
 
@@ -155,7 +147,7 @@ class MapContainer extends Component {
         bounds={bounds}
       >
         {markers}
-        { trafficMarkers }
+
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}

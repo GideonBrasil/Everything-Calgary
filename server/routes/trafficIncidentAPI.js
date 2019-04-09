@@ -43,7 +43,7 @@ router.get("/:community", function(req, res, next) {
     outputData.push({
       key: Math.random() * 100,
       location: createCoordObjects(incident.location.coordinates),
-      description: incident.description,
+      address: incident.description,
       information: incident.incident_info,
       timeOf: incident.start_dt
     });
