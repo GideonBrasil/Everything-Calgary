@@ -34,8 +34,8 @@ class MapContainer extends Component {
         return "../../../public/images/home.png";
       case "traffic incidents":
         return "../../../public/images/accident.png";
-      case "school":
-        return "";
+      case "schools":
+        return "../../../public/images/school-bus.png";
       default:
         return "";
     }
@@ -178,7 +178,9 @@ class MapContainer extends Component {
                     </tr>
                   </tbody>
                 </table>
-            )} else {
+            )} else if (this.props.topic === 'schools' && this.state.selectedPlace.name){
+                <p> this.state.selectedPlace.name.address </p>
+          } else {
               return ""
             }
           }

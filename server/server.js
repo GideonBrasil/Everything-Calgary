@@ -20,6 +20,7 @@ const trafficRouter = require("./routes/trafficAPI");
 const cityRouter = require("./routes/cityLimitsAPI");
 const careersRouter = require("./routes/careersAPI");
 const salaryRouter = require("./routes/salaryAPI");
+
 const trafficIncidentsRouter = require("./routes/trafficIncidentAPI");
 const communitySchoolRouter = require("./routes/communitySchools");
 const populationRouter = require("./routes/populationAPI");

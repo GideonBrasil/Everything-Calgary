@@ -133,25 +133,23 @@ class App extends Component {
 
   changeTopic(newTopic) {
     switch (newTopic) {
-      case "comstruction permits":
+      case "construction permits":
         this.updatePins();
         break;
       case "traffic incidents":
         this.updateTrafficPins();
         break;
-      case "trafiic signals":
+      case "traffic signals":
         this.updateSignalPins();
         break;
       case "schools":
         this.updateSchoolPins();
         break;
-      default:
-          this.setState({
-            pins: [],
-            topic: newTopic
-          });
-          break;
     }
+    this.setState({
+      pins: [],
+      topic: newTopic
+    });
   }
 
   showCalgary() {

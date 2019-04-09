@@ -9,6 +9,7 @@ function createCoordObjects(array) {
 function filterData(data) {
   const output = data.map( school => {
     return {
+      key: Math.random()*100,
       name: school.name,
       location: createCoordObjects(school.location.coordinates),
       type: school.type,
