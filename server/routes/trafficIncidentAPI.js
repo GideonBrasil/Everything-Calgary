@@ -27,7 +27,7 @@ function filterByPeriod(data) {
 /* GET traffic incidents listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
+  const addSlash = communityName.replace("_", "/");
   let options = {
     url: `https://data.calgary.ca/resource/kxmf-bzkv.json?name=${addSlash.toUpperCase()}`,
     headers: {
@@ -51,7 +51,7 @@ router.get("/:community", function(req, res, next) {
     });
     return outputData;
   }
-  
+
   request(options).then(data => {
     data = JSON.parse(data)[0];
     let commFeatureCode = data._feature_id
@@ -71,5 +71,5 @@ router.get("/:community", function(req, res, next) {
       });
     });
   });
- 
+
 module.exports = router;
