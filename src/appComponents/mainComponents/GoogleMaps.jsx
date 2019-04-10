@@ -209,11 +209,11 @@ class MapContainer extends Component {
         {signalMarkers}
         <Polygon
           paths={this.props.polygonCoords}
-          strokeColor="#0000FF"
+          strokeColor="#D90429"
           strokeOpacity={0.8}
-          strokeWeight={2}
-          fillColor="#0000FF"
-          fillOpacity={0.25}
+          strokeWeight={1.2}
+          fillColor="#D90429"
+          fillOpacity={0.2}
         />
       </Map>
     );
