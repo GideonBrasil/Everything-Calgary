@@ -28,13 +28,15 @@ class App extends Component {
     this.updateSignalPins = this.updateSignalPins.bind(this);
   }
 
-  updatePins() {
+  updatePins(newTopic) {
     const removeSlash = this.state.community.replace("/", "-");
     fetch(`http://localhost:3000/constructionPermits/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
-          pins: data
+          pins: data,
+          signalPins: [],
+          topic: newTopic
         }));
       })
       .catch(err => {
@@ -42,13 +44,14 @@ class App extends Component {
       });
   }
 
-  updateTrafficPins() {
+  updateTrafficPins(newTopic) {
     const removeSlash = this.state.community.replace("/", "-");
     fetch(`http://localhost:3000/trafficIncidents/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
-          pins: data
+          pins: data,
+          topic: newTopic
         }));
       })
       .catch(err => {
@@ -56,14 +59,14 @@ class App extends Component {
       });
   }
 
-  updateSchoolPins() {
+  updateSchoolPins(newTopic) {
     const removeSlash = this.state.community.replace("/", "-");
     fetch(`http://localhost:3000/schools/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState(state => ({
-          pins: data
+          pins: data,
+          topic: newTopic
         }));
       })
       .catch(err => {
@@ -76,9 +79,16 @@ class App extends Component {
     fetch(`http://localhost:3000/trafficSignals/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
-        this.setState(state => ({
-          signalPins: data
-        }));
+        if (this.state.topic === "construction permits") {
+          this.setState(state => ({
+            signalPins: data,
+            pins: []
+          }));
+        } else {
+          this.setState(state => ({
+            signalPins: data
+          }));
+        }
       })
       .catch(err => {
         console.log(err);
@@ -133,22 +143,24 @@ class App extends Component {
   changeTopic(newTopic) {
     switch (newTopic) {
       case "construction permits":
-        this.updatePins();
+        this.updatePins(newTopic);
         break;
       case "traffic incidents":
-        this.updateTrafficPins();
+        this.updateTrafficPins(newTopic);
         break;
       case "traffic signals":
-        this.updateSignalPins();
+        this.updateSignalPins(newTopic);
         break;
       case "schools":
-        this.updateSchoolPins();
+        this.updateSchoolPins(newTopic);
         break;
+      default:
+        this.setState({
+          signalPins: [],
+          pins: [],
+          topic: newTopic
+        });
     }
-    this.setState({
-      pins: [],
-      topic: newTopic
-    });
   }
 
   showCalgary() {

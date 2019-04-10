@@ -50,7 +50,7 @@ class Property extends Component {
                     width: "850px",
                     backgroundColor:
                       this.props.data.communityCode === pcdeets.comm_code &&
-                      "#EF233C"
+                      "#8D99AE"
                   }}
                   key={pcdeets.comm_code}
                   className="darren-card"
@@ -59,7 +59,10 @@ class Property extends Component {
                     <Card.Title>
                       {pcdeets.community_name.replace("/", "/\n")}
                     </Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
+                    <Card.Subtitle
+                      className="mb-2 text-muted"
+                      style={{ color: "#2B2D42" }}
+                    >
                       ${Number(pcdeets.median_assessed_value).toLocaleString()}
                     </Card.Subtitle>
                     <Card.Text>

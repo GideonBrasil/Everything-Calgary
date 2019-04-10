@@ -21,8 +21,8 @@ class Population extends Component {
             datasets: [
               {
                 label: "Population growth",
-                fill: false,
-                lineTension: 0.1,
+                fill: true,
+                lineTension: 0.2,
                 backgroundColor: "#8D99AE",
                 borderColor: "#D90429",
                 borderCapStyle: "butt",
