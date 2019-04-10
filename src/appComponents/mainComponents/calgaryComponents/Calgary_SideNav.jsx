@@ -11,11 +11,11 @@ class Calgary_Sidenav extends Component {
           <h4>Everything currently... <br/></h4>
         </div>
         <ul className="list-unstyled components">
+          <li onClick={this.props.chooseStatistics}><a id="careers">Careers</a></li>
+          <li onClick={this.props.chooseStatistics}><a id="events">Events</a></li>
+          <li onClick={this.props.chooseStatistics}><a id="salary">Civil Service Compensation in 2018</a></li>
           <li onClick={this.props.chooseStatistics}><a id="news">News</a></li>
           <li onClick={this.props.chooseStatistics}><a id="traffic">Traffic Incidents</a></li>
-          <li onClick={this.props.chooseStatistics}><a id="events">Events</a></li>
-          <li onClick={this.props.chooseStatistics}><a id="salary">Civil Service Compensation</a></li>
-          <li onClick={this.props.chooseStatistics}><a id="careers">Careers</a></li>
         </ul>
       </nav>
     );

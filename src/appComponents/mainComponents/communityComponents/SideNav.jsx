@@ -12,25 +12,25 @@ class Sidenav extends Component {
         </div>
         <ul className="list-unstyled components">
           <li onClick={this.props.chooseStatistics}>
+            <a id="construction permits">Construction Permits</a>
+          </li>
+          <li onClick={this.props.chooseStatistics}>
             <a id="crime">Crime</a>
           </li>
           <li onClick={this.props.chooseStatistics}>
             <a id="garbage">Garbage pickup</a>
           </li>
           <li onClick={this.props.chooseStatistics}>
+            <a id="population">Population</a>
+          </li>
+          <li onClick={this.props.chooseStatistics}>
             <a id="property">Property Assessment</a>
-          </li>
-          <li onClick={this.props.chooseStatistics}>
-            <a id="construction permits">Construction Permits</a>
-          </li>
-          <li onClick={this.props.chooseStatistics}>
-            <a id="traffic incidents">Traffic Incidents</a>
           </li>
           <li onClick={this.props.chooseStatistics}>
             <a id="schools">Schools</a>
           </li>
           <li onClick={this.props.chooseStatistics}>
-            <a id="population">Population</a>
+            <a id="traffic incidents">Traffic Incidents</a>
           </li>
           <li onClick={this.props.chooseStatistics}>
             <a id="traffic signals">Traffic Signals</a>
