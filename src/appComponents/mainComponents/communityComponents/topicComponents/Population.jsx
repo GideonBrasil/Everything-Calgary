@@ -69,9 +69,10 @@ class Population extends Component {
               options={{
                 title: {
                   display: true,
-                  text: `Historical population chart for ${
-                    this.props.data.community
-                  }`,
+                  text: `Historical population chart for ${this.props.data.community.substring(
+                    0,
+                    1
+                  ) + this.props.data.community.toLowerCase().slice(1)}`,
                   fontSize: 25,
                   position: "top",
                   padding: 20
