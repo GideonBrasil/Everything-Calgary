@@ -13,7 +13,7 @@ function filterData(data) {
       name: school.name,
       location: createCoordObjects(school.location.coordinates),
       type: school.type,
-      address: school.address,
+      address: school.address_ab,
       board: school.board,
       grades: school.grades,
       postsecond: school.postsecond
@@ -25,7 +25,7 @@ function filterData(data) {
 /* GET traffic incidents listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
+  const addSlash = communityName.replace("_", "/");
   let options = {
     url: `https://data.calgary.ca/resource/kxmf-bzkv.json?name=${addSlash.toUpperCase()}`,
     headers: {

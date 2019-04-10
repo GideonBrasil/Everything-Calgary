@@ -16,6 +16,9 @@ router.get("/", function(req, res, next) {
   };
   request(options).then(data => {
     data = JSON.parse(data);
+    data.sort(function(a, b){
+      return new Date(a.closing_date) - new Date(b.closing_date);
+    });
     res.status(200).json(data);
   });
 });

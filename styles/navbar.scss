@@ -8,9 +8,15 @@ $color5: #D90429;
   display: flex;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 1.0);
+  section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   #logo {
-    max-height: 48px;
+    max-height: 53px;
     border-radius: 7px;
+    border-color: $color5 1px solid;
   }
   section {
     display: flex;
@@ -24,6 +30,7 @@ $color5: #D90429;
     box-shadow: none;
     margin-right: 10px;
     color:white !important;
+    height: 53px;
   }
   #btn2:hover {
     opacity: 0.7;
@@ -33,7 +40,7 @@ $color5: #D90429;
     position: relative;
     ul {
       position: absolute;
-      top: 43px;
+      top: 36px;
       width: 300px;
       background: white;
     }
@@ -48,6 +55,7 @@ $color5: #D90429;
         align-content: center;
         background-color: $color5;
         color: white;
+        border: $color5;
       }
   }
   #logo:hover {

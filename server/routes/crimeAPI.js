@@ -105,7 +105,7 @@ function dataFilter(data, community) {
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
+  const addSlash = communityName.replace("_", "/");
   let now = new Date();
   let options = {
     url: `https://data.calgary.ca/resource/kudt-f99k.json?&$where=year > '${now.getFullYear() -

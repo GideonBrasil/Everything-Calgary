@@ -40,7 +40,7 @@ function manipulateData(data) {
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
+  const addSlash = communityName.replace("_", "/");
   let options = {
     url: `https://data.calgary.ca/resource/g5k5-gjns.json?community=${addSlash}&$select=distinct%20commodity,%20community,%20collection_day,clect_int_winter,clect_int_summer`,
     headers: {
