@@ -16,6 +16,7 @@ $color5: #D90429;
   #logo {
     max-height: 53px;
     border-radius: 7px;
+    border-color: $color5 1px solid;
   }
   section {
     display: flex;
@@ -39,7 +40,7 @@ $color5: #D90429;
     position: relative;
     ul {
       position: absolute;
-      top: 43px;
+      top: 36px;
       width: 300px;
       background: white;
     }
