@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { Modal, Nav, Table, Card } from "react-bootstrap";
+import SalaryAutocomplete from "./SalaryAutocomplete.jsx";
+import suggestions from "./../../../../../helper/salary.js";
 
 class Salary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      salary: null
+      salary: null,
+      suggestions: suggestions
     };
   }
 
@@ -57,7 +60,10 @@ class Salary extends Component {
                   onSelect={selectedKey => this.handleTabClick(selectedKey)}
                 >
                   <Nav.Item>
-                    <h4>Salary data from 2018</h4>
+                    <SalaryAutocomplete
+                      className="form-control mr-sm-2"
+                      type="search"
+                      suggestions={suggestions}/>
                   </Nav.Item>
                 </Nav>
               </Card.Header>
@@ -75,8 +81,8 @@ class Salary extends Component {
                       <React.Fragment key={this.eventsKeyGenerator()}>
                         <tr>
                           <td>{title.position_title}</td>
-                          <td>${Number(title.minimum_annual_base_rate).toLocaleString()}</td>
-                          <td>${Number(title.maximum_annual_base_rate).toLocaleString()}</td>
+                          <td className="salary-base">${Number(title.minimum_annual_base_rate).toLocaleString()}</td>
+                          <td className="salary-base">${Number(title.maximum_annual_base_rate).toLocaleString()}</td>
                         </tr>
                       </React.Fragment>
                     ))}
@@ -90,5 +96,6 @@ class Salary extends Component {
     );
   }
 }
+
 
 export default Salary;

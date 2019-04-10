@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
 
-class Autocomplete extends Component {
+class SalaryAutocomplete extends Component {
   static propTypes = {
     suggestions: PropTypes.instanceOf(Array)
   };
@@ -131,7 +131,7 @@ class Autocomplete extends Component {
       } else {
         suggestionsListComponent = (
           <div className="no-suggestions">
-            <em>No such community!</em>
+            <em>No such job title!</em>
           </div>
         );
       }
@@ -144,7 +144,7 @@ class Autocomplete extends Component {
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={userInput}
-          placeholder={this.props.community ? "Change your Community" : "Select your community..."}
+          placeholder={this.props.suggestions ? "Change the job title" : "Search for a job title..."}
         />
         {suggestionsListComponent}
       </Fragment>
@@ -152,4 +152,4 @@ class Autocomplete extends Component {
   }
 }
 
-export default Autocomplete;
+export default SalaryAutocomplete;
