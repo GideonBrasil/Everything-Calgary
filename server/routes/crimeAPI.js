@@ -92,6 +92,7 @@ function dataFilter(data, community) {
     totalCommCrime12: totalComCrimes,
     totalCommCrimeMonth: totalComCrimeMonth,
     residentsCount: residentsCount,
+    residentCountYYC: 1160000,
     // 'comm12Stats': comm12Stats,
     // 'YYC12Stats': YYC12Stats,
     // 'commMonthStats': commMonthStats,
@@ -104,7 +105,7 @@ function dataFilter(data, community) {
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
+  const addSlash = communityName.replace("_", "/");
   let now = new Date();
   let options = {
     url: `https://data.calgary.ca/resource/kudt-f99k.json?&$where=year > '${now.getFullYear() -

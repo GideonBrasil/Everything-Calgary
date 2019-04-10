@@ -14,7 +14,6 @@ class Population extends Component {
     fetch(`http://localhost:3000/calgaryPopulation`)
       .then(res => res.json())
       .then(data => {
-        console.log("data:", data);
         this.setState(state => ({
           chartData: {
             labels: data.years,

@@ -9,7 +9,7 @@ class Garbage extends Component {
     };
   }
   componentDidMount() {
-    const removeSlash = this.props.data.community.replace("/", "-");
+    const removeSlash = this.props.data.community.replace("/", "_");
     fetch(`http://localhost:3000/garbage/${removeSlash}`)
       .then(res => res.json())
       .then(data => {

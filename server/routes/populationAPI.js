@@ -32,7 +32,7 @@ function generateArrayPopulation(halfPreparedData) {
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
+  const addSlash = communityName.replace("_", "/");
 
   let options = {
     url: `https://data.calgary.ca/resource/eme4-y5m7.json?name=${addSlash.toUpperCase()}&$order=census_year ASC`,

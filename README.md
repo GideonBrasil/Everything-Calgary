@@ -116,4 +116,4 @@ __Garbage pickup schedule in a Calgary Community__
 !["Edit Page"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_garbage.png)
 
 __Alexa, tell me about garbage pickup schedule in a Calgary Community__
-!["Edit Page"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_alexa.png)
+!["Edit Page"](https://github.com/GideonBrasil/Everything-Calgary/blob/master/docs/EC_alexa.png)

@@ -12,9 +12,26 @@ class Crime extends Component {
   handleTabClick(link) {
     this.setState({ link });
   }
+  printTargetMonth() {
+    const date = new Date().getMonth();
+    const monthName = [
+      "Jan",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "November",
+      "December"
+    ];
+    return monthName[date - 1];
+  }
 
   componentDidMount() {
-    const removeSlash = this.props.data.community.replace("/", "-");
+    const removeSlash = this.props.data.community.replace("/", "_");
     fetch(`http://localhost:3000/crime/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
@@ -47,7 +64,10 @@ class Crime extends Component {
         dialogClassName="modal-60w"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Crime Statistics</Modal.Title>
+          <Modal.Title>
+            Crime Story: <br />
+            compare and contrast crime rates with the rest of Calgary
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {!crimeStats ? (
@@ -62,15 +82,17 @@ class Crime extends Component {
                   onSelect={selectedKey => this.handleTabClick(selectedKey)}
                 >
                   <Nav.Item>
-                    <Nav.Link href="#lstMos">Last Month</Nav.Link>
+                    <Nav.Link href="#lstMos">
+                      {this.printTargetMonth()}
+                    </Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="#lst12Mos">Last 12 Months</Nav.Link>
+                    <Nav.Link href="#lst12Mos">The Last 12 Months</Nav.Link>
                   </Nav.Item>
                 </Nav>
               </Card.Header>
               <Card.Body>
-                <Card.Title>For the month of Feb</Card.Title>
+                <Card.Title>Beltline </Card.Title>
                 <Table striped bordered hover>
                   <thead>
                     <tr>
@@ -84,8 +106,26 @@ class Crime extends Component {
                       <React.Fragment key={deets.category}>
                         <tr>
                           <td>{deets.category}</td>
-                          <td className="fact-column">{Number(deets.commNum).toLocaleString()}</td>
-                          <td className="fact-column">{Number(deets.yycNum).toLocaleString()}</td>
+                          <td className="fact-column">
+                            {Number(deets.commNum).toLocaleString()}
+                            <br />[
+                            {Math.round(
+                              (deets.commNum /
+                                (crimeStats.residentsCount / 1000)) *
+                                100
+                            ) / 100}{" "}
+                            per 1,000 residents]
+                          </td>
+                          <td className="fact-column">
+                            {Number(deets.yycNum).toLocaleString()}
+                            <br />[
+                            {Math.round(
+                              (deets.commNum /
+                                (crimeStats.residentCountYYC / 1000)) *
+                                100
+                            ) / 100}{" "}
+                            per 1,000 residents]
+                          </td>
                         </tr>
                       </React.Fragment>
                     ))}

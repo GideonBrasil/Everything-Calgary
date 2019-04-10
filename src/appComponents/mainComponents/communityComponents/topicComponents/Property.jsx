@@ -26,6 +26,20 @@ class Property extends Component {
       });
   }
 
+  getRank(rank) {
+    let position = 195 - Number(rank);
+    switch (position) {
+      case 1:
+        return "1st";
+      case 2:
+        return "2nd";
+      case 3:
+        return "3rd";
+      default:
+        return position + "th";
+    }
+  }
+
   render() {
     const { propData } = this.state;
     if (!Object.keys(propData).length) return null;
@@ -39,7 +53,10 @@ class Property extends Component {
         className="darren-holder"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Property Data</Modal.Title>
+          <Modal.Title>
+            Average Property Assessment Rank:{" "}
+            {this.getRank(propData.targetIndex)} of 194
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <span>
@@ -66,11 +83,10 @@ class Property extends Component {
                       ${Number(pcdeets.median_assessed_value).toLocaleString()}
                     </Card.Subtitle>
                     <Card.Text>
-                      {pcdeets.community_name} has{" "}
                       {Number(
                         pcdeets.number_of_taxable_accounts
                       ).toLocaleString()}{" "}
-                      assessed properties.
+                      properties.
                     </Card.Text>
                   </Card.Body>
                 </Card>
