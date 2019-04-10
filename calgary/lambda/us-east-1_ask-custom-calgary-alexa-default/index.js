@@ -8,7 +8,7 @@ const LaunchRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speechText = 'Welcome to the Alexa Everything Calgary Skills Kit, you can ask for traffic or garbage community!';
+    const speechText = 'Welcome to the Alexa Everything Calgary Skills Kit, you can ask for traffic or garbage information in your community!';
 
     return handlerInput.responseBuilder
       .speak(speechText)
