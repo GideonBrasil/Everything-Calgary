@@ -17,25 +17,23 @@ router.get("/:community", function(req, res, next) {
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
     }
   };
-  console.log(communityName)
 
-
-  function  createSignalData(data) {
+  function createSignalData(data) {
     let signalData = [];
     data.forEach(signal => {
-    // const timeOf = new Date(signal.start_dt)
-    signalData.push({
-      key: Math.random() * 100,
-      location: createCoordObjects(signal.location.coordinates),
-      address: signal.crosswalk_type
-        });
+      // const timeOf = new Date(signal.start_dt)
+      signalData.push({
+        key: Math.random() * 100,
+        location: createCoordObjects(signal.location.coordinates),
+        address: signal.crosswalk_type
       });
-      return signalData;
-    }
+    });
+    return signalData;
+  }
 
   request(options).then(data => {
     data = JSON.parse(data)[0];
-    let commFeatureCode = data._feature_id
+    let commFeatureCode = data._feature_id;
 
     let options2 = {
       url: `https://data.calgary.ca/resource/nbax-k7vz.json?:@computed_region_kxmf_bzkv=${commFeatureCode}`,
@@ -46,7 +44,7 @@ router.get("/:community", function(req, res, next) {
     };
     request(options2).then(data => {
       data = JSON.parse(data);
-      const dataObj = createSignalData(data)
+      const dataObj = createSignalData(data);
       res.status(200).json(dataObj);
     });
   });

@@ -69,36 +69,42 @@ class Population extends Component {
               options={{
                 title: {
                   display: true,
-                  text: `Historical population chart for ${
-                    this.props.data.community
-                  }`,
+                  text: `Historical population chart for ${this.props.data.community.substring(
+                    0,
+                    1
+                  ) + this.props.data.community.toLowerCase().slice(1)}`,
                   fontSize: 25,
-                  position: "top"
+                  position: "top",
+                  padding: 20
                 },
                 legend: {
-                  display: true,
+                  display: false,
                   position: "bottom"
                 },
                 scales: {
                   yAxes: [
                     {
                       ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        fontSize: 12
                       },
                       scaleLabel: {
                         display: true,
-                        labelString: "Population"
+                        labelString: "Population",
+                        fontSize: 23
                       }
                     }
                   ],
                   xAxes: [
                     {
                       ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        fontSize: 12
                       },
                       scaleLabel: {
                         display: true,
-                        labelString: "Years"
+                        labelString: "Years",
+                        fontSize: 23
                       }
                     }
                   ]

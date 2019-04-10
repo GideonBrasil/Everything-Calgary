@@ -26,9 +26,9 @@ class Property extends Component {
       });
   }
 
-  getRank (rank) {
+  getRank(rank) {
     let position = 195 - Number(rank);
-    switch(position) {
+    switch (position) {
       case 1:
         return "1st";
       case 2:
@@ -36,13 +36,11 @@ class Property extends Component {
       case 3:
         return "3rd";
       default:
-        return position+"th";
-
+        return position + "th";
     }
   }
 
   render() {
-    console.log(this.state.propData);
     const { propData } = this.state;
     if (!Object.keys(propData).length) return null;
     return (
@@ -84,7 +82,8 @@ class Property extends Component {
                     <Card.Text>
                       {Number(
                         pcdeets.number_of_taxable_accounts
-                      ).toLocaleString()}{" "} properties.
+                      ).toLocaleString()}{" "}
+                      properties.
                     </Card.Text>
                   </Card.Body>
                 </Card>
