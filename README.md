@@ -101,16 +101,16 @@ This project is licensed under the LHL License
 ## App Flow
 
 __Welcome to Calgary!__
-!["Landing Page"](https://github.com/sddanila/TinyApp/blob/master/docs/welcome_page.png?raw=true)
+!["Welcome"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_Welcome.gif)
 
 __Traffic Incidents in Calgary Component__
-!["Traffic Incidents in Calgary Component"](https://github.com/sddanila/TinyApp/blob/master/docs/registration_page.png?raw=true)
+!["Traffic Incidents in Calgary Component"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_Traffic.png)
 
 __Schools in a Calgary community__
-!["Schools"](https://github.com/sddanila/TinyApp/blob/master/docs/login_page.png)
+!["Schools"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_Schools.png)
 
 __Population growth chart in a Calgary community__
-!["URLs Index Page"](https://github.com/sddanila/TinyApp/blob/master/docs/index_page.png)
+!["URLs Index Page"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_Population.png)
 
 __Garbage pickup schedule in a Calgary Community__
-!["Edit Page"](https://github.com/sddanila/TinyApp/blob/master/docs/edit_page.png)
+!["Edit Page"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_garbage.png)
