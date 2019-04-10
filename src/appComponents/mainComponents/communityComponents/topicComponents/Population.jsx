@@ -10,10 +10,6 @@ class Population extends Component {
     };
   }
 
-  eventsKeyGenerator() {
-    return Math.random() * 9;
-  }
-
   componentDidMount() {
     const removeSlash = this.props.data.community.replace("/", "-");
     fetch(`http://localhost:3000/population/${removeSlash}`)
@@ -25,20 +21,20 @@ class Population extends Component {
             datasets: [
               {
                 label: "Population growth",
-                fill: false,
-                lineTension: 0.1,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
+                fill: true,
+                lineTension: 0.2,
+                backgroundColor: "#8D99AE",
+                borderColor: "#D90429",
                 borderCapStyle: "butt",
                 borderDash: [],
                 borderDashOffset: 0.0,
                 borderJoinStyle: "miter",
-                pointBorderColor: "rgba(75,192,192,1)",
+                pointBorderColor: "#D90429",
                 pointBackgroundColor: "#fff",
                 pointBorderWidth: 1,
                 pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBackgroundColor: "#8D99AE",
+                pointHoverBorderColor: "#D90429",
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
@@ -91,7 +87,7 @@ class Population extends Component {
                       },
                       scaleLabel: {
                         display: true,
-                        labelString: "Population/1000"
+                        labelString: "Population"
                       }
                     }
                   ],

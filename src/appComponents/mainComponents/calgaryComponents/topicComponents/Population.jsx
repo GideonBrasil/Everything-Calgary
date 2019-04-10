@@ -10,14 +10,11 @@ class Population extends Component {
     };
   }
 
-  eventsKeyGenerator() {
-    return Math.random() * 9;
-  }
-
   componentDidMount() {
     fetch(`http://localhost:3000/calgaryPopulation`)
       .then(res => res.json())
       .then(data => {
+        console.log("data:", data);
         this.setState(state => ({
           chartData: {
             labels: data.years,
@@ -26,22 +23,22 @@ class Population extends Component {
                 label: "Population growth",
                 fill: false,
                 lineTension: 0.1,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
+                backgroundColor: "#8D99AE",
+                borderColor: "#D90429",
                 borderCapStyle: "butt",
                 borderDash: [],
                 borderDashOffset: 0.0,
                 borderJoinStyle: "miter",
-                pointBorderColor: "rgba(75,192,192,1)",
+                pointBorderColor: "#D90429",
                 pointBackgroundColor: "#fff",
                 pointBorderWidth: 1,
                 pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBackgroundColor: "#8D99AE",
+                pointHoverBorderColor: "#D90429",
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: data.sum_population
+                data: data.population
               }
             ]
           }
@@ -72,9 +69,7 @@ class Population extends Component {
               options={{
                 title: {
                   display: true,
-                  text: `Historical population chart for ${
-                    this.props.data.community
-                  }`,
+                  text: `Historical population chart for the City of Calgary`,
                   fontSize: 25,
                   position: "top"
                 },
@@ -90,7 +85,7 @@ class Population extends Component {
                       },
                       scaleLabel: {
                         display: true,
-                        labelString: "Population/1000"
+                        labelString: "Population"
                       }
                     }
                   ],
