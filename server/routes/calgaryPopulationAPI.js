@@ -31,9 +31,6 @@ function generateArrayPopulation(halfPreparedData) {
 
 /* GET users listing. */
 router.get("/", function(req, res, next) {
-  const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
-
   let options = {
     url: `https://data.calgary.ca/resource/eme4-y5m7.json?$select=census_year,sum(population)&$group=census_year&$order=census_year`,
     headers: {
@@ -45,6 +42,7 @@ router.get("/", function(req, res, next) {
     data = JSON.parse(data);
     const dataObj = preparePopulationData(data);
     const arrayData = generateArrayPopulation(dataObj);
+    console.log("arrayData:", arrayData);
     res.status(200).json(arrayData);
   });
 });
