@@ -13,54 +13,54 @@ In order to get started with this project, you will need to run two servers: one
 What you need to install:
 
 __Front-end:__
-    - bootstrap, 
-    - chart.js, 
-    - cookie-parser, 
-    - css-loader, 
-    - debug, 
-    - dotenv-webpack, 
-    - ejs, 
-    - express", 
-    - google-maps-react, 
-    - http-errors, 
-    - jquery, 
-    - moment, 
-    - morgan, 
-    - node-sass, 
-    - popper.js, 
-    - prop-types, 
-    - react-axios, 
-    - react-bootstrap, 
-    - react-chartjs-3, 
-    - request-promise, 
-    - sass-loader, 
-    - style-loader, 
+- bootstrap, 
+- chart.js, 
+- cookie-parser, 
+- css-loader, 
+- debug, 
+- dotenv-webpack, 
+- ejs, 
+- express", 
+- google-maps-react, 
+- http-errors, 
+- jquery, 
+- moment, 
+- morgan, 
+- node-sass, 
+- popper.js, 
+- prop-types, 
+- react-axios, 
+- react-bootstrap, 
+- react-chartjs-3, 
+- request-promise, 
+- sass-loader, 
+- style-loader, 
 
 __Front-end development dependencies:__
-    - @babel/core,
-    - @babel/plugin-proposal-class-properties,
-    - @babel/preset-env,
-    - @babel/preset-react,
-    - babel-loader,
-    - nodemon,
-    - react,
-    - react-dom,
-    - webpack,
-    - webpack-cli,
-    - webpack-dev-server,
+- @babel/core,
+- @babel/plugin-proposal-class-properties,
+- @babel/preset-env,
+- @babel/preset-react,
+- babel-loader,
+- nodemon,
+- react,
+- react-dom,
+- webpack,
+- webpack-cli,
+- webpack-dev-server,
 
 __Back-end:__
-    - cookie-parser,
-    - cors,
-    - debug,
-    - ejs,
-    - express,
-    - http-errors,
-    - morgan
+- cookie-parser,
+- cors,
+- debug,
+- ejs,
+- express,
+- http-errors,
+- morgan
 
 __Back-end development dependencies:__
-    - nodemon,
-    - request-promise.
+- nodemon,
+- request-promise.
 
 ### Installing
 
@@ -100,7 +100,7 @@ This project is licensed under the LHL License
 
 ## App Flow
 
-__Welcome to Calgary!__
+__Welcome to Everything Calgary! - A web app that brings in open city data for you__
 !["Welcome"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_Welcome.gif)
 
 __Traffic Incidents in Calgary Component__
