@@ -22,6 +22,17 @@ class Garbage extends Component {
       });
   }
 
+  titleCase(word) {
+    let words = word.split(' ');
+    let output = '';
+    words.forEach( w => {
+      w = w.toLowerCase();
+      let newWord = w[0].toUpperCase() + w.substring(1);
+      output += newWord + ' ';
+    });
+    return output;
+  }
+
   render() {
     const green = this.state.collectSched["Green"];
     const blue = this.state.collectSched["Blue"];
@@ -37,36 +48,39 @@ class Garbage extends Component {
         className="darren-garbage"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Waste and Recycling Pickup</Modal.Title>
+          <Modal.Title>{`${this.titleCase(this.props.data.community)} Waste and Recycling Pickup`}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <span>
             <CardDeck>
               <Card.Body className="card">
                 <Card.Title>
-                  <i className="fas fa-trash-alt fa-2x" />
+                  <i className="fas fa-trash-alt fa-4x" />
                 </Card.Title>
                 <Card.Subtitle>Garbage</Card.Subtitle>
+                <br/>
                 <Card.Text>
-                  {black ? `${black[1]} ${black[0]}` : "No garbage days"}
+                  {black ? <span>{black[1]} <strong>{black[0]}</strong></span> : "No garbage days"}
                 </Card.Text>
               </Card.Body>
               <Card.Body className="card">
                 <Card.Title>
-                  <i className="fas fa-recycle fa-2x" />
+                  <i className="fas fa-recycle fa-4x" />
                 </Card.Title>
                 <Card.Subtitle>Recycling</Card.Subtitle>
+                <br/>
                 <Card.Text>
-                  {blue ? `${blue[1]} ${blue[0]}` : "No recycling days"}
+                  {blue ? <span>{blue[1]} <strong>{blue[0]}</strong></span>  : "No recycling days"}
                 </Card.Text>
               </Card.Body>
               <Card.Body className="card">
                 <Card.Title>
-                  <i className="fas fa-trash-restore fa-2x" />
+                  <i className="fas fa-trash-restore fa-4x" />
                 </Card.Title>
-                <Card.Subtitle>Composting</Card.Subtitle>
+                <Card.Subtitle>Compost</Card.Subtitle>
+                <br/>
                 <Card.Text>
-                  {green ? `${green[1]} ${green[0]}` : "No compost days"}
+                  {green ? <span>{green[1]} <strong>{green[0]}</strong></span>  : "No compost days"}
                 </Card.Text>
               </Card.Body>
             </CardDeck>

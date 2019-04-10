@@ -184,7 +184,29 @@ class MapContainer extends Component {
         this.props.topic === "schools" &&
         this.state.selectedPlace.name
       ) {
-        <p> this.state.selectedPlace.name.address </p>;
+        return (
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">School Name:</th>
+                <th scope="col"> {this.state.selectedPlace.name.name}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Type:</th>
+                <td>{this.state.selectedPlace.name.type}</td>
+              </tr>
+              <tr>
+                <th scope="row">Levels:</th>
+                <td>{this.state.selectedPlace.name.grades}</td>
+              </tr>
+              <tr>
+                <th scope="row">Address:</th>
+                <td>{this.state.selectedPlace.name.address}</td>
+              </tr>
+            </tbody>
+          </table>)
       } else {
         return "";
       }
