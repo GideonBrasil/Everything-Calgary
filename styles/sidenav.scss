@@ -17,12 +17,13 @@ $color5: #D90429;
   padding: 10px;
   text-align: center;
   font-size: 20px;
+  line-height: 1.2;
 }
 
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: $color5;
+  background: #676767;
   color: #fff;
   transition: all 0.3s;
 }
@@ -51,6 +52,7 @@ $color5: #D90429;
   display: block;
   color: #fff;
   text-align: center;
+  border-radius: 3px;
 }
 
 #sidebar ul li a:hover {
