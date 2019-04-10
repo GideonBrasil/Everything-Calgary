@@ -57,7 +57,7 @@ class Property extends Component {
         </Modal.Header>
         <Modal.Body>
           <span>
-          <div className="ranking">Rank: {this.getRank(propData.targetIndex)} of 194</div>
+          <div className="ranking">Rank: {this.getRank(propData.targetIndex)} of 195</div>
             <CardDeck>
               {propData.range.map(pcdeets => (
                 <Card
