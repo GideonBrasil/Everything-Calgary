@@ -22,6 +22,17 @@ class Garbage extends Component {
       });
   }
 
+  titleCase(word) {
+    let words = word.split(' ');
+    let output = '';
+    words.forEach( w => {
+      w = w.toLowerCase();
+      let newWord = w[0].toUpperCase() + w.substring(1);
+      output += newWord + ' ';
+    });
+    return output;
+  }
+
   render() {
     const green = this.state.collectSched["Green"];
     const blue = this.state.collectSched["Blue"];
@@ -37,7 +48,7 @@ class Garbage extends Component {
         className="darren-garbage"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Waste and Recycling Pickup</Modal.Title>
+          <Modal.Title>{`${this.titleCase(this.props.data.community)} Waste and Recycling Pickup`}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <span>
