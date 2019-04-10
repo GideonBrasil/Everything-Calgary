@@ -64,8 +64,8 @@ class TrafficIncidents extends Component {
                     <Table striped bordered hover>
                       <thead>
                         <tr>
-                          <th>Date</th>
-                          <th>Start Time</th>
+                          <th style={{ width: "112px" }}>Date</th>
+                          <th style={{ width: "113px" }}>Start Time</th>
                           <th>Info</th>
                           <th>Description</th>
                         </tr>
