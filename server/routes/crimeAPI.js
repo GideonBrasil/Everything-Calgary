@@ -92,6 +92,7 @@ function dataFilter(data, community) {
     totalCommCrime12: totalComCrimes,
     totalCommCrimeMonth: totalComCrimeMonth,
     residentsCount: residentsCount,
+    residentCountYYC: 1160000,
     // 'comm12Stats': comm12Stats,
     // 'YYC12Stats': YYC12Stats,
     // 'commMonthStats': commMonthStats,
