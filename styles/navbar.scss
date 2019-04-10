@@ -8,8 +8,13 @@ $color5: #D90429;
   display: flex;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 1.0);
+  section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   #logo {
-    max-height: 48px;
+    max-height: 53px;
     border-radius: 7px;
   }
   section {
@@ -24,6 +29,7 @@ $color5: #D90429;
     box-shadow: none;
     margin-right: 10px;
     color:white !important;
+    height: 53px;
   }
   #btn2:hover {
     opacity: 0.7;

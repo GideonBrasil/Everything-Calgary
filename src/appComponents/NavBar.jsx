@@ -17,21 +17,23 @@ class NavBar extends Component {
     if (this.props.jumbotron === false && this.props.calgary === false) {
       return (
         <nav className="navbar fixed navbar-light">
-          <a onClick={this.props.showJumbotron} className="navbar-brand">
-            <img id="logo" src="https://github.com/GideonBrasil/Everything-Calgary/blob/master/public/images/logo1.png?raw=true" alt="logo" />{" "}
-          </a>
           <section>
-            <div id="calgary-now">
-              <button
-                style={{ color: 'white'}}
-                className="btn btn-danger btn-lg btn2"
-                id="btn2"
-                role="button"
-                onClick={this.props.showCalgary}
-              >
-                Calgary Now!
-              </button>
-            </div>
+            <a onClick={this.props.showJumbotron} className="navbar-brand">
+              <img id="logo" src="https://github.com/GideonBrasil/Everything-Calgary/blob/master/public/images/logo1.png?raw=true" alt="logo" />{" "}
+            </a>
+              <div id="calgary-now">
+                <button
+                  style={{ color: 'white'}}
+                  className="btn btn-danger btn-lg btn2"
+                  id="btn2"
+                  role="button"
+                  onClick={this.props.showCalgary}
+                >
+                  Calgary Now!
+                </button>
+              </div>
+          </section>
+          <section>
             <form className="form-inline" onSubmit={checkCommunity}>
               <Autocomplete
                 className="form-control mr-sm-2"

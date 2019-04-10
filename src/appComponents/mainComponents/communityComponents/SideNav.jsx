@@ -5,13 +5,14 @@ class Sidenav extends Component {
     return (
       <nav id="sidebar" className="col">
         <div className="sidebar-header">
+          <h5>Everything about... <br /></h5>
+          <br></br>
           <h4>
-            Everything... <br />
             {this.props.data.community.replace("/", "/\n")}
           </h4>
         </div>
         <ul className="list-unstyled components">
-          <li onClick={this.props.chooseStatistics}>
+          <li className="active" onClick={this.props.chooseStatistics}>
             <a id="construction permits">Construction Permits</a>
           </li>
           <li onClick={this.props.chooseStatistics}>
