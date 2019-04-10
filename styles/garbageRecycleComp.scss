@@ -12,8 +12,13 @@
   .card {
     width: 145px;
     padding: 12px;
+    min-width: 200px;
     i {
       justify-content: center;
+    }
+
+    p {
+      font-size: 22px;
     }
   }
   .card.card-body {
