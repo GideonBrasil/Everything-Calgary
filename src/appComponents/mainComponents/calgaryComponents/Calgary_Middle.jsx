@@ -5,6 +5,7 @@ import News from "./topicComponents/News.jsx";
 import Salary from "./topicComponents/Salary.jsx";
 import Careers from "./topicComponents/Careers.jsx";
 import TrafficIncidents from "./topicComponents/TrafficIncidents.jsx";
+import Population from "./topicComponents/Population.jsx";
 
 class Calgary_Middle extends Component {
   render() {
@@ -26,19 +27,21 @@ class Calgary_Middle extends Component {
       );
     } else if (this.props.data.topic === "careers") {
       component = (
-        <Careers
-          data={this.props.data}
-          changeTopic={this.props.changeTopic}
-        />
+        <Careers data={this.props.data} changeTopic={this.props.changeTopic} />
       );
     } else if (this.props.data.topic === "salary") {
       component = (
-        <Salary
+        <Salary data={this.props.data} changeTopic={this.props.changeTopic} />
+      );
+    } else if (this.props.data.topic === "population") {
+      component = (
+        <Population
           data={this.props.data}
           changeTopic={this.props.changeTopic}
         />
       );
     }
+
     return (
       <div className="col mapCol">
         {component}
