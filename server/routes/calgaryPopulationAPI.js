@@ -35,7 +35,7 @@ router.get("/", function(req, res, next) {
   const addSlash = communityName.replace("-", "/");
 
   let options = {
-    url: `https://data.calgary.ca/resource/eme4-y5m7.json?name=${addSlash.toUpperCase()}&$order=census_year ASC`,
+    url: `https://data.calgary.ca/resource/eme4-y5m7.json?$select=census_year,sum(population)&$group=census_year&$order=census_year`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
