@@ -5,28 +5,57 @@ $color4: #EF233C;
 $color5: #D90429;
 
 .darren-holder {
+  .modal-header {
+    display:flex;
+    justify-content: space-between !important;
+
+    .rankings {
+      float:right;
+    }
+  }
+
   .modal-content {
     min-width: 1100px;
 
     .modal-body {
       display: flex;
       justify-content: space-around;
+
+      .ranking {
+        text-align: center;
+        font-size: 20px;
+
+      }
+
+      .darren-card {
+          min-width: 200px;
+          max-width: 200px;
+          min-height: 180px;
+          margin: 0;
+          padding: 0;
+          margin-right: 5px;
+          margin-left: 5px;
+          text-align: center;
+
+          .card-title {
+            font-size: 20px;
+          }
+
+          .card-subtitle {
+            color: black !important;
+            border-radius: 15px;
+            font-size: 25px;
+          }
+
+          .card-text {
+            position: absolute;
+            bottom: 0;
+          }
+        }
     }
   }
 }
 
-#rankings {
-  float: right;
-}
-
-.darren-card {
-  min-width: 200px;
-  max-width: 200px;
-  margin: 0;
-  padding: 0;
-  margin-right: 5px;
-  margin-left: 5px;
-}
 @media (min-width: 576px) {
 
     .card-deck .card {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, CardDeck, Card } from "react-bootstrap";
+import { Modal, CardDeck, Card, ProgressBar } from "react-bootstrap";
 
 class Property extends Component {
   constructor(props) {
@@ -53,10 +53,11 @@ class Property extends Component {
         className="darren-holder"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Average Property Assessment    Rank: {this.getRank(propData.targetIndex)} of 194</Modal.Title>
+          <Modal.Title>Average Property Assessment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <span>
+          <div className="ranking">Rank: {this.getRank(propData.targetIndex)} of 194</div>
             <CardDeck>
               {propData.range.map(pcdeets => (
                 <Card
@@ -71,8 +72,9 @@ class Property extends Component {
                 >
                   <Card.Body>
                     <Card.Title>
-                      {pcdeets.community_name.replace("/", "/\n")}
+                      <u>{pcdeets.community_name.replace("/", "/\n")}</u>
                     </Card.Title>
+                    <br/>
                     <Card.Subtitle
                       className="mb-2 text-muted"
                       style={{ color: "#2B2D42" }}
