@@ -14,7 +14,7 @@ function preparePopulationData(populationData) {
   populationData.forEach(data => {
     outputData.push({
       years: populationYears(data.census_year),
-      populaton: data.population
+      populaton: data.sum_population
     });
   });
   return outputData;
@@ -42,7 +42,6 @@ router.get("/", function(req, res, next) {
     data = JSON.parse(data);
     const dataObj = preparePopulationData(data);
     const arrayData = generateArrayPopulation(dataObj);
-    console.log("arrayData:", arrayData);
     res.status(200).json(arrayData);
   });
 });
