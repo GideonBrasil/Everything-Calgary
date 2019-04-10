@@ -13,54 +13,54 @@ In order to get started with this project, you will need to run two servers: one
 What you need to install:
 
 __Front-end:__
-    "bootstrap": "^4.3.1",
-    "chart.js": "^2.8.0",
-    "cookie-parser": "~1.4.3",
-    "css-loader": "^2.1.1",
-    "debug": "~2.6.9",
-    "dotenv-webpack": "^1.7.0",
-    "ejs": "~2.5.7",
-    "express": "~4.16.0",
-    "google-maps-react": "^2.0.2",
-    "http-errors": "~1.6.2",
-    "jquery": "^3.3.1",
-    "moment": "^2.24.0",
-    "morgan": "~1.9.0",
-    "node-sass": "^4.11.0",
-    "popper.js": "^1.14.7",
-    "prop-types": "^15.7.2",
-    "react-axios": "^2.0.3",
-    "react-bootstrap": "^1.0.0-beta.6",
-    "react-chartjs-3": "^2.7.7",
-    "request-promise": "^4.2.4",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1"
+- bootstrap, 
+- chart.js, 
+- cookie-parser, 
+- css-loader, 
+- debug, 
+- dotenv-webpack, 
+- ejs, 
+- express", 
+- google-maps-react, 
+- http-errors, 
+- jquery, 
+- moment, 
+- morgan, 
+- node-sass, 
+- popper.js, 
+- prop-types, 
+- react-axios, 
+- react-bootstrap, 
+- react-chartjs-3, 
+- request-promise, 
+- sass-loader, 
+- style-loader, 
 
 __Front-end development dependencies:__
-    "@babel/core": "^7.4.0",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "nodemon": "^1.18.10",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
+- @babel/core,
+- @babel/plugin-proposal-class-properties,
+- @babel/preset-env,
+- @babel/preset-react,
+- babel-loader,
+- nodemon,
+- react,
+- react-dom,
+- webpack,
+- webpack-cli,
+- webpack-dev-server,
 
 __Back-end:__
-    "cookie-parser": "~1.4.3",
-    "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "ejs": "~2.5.7",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+- cookie-parser,
+- cors,
+- debug,
+- ejs,
+- express,
+- http-errors,
+- morgan
 
 __Back-end development dependencies:__
-    "nodemon": "^1.18.10",
-    "request-promise": "^4.2.4"
+- nodemon,
+- request-promise.
 
 ### Installing
 
@@ -100,7 +100,7 @@ This project is licensed under the LHL License
 
 ## App Flow
 
-__Welcome to Calgary!__
+__Welcome to Everything Calgary! - A web app that brings in open city data for you__
 !["Welcome"](https://github.com/GideonBrasil/Everything-Calgary/blob/feature/readme/docs/EC_Welcome.gif)
 
 __Traffic Incidents in Calgary Component__
