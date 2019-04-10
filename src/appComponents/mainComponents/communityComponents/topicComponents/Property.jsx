@@ -55,7 +55,7 @@ class Property extends Component {
         className="darren-holder"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Average Property Assessment Rank: {this.getRank(propData.targetIndex)} of 194</Modal.Title>
+          <Modal.Title>Average Property Assessment    Rank: {this.getRank(propData.targetIndex)} of 194</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <span>
