@@ -39,7 +39,7 @@ function preparePermitsData(permitsData) {
 /* GET users listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
+  const addSlash = communityName.replace("_", "/");
   let options = {
     url: `https://data.calgary.ca/resource/yjnz-kedd.json?communityname=${addSlash.toUpperCase()}&$where=statuscurrent%20not%20in(%27Completed%27,%27Cancelled%27,%27Refused%27,%27File%20Closed%27,%20%27Expired%27)`,
     headers: {

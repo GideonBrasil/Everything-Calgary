@@ -9,7 +9,7 @@ function createCoordObjects(array) {
 /* GET traffic signals listing. */
 router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
-  const addSlash = communityName.replace("-", "/");
+  const addSlash = communityName.replace("_", "/");
   let options = {
     url: `https://data.calgary.ca/resource/kxmf-bzkv.json?name=${addSlash.toUpperCase()}`,
     headers: {
@@ -18,8 +18,8 @@ router.get("/:community", function(req, res, next) {
     }
   };
   console.log(communityName)
- 
- 
+
+
   function  createSignalData(data) {
     let signalData = [];
     data.forEach(signal => {

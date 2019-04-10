@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   updatePins(newTopic) {
-    const removeSlash = this.state.community.replace("/", "-");
+    const removeSlash = this.state.community.replace("/", "_");
     fetch(`http://localhost:3000/constructionPermits/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   updateTrafficPins(newTopic) {
-    const removeSlash = this.state.community.replace("/", "-");
+    const removeSlash = this.state.community.replace("/", "_");
     fetch(`http://localhost:3000/trafficIncidents/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
@@ -60,7 +60,7 @@ class App extends Component {
   }
 
   updateSchoolPins(newTopic) {
-    const removeSlash = this.state.community.replace("/", "-");
+    const removeSlash = this.state.community.replace("/", "_");
     fetch(`http://localhost:3000/schools/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
@@ -75,7 +75,7 @@ class App extends Component {
   }
 
   updateSignalPins() {
-    const removeSlash = this.state.community.replace("/", "-");
+    const removeSlash = this.state.community.replace("/", "_");
     fetch(`http://localhost:3000/trafficSignals/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
@@ -102,7 +102,7 @@ class App extends Component {
   }
 
   updateCommunity(community) {
-    const removeSlash = community.replace("/", "-");
+    const removeSlash = community.replace("/", "_");
     fetch(`http://localhost:3000/coordinates/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
