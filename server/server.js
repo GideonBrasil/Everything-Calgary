@@ -20,10 +20,10 @@ const trafficRouter = require("./routes/trafficAPI");
 const cityRouter = require("./routes/cityLimitsAPI");
 const careersRouter = require("./routes/careersAPI");
 const salaryRouter = require("./routes/salaryAPI");
-
 const trafficIncidentsRouter = require("./routes/trafficIncidentAPI");
 const communitySchoolRouter = require("./routes/communitySchools");
 const populationRouter = require("./routes/populationAPI");
+const calgaryPopulationRouter = require("./routes/calgaryPopulationAPI");
 const trafficSignalRouter = require("./routes/trafficSignals");
 
 const PORT = 3000;
@@ -53,6 +53,7 @@ app.use("/constructionPermits", permitsRouter);
 app.use("/trafficIncidents", trafficIncidentsRouter);
 app.use("/schools", communitySchoolRouter);
 app.use("/population", populationRouter);
+app.use("/calgaryPopulation", calgaryPopulationRouter);
 app.use("/trafficSignals", trafficSignalRouter);
 
 app.listen(PORT, "0.0.0.0", "localhost", () =>
