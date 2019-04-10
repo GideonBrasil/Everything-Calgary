@@ -1,11 +1,16 @@
 #events-modal{
-  min-width: 1300px;
+  min-width: 900px;
   .events-card{
-    min-width: 980px;
     white-space: normal;
-  }
-  .date{
-    min-width:55px;
+    .event-date {
+      min-width: 125px;
+    }
+    .event-time {
+      min-width: 155px;
+    }
+    .event-address {
+      min-width: 275px;
+    }
   }
 
 }
@@ -30,4 +35,13 @@
   .date{
     min-width:45px;
   }
+}
+
+.career-date {
+  min-width: 145px;
+  text-align: center;
+}
+.career-date {
+  max-width: 445px;
+  text-align: center;
 }

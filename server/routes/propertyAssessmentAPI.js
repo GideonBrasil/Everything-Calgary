@@ -9,7 +9,7 @@ function createSortedDataByYear(data) {
     groupedByYear[year].push(obj);
     groupedByYear[year].sort(
       (a, b) =>
-        Number(b.median_assessed_value) - Number(a.median_assessed_value)
+        Number(a.median_assessed_value) - Number(b.median_assessed_value)
     );
     return groupedByYear;
   }, {})["2017"];
@@ -26,8 +26,8 @@ function createTargetData(lastYear, communityCode) {
     range: targetRange,
     targetIndex: myComIndex,
     lastAvailableYear: "2017",
-    highestValue: lastYear[0].median_assessed_value,
-    lowestValue: lastYear[lastYear.length - 1].median_assessed_value
+    highestValue: lastYear[lastYear.length - 1].median_assessed_value,
+    lowestValue: lastYear[0].median_assessed_value
   };
 }
 

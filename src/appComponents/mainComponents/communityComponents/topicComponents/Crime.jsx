@@ -84,8 +84,8 @@ class Crime extends Component {
                       <React.Fragment key={deets.category}>
                         <tr>
                           <td>{deets.category}</td>
-                          <td>{Number(deets.commNum).toLocaleString()}</td>
-                          <td>{Number(deets.yycNum).toLocaleString()}</td>
+                          <td className="fact-column">{Number(deets.commNum).toLocaleString()}</td>
+                          <td className="fact-column">{Number(deets.yycNum).toLocaleString()}</td>
                         </tr>
                       </React.Fragment>
                     ))}
@@ -93,7 +93,7 @@ class Crime extends Component {
                       <td>
                         <strong>TOTAL</strong>
                       </td>
-                      <td>
+                      <td className="fact-column">
                         <strong>
                           {
                             (activeCrimeStats =
@@ -107,7 +107,7 @@ class Crime extends Component {
                           }
                         </strong>
                       </td>
-                      <td>
+                      <td className="fact-column">
                         <strong>
                           {
                             (activeCrimeStats =

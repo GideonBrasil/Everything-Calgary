@@ -1,3 +1,11 @@
 .pubdate {
   min-width: 45px;
 }
+
+.more-info {
+  display: flex;
+  justify-content: center;
+  a {
+    text-align: center;
+  }
+}

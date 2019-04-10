@@ -39,6 +39,9 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    .fact-column{
+      text-align: center;
+    }
   }
   .jumbotron {
     flex: 1;

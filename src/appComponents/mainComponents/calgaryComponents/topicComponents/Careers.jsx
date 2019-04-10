@@ -66,8 +66,8 @@ class Careers extends Component {
                   <thead>
                     <tr>
                       <th>Job Title</th>
-                      <th>Start Date</th>
-                      <th>Closing Date</th>
+                      <th className="career-date">Start Date</th>
+                      <th className="career-date">Closing Date</th>
                       <th>More Info</th>
                     </tr>
                   </thead>
@@ -75,11 +75,11 @@ class Careers extends Component {
                     {this.state.careers.map(job => (
                       <React.Fragment key={this.eventsKeyGenerator()}>
                         <tr>
-                          <td>{job.title}</td>
-                          <td>{job.opening_date.substring(0,10)}</td>
-                          <td>{job.closing_date.substring(0,10)}</td>
+                          <td className="career-title">{job.title}</td>
+                          <td className="career-date">{job.opening_date.substring(0,10)}</td>
+                          <td className="career-date">{job.closing_date.substring(0,10)}</td>
                           <td>
-                            <a href={job.link} target="_blank">More info</a>
+                            <a href={job.link} target="_blank">More...</a>
                           </td>
                         </tr>
                       </React.Fragment>

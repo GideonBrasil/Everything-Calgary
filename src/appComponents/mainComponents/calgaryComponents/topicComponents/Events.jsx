@@ -76,9 +76,9 @@ class Events extends Component {
                     {this.state.events.map(event => (
                       <React.Fragment key={this.eventsKeyGenerator()}>
                         <tr>
-                          <td>{event.date}</td>
-                          <td>{event.time}</td>
-                          <td>{event.address}</td>
+                          <td className="event-date">{event.date}</td>
+                          <td className="event-time">{event.time}</td>
+                          <td className="event-address">{event.address}</td>
                           <td>
                             {event.event_type
                               ? event.event_type
