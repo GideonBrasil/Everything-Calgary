@@ -100,17 +100,17 @@ This project is licensed under the LHL License
 
 ## App Flow
 
-
+__Welcome to Calgary!__
 !["Landing Page"](https://github.com/sddanila/TinyApp/blob/master/docs/welcome_page.png?raw=true)
 
-* Registration Page
-!["Registration Page"](https://github.com/sddanila/TinyApp/blob/master/docs/registration_page.png?raw=true)
+__Traffic Incidents in Calgary Component__
+!["Traffic Incidents in Calgary Component"](https://github.com/sddanila/TinyApp/blob/master/docs/registration_page.png?raw=true)
 
-* Login Page
-!["Login Page"](https://github.com/sddanila/TinyApp/blob/master/docs/login_page.png)
+__Schools in a Calgary community__
+!["Schools"](https://github.com/sddanila/TinyApp/blob/master/docs/login_page.png)
 
-* URLs Index Page
+__Population growth chart in a Calgary community__
 !["URLs Index Page"](https://github.com/sddanila/TinyApp/blob/master/docs/index_page.png)
 
-* Edit Page
+__Garbage pickup schedule in a Calgary Community__
 !["Edit Page"](https://github.com/sddanila/TinyApp/blob/master/docs/edit_page.png)
