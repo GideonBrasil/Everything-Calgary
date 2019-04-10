@@ -54,23 +54,22 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
-    }
+  }
 
-    updateSchoolPins() {
-      const removeSlash = this.state.community.replace("/", "-");
-      fetch(`http://localhost:3000/schools/${removeSlash}`)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-          this.setState(state => ({
-            pins: data
-          }));
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-
+  updateSchoolPins() {
+    const removeSlash = this.state.community.replace("/", "-");
+    fetch(`http://localhost:3000/schools/${removeSlash}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState(state => ({
+          pins: data
+        }));
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   updateSignalPins() {
     const removeSlash = this.state.community.replace("/", "-");
@@ -79,12 +78,12 @@ class App extends Component {
       .then(data => {
         this.setState(state => ({
           signalPins: data
-        }))
+        }));
       })
       .catch(err => {
         console.log(err);
       });
-    }
+  }
 
   handleClick() {
     this.setState(state => ({
@@ -161,7 +160,8 @@ class App extends Component {
           jumbotron: false,
           calgary: true,
           topic: "",
-          pins: []
+          pins: [],
+          signalPins: []
         }));
       })
       .catch(err => {
