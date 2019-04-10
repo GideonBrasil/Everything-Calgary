@@ -33,7 +33,7 @@ class Sidenav extends Component {
             <a id="traffic incidents">Traffic Incidents</a>
           </li>
           <li onClick={this.props.chooseStatistics}>
-            <a id="traffic signals">Traffic Signals</a>
+            <a id="traffic signals">Sidewalks</a>
           </li>
         </ul>
       </nav>
