@@ -6,26 +6,26 @@ class Calgary_Sidenav extends Component {
       <nav id="sidebar" className="col">
         <div className="sidebar-header">
           <h4>
-            Everything Calgaryy... <br />
+            Everything Calgary... <br />
           </h4>
         </div>
         <ul className="list-unstyled components">
-          <li className="active" onClick={this.props.chooseStatistics}>
+          <li className={this.props.data.topic === 'careers' ? 'active': null} onClick={this.props.chooseStatistics}>
             <a id="careers">Careers</a>
           </li>
-          <li onClick={this.props.chooseStatistics}>
+          <li className={this.props.data.topic === 'events' ? 'active': null} onClick={this.props.chooseStatistics}>
             <a id="events">Events</a>
           </li>
-          <li onClick={this.props.chooseStatistics}>
+          <li className={this.props.data.topic === 'salary' ? 'active': null} onClick={this.props.chooseStatistics}>
             <a id="salary">Civil Service Compensation</a>
           </li>
-          <li onClick={this.props.chooseStatistics}>
+          <li className={this.props.data.topic === 'news' ? 'active': null} onClick={this.props.chooseStatistics}>
             <a id="news">News</a>
           </li>
-          <li onClick={this.props.chooseStatistics}>
+          <li className={this.props.data.topic === 'traffic' ? 'active': null} onClick={this.props.chooseStatistics}>
             <a id="traffic">Traffic Incidents</a>
           </li>
-          <li onClick={this.props.chooseStatistics}>
+          <li className={this.props.data.topic === 'population' ? 'active': null} onClick={this.props.chooseStatistics}>
             <a id="population">Population</a>
           </li>
         </ul>
