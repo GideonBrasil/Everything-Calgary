@@ -60,7 +60,7 @@ class Garbage extends Component {
                 <Card.Subtitle>Garbage</Card.Subtitle>
                 <br/>
                 <Card.Text>
-                  {black ? <p>{black[1]} <strong>{black[0]}</strong></p> : "No garbage days"}
+                  {black ? <span>{black[1]} <strong>{black[0]}</strong></span> : "No garbage days"}
                 </Card.Text>
               </Card.Body>
               <Card.Body className="card">
@@ -70,7 +70,7 @@ class Garbage extends Component {
                 <Card.Subtitle>Recycling</Card.Subtitle>
                 <br/>
                 <Card.Text>
-                  {blue ? <p>{blue[1]} <strong>{blue[0]}</strong></p>  : "No recycling days"}
+                  {blue ? <span>{blue[1]} <strong>{blue[0]}</strong></span>  : "No recycling days"}
                 </Card.Text>
               </Card.Body>
               <Card.Body className="card">
@@ -80,7 +80,7 @@ class Garbage extends Component {
                 <Card.Subtitle>Compost</Card.Subtitle>
                 <br/>
                 <Card.Text>
-                  {green ? <p>{green[1]} <strong>{green[0]}</strong></p>  : "No compost days"}
+                  {green ? <span>{green[1]} <strong>{green[0]}</strong></span>  : "No compost days"}
                 </Card.Text>
               </Card.Body>
             </CardDeck>

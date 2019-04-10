@@ -13,7 +13,7 @@ function filterData(data) {
       name: school.name,
       location: createCoordObjects(school.location.coordinates),
       type: school.type,
-      address: school.address,
+      address: school.address_ab,
       board: school.board,
       grades: school.grades,
       postsecond: school.postsecond
