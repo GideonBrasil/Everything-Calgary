@@ -67,7 +67,6 @@ class MapContainer extends Component {
         />
       );
     });
-    // console.log(this.props.signalPins)
     let signalMarkers = this.props.signalPins.map(marker => {
       return (
         <Marker

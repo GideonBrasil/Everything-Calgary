@@ -16,12 +16,34 @@ function monthDiff(d1, d2) {
 
 function filterByPeriod(data) {
   const currentDate = new Date();
-  const data12Months = data.filter( incident => {
+  const data12Months = data.filter(incident => {
     let theDate = new Date(incident.start_dt);
     let monthdiff = monthDiff(theDate, currentDate);
     return 7 >= monthdiff;
   });
-  return data12Months
+  return data12Months;
+}
+
+const boldDate = "Date: ";
+const boldTime = ", time: ";
+
+function formatDateTimeStart(start_dt) {
+  return (
+    boldDate + start_dt.substring(0, 10) + boldTime + start_dt.substring(11, 19)
+  );
+}
+
+function formatDateTimeClear(clear_dt) {
+  if (!clear_dt) {
+    return "Incident never cleared";
+  } else {
+    return (
+      boldDate +
+      clear_dt.substring(0, 10) +
+      boldTime +
+      clear_dt.substring(11, 19)
+    );
+  }
 }
 
 /* GET traffic incidents listing. */
@@ -36,25 +58,24 @@ router.get("/:community", function(req, res, next) {
     }
   };
 
-  function  createIncidentData(data) {
+  function createIncidentData(data) {
     let outputData = [];
     data.forEach(incident => {
-    // const timeOf = new Date(incident.start_dt)
-    outputData.push({
-      key: Math.random() * 100,
-      location: createCoordObjects(incident.location.coordinates),
-      address: incident.description,
-      information: incident.incident_info,
-      timeOf: incident.start_dt,
-      timeClear: incident.modified_dt
+      outputData.push({
+        key: Math.random() * 100,
+        location: createCoordObjects(incident.location.coordinates),
+        address: incident.description,
+        information: incident.incident_info,
+        timeOf: formatDateTimeStart(incident.start_dt),
+        timeClear: formatDateTimeClear(incident.modified_dt)
       });
     });
     return outputData;
   }
-  
+
   request(options).then(data => {
     data = JSON.parse(data)[0];
-    let commFeatureCode = data._feature_id
+    let commFeatureCode = data._feature_id;
 
     let options2 = {
       url: `https://data.calgary.ca/resource/m328-x8wy.json?:@computed_region_kxmf_bzkv=${commFeatureCode}`,
@@ -65,11 +86,11 @@ router.get("/:community", function(req, res, next) {
     };
     request(options2).then(data => {
       data = JSON.parse(data);
-      const dataObj = filterByPeriod(data)
-      const newDataObj = createIncidentData(dataObj)
+      const dataObj = filterByPeriod(data);
+      const newDataObj = createIncidentData(dataObj);
       res.status(200).json(newDataObj);
-      });
     });
   });
- 
+});
+
 module.exports = router;
