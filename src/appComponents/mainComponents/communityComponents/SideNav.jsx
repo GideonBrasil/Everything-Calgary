@@ -35,7 +35,7 @@ class Sidenav extends Component {
             <a id="traffic incidents">Traffic Incidents</a>
           </li>
           <li className={this.props.data.topic === 'traffic signals' ? 'active': null} onClick={this.props.chooseStatistics}>
-            <a id="traffic signals">Sidewalks</a>
+            <a id="traffic signals">Crosswalks</a>
           </li>
         </ul>
       </nav>
