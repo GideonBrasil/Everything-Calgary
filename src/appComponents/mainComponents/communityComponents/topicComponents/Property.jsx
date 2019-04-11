@@ -65,7 +65,7 @@ class Property extends Component {
                     width: "850px",
                     backgroundColor:
                       this.props.data.communityCode === pcdeets.comm_code &&
-                      "#8D99AE"
+                      "#e8c1c7"
                   }}
                   key={pcdeets.comm_code}
                   className="darren-card"

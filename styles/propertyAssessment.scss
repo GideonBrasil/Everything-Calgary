@@ -17,6 +17,11 @@ $color5: #D90429;
   .modal-content {
     min-width: 1100px;
 
+    .modal-footer {
+      justify-content: flex-start;
+      font-weight: bold;
+    }
+
     .modal-body {
       display: flex;
       justify-content: space-around;
@@ -24,6 +29,8 @@ $color5: #D90429;
       .ranking {
         text-align: center;
         font-size: 20px;
+        padding-bottom:10px;
+        font-weight: bold;
 
       }
 
