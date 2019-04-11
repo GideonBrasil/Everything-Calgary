@@ -22,15 +22,15 @@ function manipulateData(data) {
   let dataArr = [];
   switch (frequency_season(now, data)) {
     case "EVEN":
-      dataArr[0] = x === 0 ? [day, "this"] : [day, "next"];
+      dataArr[0] = x === 0 ? [day, "this coming"] : [day, "the following"];
       dataArr[1] = data.commodity;
       break;
     case "ODD":
-      dataArr[0] = x === 1 ? [day, "this"] : [day, "next"];
+      dataArr[0] = x === 1 ? [day, "this coming"] : [day, "the following"];
       dataArr[1] = data.commodity;
       break;
     default:
-      dataArr[0] = [day, "this"];
+      dataArr[0] = [day, "this coming"];
       dataArr[1] = data.commodity;
       break;
   }
