@@ -66,7 +66,7 @@ class Crime extends Component {
         <Modal.Header closeButton>
           <Modal.Title>
             Crime Story: <br />
-            compare and contrast crime rates with the rest of Calgary
+            <span style={{fontSize: '12px'}}>compare and contrast crime rates with the rest of Calgary</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -92,13 +92,19 @@ class Crime extends Component {
                 </Nav>
               </Card.Header>
               <Card.Body>
-                <Card.Title>Beltline </Card.Title>
+                <Card.Title>{crimeStats.community_name} has {Number(crimeStats.residentsCount).toLocaleString()} residents.</Card.Title>
                 <Table striped bordered hover>
                   <thead>
                     <tr>
-                      <th>Crime Category</th>
-                      <th>{crimeStats.community_name}</th>
-                      <th>City Of Calgary</th>
+                      <th rowSpan='2' style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '20px', minWidth: '300px'}}>Crime Category</th>
+                      <th colSpan='2' style={{textAlign: 'center', fontSize: '20px'}}>{crimeStats.community_name}</th>
+                      <th colSpan='2' style={{textAlign: 'center', fontSize: '20px'}}>City Of Calgary</th>
+                    </tr>
+                    <tr>
+                      <th style={{verticalAlign: 'middle', fontSize: '14px'}}>Occurences</th>
+                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '12px'}}>per 1,000 residents</th>
+                      <th style={{verticalAlign: 'middle', fontSize: '14px'}}>Occurences</th>
+                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '12px'}}>per 1,000 residents</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -108,23 +114,23 @@ class Crime extends Component {
                           <td>{deets.category}</td>
                           <td className="fact-column">
                             {Number(deets.commNum).toLocaleString()}
-                            <br />[
+                            </td>
+                          <td className="fact-column">
                             {Math.round(
                               (deets.commNum /
                                 (crimeStats.residentsCount / 1000)) *
-                                100
-                            ) / 100}{" "}
-                            per 1,000 residents]
-                          </td>
+                                1000
+                            ) / 1000}{" "}
+                            </td>
                           <td className="fact-column">
                             {Number(deets.yycNum).toLocaleString()}
-                            <br />[
+                          </td>
+                          <td className="fact-column">
                             {Math.round(
                               (deets.commNum /
                                 (crimeStats.residentCountYYC / 1000)) *
-                                100
-                            ) / 100}{" "}
-                            per 1,000 residents]
+                                1000
+                            ) / 1000}{" "}
                           </td>
                         </tr>
                       </React.Fragment>
@@ -152,12 +158,50 @@ class Crime extends Component {
                           {
                             (activeCrimeStats =
                               link == "#lst12Mos"
+                                ? Math.round(
+                                  (crimeStats.totalCommCrime12 /
+                                    (crimeStats.residentsCount / 1000)) *
+                                    1000
+                                ) / 1000
+                                : Math.round(
+                                  (crimeStats.totalCommCrimeMonth /
+                                    (crimeStats.residentsCount / 1000)) *
+                                    1000
+                                ) / 1000
+                            )
+                          }
+                        </strong>
+                      </td>
+                      <td className="fact-column">
+                        <strong>
+                          {
+                            (activeCrimeStats =
+                              link == "#lst12Mos"
                                 ? Number(
                                     crimeStats.totalYYCCrime12
                                   ).toLocaleString()
                                 : Number(
                                     crimeStats.totalYYCCrimeMonth
                                   ).toLocaleString())
+                          }
+                        </strong>
+                      </td>
+                      <td className="fact-column">
+                        <strong>
+                          {
+                            (activeCrimeStats =
+                              link == "#lst12Mos"
+                                ? Math.round(
+                                  (crimeStats.totalYYCCrime12 /
+                                    (crimeStats.residentCountYYC / 1000)) *
+                                    1000
+                                ) / 1000
+                                : Math.round(
+                                  (crimeStats.totalYYCCrimeMonth /
+                                    (crimeStats.residentCountYYC / 1000)) *
+                                    1000
+                                ) / 1000
+                            )
                           }
                         </strong>
                       </td>
