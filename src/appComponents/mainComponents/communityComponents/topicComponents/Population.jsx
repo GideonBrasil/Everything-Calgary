@@ -59,6 +59,7 @@ class Population extends Component {
         aria-labelledby="contained-modal-title-vcenter"
         centered
         dialogClassName="modal-60w"
+        className="populationDarren"
       >
         <Modal.Header closeButton>
           <Modal.Body>
