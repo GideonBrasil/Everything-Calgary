@@ -19,7 +19,7 @@ function filterByPeriod(data) {
   const data12Months = data.filter(incident => {
     let theDate = new Date(incident.start_dt);
     let monthdiff = monthDiff(theDate, currentDate);
-    return 7 >= monthdiff;
+    return 13 >= monthdiff;
   });
   return data12Months;
 }
