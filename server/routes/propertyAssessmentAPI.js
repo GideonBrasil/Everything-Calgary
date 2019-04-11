@@ -23,7 +23,7 @@ function createTargetData(lastYear, communityCode) {
     myComIndex + 3 > lastYear.length - 1 ? lastYear.length : myComIndex + 3;
   const targetRange = lastYear.slice(minIndex, maxIndex);
   return {
-    range: targetRange,
+    range: targetRange.reverse(),
     targetIndex: myComIndex,
     lastAvailableYear: "2017",
     highestValue: lastYear[lastYear.length - 1].median_assessed_value,
