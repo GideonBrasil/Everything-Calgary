@@ -71,7 +71,10 @@ class Crime extends Component {
         </Modal.Header>
         <Modal.Body>
           {!crimeStats ? (
-            <h4 style={{textAlign: 'center'}}>Loading...</h4>
+            <h4 style={{textAlign: 'center'}}>Loading...{"    "}
+                        <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span> </div>
+            </h4>
           ) : (
             <Card>
               <Card.Header>
