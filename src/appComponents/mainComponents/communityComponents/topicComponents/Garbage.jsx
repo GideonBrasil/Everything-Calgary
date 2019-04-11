@@ -55,22 +55,12 @@ class Garbage extends Component {
             <CardDeck>
               <Card.Body className="card">
                 <Card.Title>
-                  <i className="fas fa-trash-alt fa-4x" />
-                </Card.Title>
-                <Card.Subtitle>Garbage</Card.Subtitle>
-                <br/>
-                <Card.Text>
-                  {black ? <span>{black[1]} <strong>{black[0]}</strong></span> : "No garbage days"}
-                </Card.Text>
-              </Card.Body>
-              <Card.Body className="card">
-                <Card.Title>
                   <i className="fas fa-recycle fa-4x" />
                 </Card.Title>
                 <Card.Subtitle>Recycling</Card.Subtitle>
                 <br/>
                 <Card.Text>
-                  {blue ? <span>{blue[1]} <strong>{blue[0]}</strong></span>  : "No recycling days"}
+                  {blue ? <span>{blue[1]} <br/><strong>{blue[0]}</strong></span>  : "No recycling days"}
                 </Card.Text>
               </Card.Body>
               <Card.Body className="card">
@@ -80,7 +70,17 @@ class Garbage extends Component {
                 <Card.Subtitle>Compost</Card.Subtitle>
                 <br/>
                 <Card.Text>
-                  {green ? <span>{green[1]} <strong>{green[0]}</strong></span>  : "No compost days"}
+                  {green ? <span>{green[1]} <br/><strong>{green[0]}</strong></span>  : "No compost days"}
+                </Card.Text>
+              </Card.Body>
+              <Card.Body className="card">
+                <Card.Title>
+                  <i className="fas fa-trash-alt fa-4x" />
+                </Card.Title>
+                <Card.Subtitle>Garbage</Card.Subtitle>
+                <br/>
+                <Card.Text>
+                  {black ? <span>{black[1]} <br/><strong>{black[0]}</strong></span> : "No garbage days"}
                 </Card.Text>
               </Card.Body>
             </CardDeck>

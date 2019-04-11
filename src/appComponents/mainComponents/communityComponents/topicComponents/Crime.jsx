@@ -64,14 +64,17 @@ class Crime extends Component {
         dialogClassName="modal-60w"
       >
         <Modal.Header closeButton>
-          <Modal.Title>
+          <Modal.Title style={{lineHeight: 1}}>
             Crime Story: <br />
             <span style={{fontSize: '16px'}}>compare and contrast crime rates with the rest of Calgary</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {!crimeStats ? (
-            <h4>Loading...</h4>
+            <h4 style={{textAlign: 'center'}}>Loading...{"    "}
+                        <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span> </div>
+            </h4>
           ) : (
             <Card>
               <Card.Header>
@@ -161,14 +164,14 @@ class Crime extends Component {
                               Number(crimeStats.totalYYCCrime12).toLocaleString()
                             :
                               Number(crimeStats.totalYYCCrimeMonth).toLocaleString()
-                            
+
                           }
                         </strong>
                       </td>
                       <td className="fact-column">
                         <strong>
                           { Math.round((crimeStats.residentsCount / crimeStats.residentCountYYC) * 10000) / 100 }{'%'}
-                        
+
                         </strong>
                       </td>
                       <td className="fact-column">
