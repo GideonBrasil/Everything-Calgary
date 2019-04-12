@@ -23,7 +23,7 @@
             "codeUri": "lambda/us-east-1_ask-custom-calgary-alexa-default",
             "functionName": "ask-custom-calgary-alexa-default",
             "handler": "index.handler",
-            "revisionId": "11d77da9-482f-4a3a-8a61-57ecf8e5465f",
+            "revisionId": "b580dcda-7942-4f87-b55b-4bb612cb6fc5",
             "runtime": "nodejs8.10"
           }
         ]

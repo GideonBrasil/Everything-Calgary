@@ -21,7 +21,12 @@
 
 #### Introduce main screen (1 minute) - DANILA
 - list TECH STACK
-    React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS | Docker | AWS | Alexa | PostgreSQL
+    * Data: Socrata API, SQL
+    * Front-end: React (JSX), Gogggle Maps API
+    * Styling: SASS/Bootstrap/CSS
+    * Back-end: Node, Express, JS
+    * Hosting: Docker, AWS
+    * Voice integration: Alexa Skills Kit
 - give credit to background image
 
 #### Specific community (4-5 minutes) - GIDEON & DARREN

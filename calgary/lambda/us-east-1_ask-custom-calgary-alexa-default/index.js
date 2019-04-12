@@ -35,7 +35,7 @@ const GetRemoteDataHandler = {
         });
 
         outputSpeech = `In ${community}, your next green bin pickup is on ${garbageObj['Green'][1] + garbageObj['Green'][0]}. 
-                        Your next blue bin pickup is on ${garbageObj['Blue'][1] + garbageObj['Blue'][0]}. 
+                        Your next blue bin pickup is on ${garbageObj['Green'][1] + garbageObj['Green'][0]}. 
                         Your next black bin pickup is on ${garbageObj['Black'][1] + garbageObj['Black'][0]}. `;
       })
       .catch((err) => {
@@ -202,15 +202,15 @@ function manipulateData(data) {
   switch(frequency_season(now, data)) {
 
     case 'EVEN':
-      dataArr[0] = (x===0 ? [day, 'this'] : [day, 'next']);
+      dataArr[0] = (x===0 ? [day, ' this coming '] : [day, ' the following ']);
       dataArr[1] = data.commodity;
       break;
       case 'ODD':
-      dataArr[0] = (x===1 ? [day, 'this'] : [day, 'next']);
+      dataArr[0] = (x===1 ? [day, ' this coming '] : [day, ' the following ']);
       dataArr[1] = data.commodity;
       break;
       default:
-      dataArr[0] = ([day, 'this']);
+      dataArr[0] = ([day, ' this coming ']);
       dataArr[1] = data.commodity;
       break;
     }
@@ -221,6 +221,6 @@ function getElapsedTime(date){
   let now = new Date();
   let happened = new Date(date);
   var diffMs = (now - happened); // milliseconds between now & accident happeend
-  var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000 ); // minutes
+  var diffMins = Math.round(((diffMs % 86400000 + 60000) % 3600000) / 60000 ); // minutes
   return `${diffMins} minutes ago`
 }

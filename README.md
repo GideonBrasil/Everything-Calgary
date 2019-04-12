@@ -72,7 +72,7 @@ No tests added to this project
 
 ## Deployment
 
-Deployed on AWS at http://13.58.116.211/
+Deployed on AWS at http://18.188.134.12/
 
 ## Versioning
 
@@ -80,10 +80,10 @@ Everything Calgary version 1.3.1
 
 ## Authors
 
-* Tim Bowes: React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS | AWS | Alexa | PostgreSQL
-* Darren Picard: React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS | AWS | Alexa | PostgreSQL
-* Gideon Brasil: React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS | Docker | AWS | Alexa | PostgreSQL
-* Danila Barton-Szabo: React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS| AWS | Alexa | PostgreSQL
+* Tim Bowes: React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS | AWS | Alexa | SQL
+* Darren Picard: React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS | AWS | Alexa | SQL
+* Gideon Brasil: React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS | Docker | AWS | Alexa | SQL
+* Danila Barton-Szabo: React | Express | JavaScript | Node  | Google Maps API | Socrata API | SASS/Bootstrap/CSS| AWS | Alexa | SQL
 
 
 ## License
