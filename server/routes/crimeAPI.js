@@ -107,6 +107,7 @@ router.get("/:community", function(req, res, next) {
   const communityName = req.params.community;
   const addSlash = communityName.replace("_", "/");
   let now = new Date();
+  console.log('now :', now);
   let options = {
     url: `https://data.calgary.ca/resource/78gh-n26t.json?&$where=year > '${now.getFullYear() -
       2}'&$Limit=50000`,
@@ -115,7 +116,6 @@ router.get("/:community", function(req, res, next) {
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
     }
   };
-  console.log("Options: ", options)
   request(options).then(data => {
     data = JSON.parse(data);
     dataObj = dataFilter(data, addSlash);
