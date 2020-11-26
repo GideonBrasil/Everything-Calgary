@@ -100,14 +100,14 @@ class Crime extends Component {
                   <thead>
                     <tr>
                       <th rowSpan='2' style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '20px', minWidth: '300px'}}>Crime Category</th>
-                      <th colSpan='2' style={{textAlign: 'center', fontSize: '20px'}}>Occurences</th>
-                      <th colSpan='2' style={{textAlign: 'center', fontSize: '20px'}}>Percentage Share</th>
+                      <th colSpan='2' style={{textAlign: 'center', fontSize: '20px'}}>#Crimes</th>
+                      <th colSpan='2' style={{textAlign: 'center', fontSize: '20px'}}>Percentage</th>
                     </tr>
                     <tr>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>{crimeStats.community_name}</th>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>City Of Calgary</th>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of community crime</th>
-                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of crime category</th>
+                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of the city's crime</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -123,10 +123,8 @@ class Crime extends Component {
                           </td>
                           <td className="fact-column">
                             {Math.round(
-                              (crimeStats.residentsCount /
-                                crimeStats.residentCountYYC) *
-                                10000
-                            ) / 100}{"%"}
+                              (deets.commNum * 100 / crimeStats.totalCommCrimeMonth) * 100) / 100
+                                }{"%"}
                             </td>
                           <td className="fact-column">
                             {Math.round(
