@@ -106,7 +106,7 @@ class Crime extends Component {
                     <tr>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>{crimeStats.community_name}</th>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>City Of Calgary</th>
-                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of community crime</th>
+                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of the community's crime</th>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of the city's crime</th>
                     </tr>
                   </thead>
@@ -122,9 +122,12 @@ class Crime extends Component {
                             {Number(deets.yycNum).toLocaleString()}
                           </td>
                           <td className="fact-column">
-                            {Math.round(
-                              (deets.commNum * 100 / crimeStats.totalCommCrimeMonth) * 100) / 100
-                                }{"%"}
+                            { (activeCrimeStats = link == "#lst12Mos" 
+                              ? Math.round(
+                                (deets.commNum * 100 / crimeStats.totalCommCrime12) * 100) / 100 
+                                : Math.round(
+                                (deets.commNum * 100 / crimeStats.totalCommCrimeMonth) * 100) / 100
+                            )}{"%"}
                             </td>
                           <td className="fact-column">
                             {Math.round(
