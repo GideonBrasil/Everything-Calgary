@@ -168,13 +168,7 @@ class Crime extends Component {
                       </td>
                       <td className="fact-column">
                         <strong>
-                          { Math.round((crimeStats.residentsCount / crimeStats.residentCountYYC) * 10000) / 100 }{'%'}
-
-                        </strong>
-                      </td>
-                      <td className="fact-column">
-                        <strong>
-                          {
+                        {
                             (activeCrimeStats =
                               link == "#lst12Mos"
                                 ? Math.round(
@@ -187,13 +181,19 @@ class Crime extends Component {
                                     crimeStats.totalYYCCrimeMonth) *
                                     10000)
                                 / 100)
-                          }{'%*'}
+                          }{'%'}<span style={{color: 'red'}}>*</span>
+                        </strong>
+                      </td>
+                      <td className="fact-column">
+                        <strong>
+                        { Math.round((crimeStats.residentsCount / crimeStats.residentCountYYC) * 10000) / 100 }{'%'}<span style={{color: 'red'}}>**</span>
                         </strong>
                       </td>
                     </tr>
                   </tbody>
                 </Table>
-                <p style={{fontSize: '11px', marginBottom: '0'}}>*Community's percentage of city crime.</p> 
+                  <p style={{fontSize: '11px', marginBottom: '0'}}><span style={{color: 'red'}}>*</span>{crimeStats.community_name}'s percentage of Calgary's crime.</p>
+                  <p style={{fontSize: '11px', marginBottom: '0'}}><span style={{color: 'red'}}>**</span>{crimeStats.community_name}'s percentage of Calgary's population.</p> 
               </Card.Body>
             </Card>
           )}
