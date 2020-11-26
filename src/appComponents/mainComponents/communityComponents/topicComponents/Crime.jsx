@@ -106,8 +106,8 @@ class Crime extends Component {
                     <tr>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>{crimeStats.community_name}</th>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>City Of Calgary</th>
-                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of total population</th>
-                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of crime category</th>
+                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of community crime</th>
+                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of city crime</th>
                     </tr>
                   </thead>
                   <tbody>
