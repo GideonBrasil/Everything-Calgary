@@ -96,7 +96,7 @@ class Crime extends Component {
               </Card.Header>
               <Card.Body>
                 <Card.Title>{crimeStats.community_name} has {Number(crimeStats.residentsCount).toLocaleString()} residents.</Card.Title>
-                <Table striped bordered hover>
+                <Table striped bordered hover style={{marginBottom: '0'}}>
                   <thead>
                     <tr>
                       <th rowSpan='2' style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '20px', minWidth: '300px'}}>Crime Category</th>
@@ -107,7 +107,7 @@ class Crime extends Component {
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>{crimeStats.community_name}</th>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>City Of Calgary</th>
                       <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of community crime</th>
-                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of city crime</th>
+                      <th style={{verticalAlign: 'middle', textAlign: 'center', fontSize: '14px'}}>of crime category</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -189,12 +189,13 @@ class Crime extends Component {
                                     crimeStats.totalYYCCrimeMonth) *
                                     10000)
                                 / 100)
-                          }{'%'}
+                          }{'%*'}
                         </strong>
                       </td>
                     </tr>
                   </tbody>
                 </Table>
+                <p style={{fontSize: '11px', marginBottom: '0'}}>*Community's percentage of city crime.</p> 
               </Card.Body>
             </Card>
           )}
