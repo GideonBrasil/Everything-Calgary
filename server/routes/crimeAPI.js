@@ -6,9 +6,9 @@ function sortCrimeData(communityData) {
   crimeObj = {};
   for (let crime of communityData) {
     if (crimeObj[crime.category]) {
-      crimeObj[crime.category] += Number(crime.count);
+      crimeObj[crime.category] += Number(crime.crime_count);
     } else {
-      crimeObj[crime.category] = Number(crime.count);
+      crimeObj[crime.category] = Number(crime.crime_count);
     }
   }
   return crimeObj;
@@ -32,8 +32,10 @@ function dataFilter(data, community) {
 
   let totalCalgaryCrime = 0;
   data12Months.forEach(crime => {
-    totalCalgaryCrime += Number(crime.count);
+    totalCalgaryCrime += Number(crime.crime_count);
   });
+
+  // console.log("Calgary Crime: ", data12Months);
 
   const communityCrimes = data12Months.filter(crimeObj => {
     return crimeObj.community_name === community.toUpperCase();
@@ -41,7 +43,7 @@ function dataFilter(data, community) {
 
   let totalComCrimes = 0;
   communityCrimes.forEach(crime => {
-    totalComCrimes += Number(crime.count);
+    totalComCrimes += Number(crime.crime_count);
   });
 
   const communityMonthCrimes = communityCrimes.filter(crime => {
@@ -54,15 +56,15 @@ function dataFilter(data, community) {
 
   let totalCalgaryCrimeMonth = 0;
   calgaryMonthCrimes.forEach(crime => {
-    totalCalgaryCrimeMonth += Number(crime.count);
+    totalCalgaryCrimeMonth += Number(crime.crime_count);
   });
 
   let totalComCrimeMonth = 0;
   communityMonthCrimes.forEach(crime => {
-    totalComCrimeMonth += Number(crime.count);
+    totalComCrimeMonth += Number(crime.crime_count);
   });
 
-  const residentsCount = communityMonthCrimes[0].resident_count;
+  const residentsCount = Number(communityMonthCrimes[0].resident_count);
 
   const comm12Stats = sortCrimeData(communityCrimes);
   const YYC12Stats = sortCrimeData(data12Months);
@@ -108,8 +110,7 @@ router.get("/:community", function(req, res, next) {
   const addSlash = communityName.replace("_", "/");
   let now = new Date();
   let options = {
-    url: `https://data.calgary.ca/resource/kudt-f99k.json?&$where=year > '${now.getFullYear() -
-      2}'&$Limit=50000`,
+    url: `https://data.calgary.ca/resource/78gh-n26t.json?&$where=year > '${now.getFullYear() - 1}'&$Limit=50000`,
     headers: {
       "User-Agent": "request",
       "X-App-Token": "TuumEdQ9KIehmtGnn2QjJoes7"
@@ -118,6 +119,7 @@ router.get("/:community", function(req, res, next) {
   request(options).then(data => {
     data = JSON.parse(data);
     dataObj = dataFilter(data, addSlash);
+    console.log('dataObj :', dataObj);
     res.status(200).json(dataObj);
   });
 });
