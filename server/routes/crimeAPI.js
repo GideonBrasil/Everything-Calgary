@@ -119,7 +119,6 @@ router.get("/:community", function(req, res, next) {
   request(options).then(data => {
     data = JSON.parse(data);
     dataObj = dataFilter(data, addSlash);
-    console.log('dataObj :', dataObj);
     res.status(200).json(dataObj);
   });
 });
