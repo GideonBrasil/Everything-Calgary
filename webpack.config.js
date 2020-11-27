@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const dotenv = require("dotenv-webpack");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
     index: "./src/index.jsx"
   },
