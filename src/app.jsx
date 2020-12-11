@@ -3,7 +3,7 @@ import NavBar from "./appComponents/NavBar.jsx";
 import Main from "./appComponents/main.jsx";
 import Footer from "./appComponents/Footer.jsx";
 
-const URI = window.location.origin + '/api/';
+const URI = "http://15.223.96.29/api/"
 
 class App extends Component {
   constructor(props) {

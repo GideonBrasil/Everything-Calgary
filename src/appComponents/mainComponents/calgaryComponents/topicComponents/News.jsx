@@ -9,7 +9,7 @@ class News extends Component {
     };
   }
   componentDidMount() {
-    fetch(`http://localhost:3000/news`)
+    fetch(`http://15.223.96.29:3000/news`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({

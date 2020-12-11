@@ -32,7 +32,7 @@ class Crime extends Component {
 
   componentDidMount() {
     const removeSlash = this.props.data.community.replace("/", "_");
-    fetch(`http://localhost:3000/crime/${removeSlash}`)
+    fetch(`http://15.223.96.29:3000/crime/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({

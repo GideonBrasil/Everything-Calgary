@@ -9,7 +9,7 @@ class TrafficIncidents extends Component {
     };
   }
   componentDidMount() {
-    fetch(`http://localhost:3000/traffic`)
+    fetch(`http://15.223.96.29:3000/traffic`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({

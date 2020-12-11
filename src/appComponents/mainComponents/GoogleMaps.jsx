@@ -31,11 +31,11 @@ class MapContainer extends Component {
   selectIcon = () => {
     switch (this.props.topic) {
       case "construction permits":
-        return "../../../public/images/home.png";
+        return "../images/home.png";
       case "traffic incidents":
-        return "../../../public/images/accident.png";
+        return "../images/accident.png";
       case "schools":
-        return "../../../public/images/school-bus.png";
+        return "../images/school-bus.png";
       default:
         return "";
     }
@@ -74,7 +74,7 @@ class MapContainer extends Component {
           position={marker.location}
           title={marker.address}
           animation={google.maps.Animation.DROP}
-          icon={"../../../public/images/pedestrian-crossing.png"}
+          icon={"../images/pedestrian-crossing.png"}
         />
       );
     });

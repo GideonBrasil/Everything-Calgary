@@ -18,7 +18,7 @@ class Events extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/events`)
+    fetch(`http://15.223.96.29:3000/events`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({

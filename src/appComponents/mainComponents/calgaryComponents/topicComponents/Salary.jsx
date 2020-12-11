@@ -18,7 +18,7 @@ class Salary extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/salary`)
+    fetch(`http://15.223.96.29:3000/salary`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({

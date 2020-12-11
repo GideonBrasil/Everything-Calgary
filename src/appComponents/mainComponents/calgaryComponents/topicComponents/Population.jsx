@@ -11,7 +11,7 @@ class Population extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/calgaryPopulation`)
+    fetch(`http://15.223.96.29:3000/calgaryPopulation`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
