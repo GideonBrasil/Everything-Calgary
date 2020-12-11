@@ -79,7 +79,7 @@ class Careers extends Component {
                           <td className="career-date">{job.opening_date.substring(0,10)}</td>
                           <td className="career-date">{job.closing_date.substring(0,10)}</td>
                           <td>
-                            <a href={job.link} target="_blank">More...</a>
+                            <a href={job.link.url} target="_blank">More...</a>
                           </td>
                         </tr>
                       </React.Fragment>
