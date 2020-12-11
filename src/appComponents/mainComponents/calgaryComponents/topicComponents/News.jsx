@@ -63,7 +63,7 @@ class News extends Component {
                           <td className="pubdate">{news.pubdate}</td>
                           <td>{news.title}</td>
                           <td className="more-info">
-                            <a href={news.link} target="_blank">More...</a>
+                            <a href={news.link.url} target="_blank">More...</a>
                           </td>
                         </tr>
                       </React.Fragment>
