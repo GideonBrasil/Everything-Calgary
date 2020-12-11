@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "node server.js"
+    "start": "node server.js",
+    "devstart": "nodemon server.js"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
