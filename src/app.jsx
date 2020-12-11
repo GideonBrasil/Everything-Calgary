@@ -3,6 +3,8 @@ import NavBar from "./appComponents/NavBar.jsx";
 import Main from "./appComponents/main.jsx";
 import Footer from "./appComponents/Footer.jsx";
 
+const URI = window.location.origin + '/api/';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,7 @@ class App extends Component {
 
   updatePins(newTopic) {
     const removeSlash = this.state.community.replace("/", "_");
-    fetch(`http://localhost:3000/constructionPermits/${removeSlash}`)
+    fetch(URI+`constructionPermits/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
@@ -46,7 +48,7 @@ class App extends Component {
 
   updateTrafficPins(newTopic) {
     const removeSlash = this.state.community.replace("/", "_");
-    fetch(`http://localhost:3000/trafficIncidents/${removeSlash}`)
+    fetch(URI+`trafficIncidents/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
@@ -61,7 +63,7 @@ class App extends Component {
 
   updateSchoolPins(newTopic) {
     const removeSlash = this.state.community.replace("/", "_");
-    fetch(`http://localhost:3000/schools/${removeSlash}`)
+    fetch(URI+`schools/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
@@ -76,7 +78,7 @@ class App extends Component {
 
   updateSignalPins() {
     const removeSlash = this.state.community.replace("/", "_");
-    fetch(`http://localhost:3000/trafficSignals/${removeSlash}`)
+    fetch(URI+`trafficSignals/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         if (this.state.topic === "construction permits") {
@@ -103,7 +105,7 @@ class App extends Component {
 
   updateCommunity(community) {
     const removeSlash = community.replace("/", "_");
-    fetch(`http://localhost:3000/coordinates/${removeSlash}`)
+    fetch(URI+`coordinates/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
@@ -115,7 +117,7 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
-    fetch(`http://localhost:3000/geocoordinates/${removeSlash}`)
+    fetch(URI+`geocoordinates/${removeSlash}`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
@@ -164,7 +166,7 @@ class App extends Component {
   }
 
   showCalgary() {
-    fetch(`http://localhost:3000/city/calgary`)
+    fetch(URI+`city/calgary`)
       .then(res => res.json())
       .then(data => {
         this.setState(state => ({
